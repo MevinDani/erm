@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 
-const DeliveryPendItems = () => {
+const DOInvoiced = () => {
     const [fromDate, setFromDate] = useState('')
     const [toDate, setToDate] = useState('')
     const [allData, setAllData] = useState([])
@@ -18,7 +18,7 @@ const DeliveryPendItems = () => {
     }
 
     const searchGrp = async () => {
-        const result = await fetch(`https://api-eproc.premierauto.ae/api/DeliveryOrderReport/DOreport/DOPending/Item?dateStart=${fromDate}&dateEnd=${toDate}`)
+        const result = await fetch(`https://api-eproc.premierauto.ae/api/DeliveryOrderReport/DOINVOICED?dateStart=${fromDate}&dateEnd=${toDate}`)
         const data = await result.json()
         data && setAllData(data) && setDisplayData(data)
     }
@@ -40,7 +40,7 @@ const DeliveryPendItems = () => {
         <div className='grpContainer'>
             {/* date select */}
             <div className='grpDateCont'>
-                <span><strong>Delivery Pending Items</strong></span>
+                <span><strong>Delivery Order Invoiced</strong></span>
                 <div className='grpDateInp'>
                     <div className='grpInp'>
                         <label htmlFor="fromDate">From:</label>
@@ -60,16 +60,14 @@ const DeliveryPendItems = () => {
                     <thead>
                         <tr>
                             <th>DEPTNO</th>
-                            <th>DATE</th>
-                            <th>CODE</th>
                             <th>DONO</th>
-                            <th>DESCRIPTION</th>
-                            <th>GROUP</th>
-                            <th>SUBGROUP</th>
-                            <th>SCATEG</th>
+                            <th>DATE</th>
+                            <th>CUSTOMER</th>
+                            <th>AMOUNT</th>
+                            <th>VAT</th>
+                            <th>AMOUNT_EXCLVAT</th>
+                            <th>INV NO</th>
                             <th>SALES MAN</th>
-                            <th>UNIT PRICE</th>
-                            <th>TOTAL</th>
                         </tr>
                     </thead>
 
@@ -78,16 +76,14 @@ const DeliveryPendItems = () => {
                             displayData && displayData.map((g, i) => (
                                 <tr key={i}>
                                     <td>{g.DEPTNO || 'Unknown'}</td>
-                                    <td>{g["DATE"]}</td>
-                                    <td>{g.CODE}</td>
                                     <td>{g["DONO"]}</td>
-                                    <td>{g["DESCRIPTION"]}</td>
-                                    <td>{g["GROUP"]}</td>
-                                    <td>{g["SUBGROUP"]}</td>
-                                    <td>{g["SCATEG"]}</td>
-                                    <td>{g["SALES MAN"]}</td>
-                                    <td>{g["UNIT PRICE"]}</td>
-                                    <td>{g["TOTAL"]}</td>
+                                    <td>{g["DATE"]}</td>
+                                    <td>{g.CUSTOMER}</td>
+                                    <td>{g["AMOUNT"]}</td>
+                                    <td>{g["VAT"]}</td>
+                                    <td>{g["AMOUNT_EXCLVAT"]}</td>
+                                    <td>{g["INV NO"]}</td>
+                                    <td>{g["SALESMAN"]}</td>
                                 </tr>
                             ))
                         }
@@ -97,6 +93,7 @@ const DeliveryPendItems = () => {
             </div >
         </div >
     )
+
 }
 
-export default DeliveryPendItems
+export default DOInvoiced

@@ -7,6 +7,8 @@ import AdminPanel from './AdminPanel';
 import GroupSales from './components/GroupSales';
 import DeliveryOrder from './components/DeliveryOrder';
 import DeliveryPendItems from './components/DeliveryPendItems';
+import DOInvoiced from './components/DOInvoiced';
+
 
 
 const App = () => {
@@ -57,6 +59,7 @@ const App = () => {
             <Route path='/adminPanel' element={<AdminPanel />} />
             <Route path='/deliveryOrder' element={<DeliveryOrder />} />
             <Route path='/deliveryPendItems' element={<DeliveryPendItems />} />
+            <Route path='/doInvoiced' element={<DOInvoiced />} />
           </>
           : !user ?
             <Route path='/login' element={<Login />} />
