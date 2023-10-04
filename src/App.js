@@ -6,6 +6,7 @@ import baseUrl from './baseurl';
 import AdminPanel from './AdminPanel';
 import GroupSales from './components/GroupSales';
 import DeliveryOrder from './components/DeliveryOrder';
+import DeliveryPendItems from './components/DeliveryPendItems';
 
 
 const App = () => {
@@ -55,6 +56,7 @@ const App = () => {
             <Route path='/groupSales' element={< GroupSales />}></Route>
             <Route path='/adminPanel' element={<AdminPanel />} />
             <Route path='/deliveryOrder' element={<DeliveryOrder />} />
+            <Route path='/deliveryPendItems' element={<DeliveryPendItems />} />
           </>
           : !user ?
             <Route path='/login' element={<Login />} />

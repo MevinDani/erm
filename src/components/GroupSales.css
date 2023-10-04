@@ -41,8 +41,9 @@ input {
 
 label {
     margin-right: 10px;
-    font-size: 18px;
+    font-size: 20px;
 }
+
 
 .labeStyle {
     margin-right: 10px;
@@ -70,6 +71,7 @@ label {
     align-items: center;
     justify-content: center;
     margin-top: 18px;
+    background-color: aliceblue;
 }
 
 table {

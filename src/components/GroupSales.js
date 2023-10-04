@@ -11,12 +11,9 @@ const GroupSales = () => {
 
     const searchGrp = async () => {
         const result = await fetch(`https://api-eproc.premierauto.ae/api/SalesAnalysis/SalesGroup?dateStart=${fromDate}&dateEnd=${toDate}`)
-        console.log(result)
         const data = await result.json()
         data && setAllData(data)
     }
-
-    console.log(allData)
 
     const getDeptData = (targetDeptNo) => {
         if (targetDeptNo === 'all') {
@@ -86,7 +83,11 @@ const GroupSales = () => {
 
     const handleGrpSearch = (e) => {
         e.preventDefault()
-        searchGrp()
+        if (!fromDate && !toDate) {
+            alert("select a start and end Date")
+        } else {
+            searchGrp()
+        }
     }
 
     return (

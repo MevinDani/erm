@@ -15,7 +15,11 @@ const DeliveryOrder = () => {
 
     const handleGrpSearch = (e) => {
         e.preventDefault()
-        searchGrp()
+        if (!fromDate && !toDate) {
+            alert("select a start and end Date")
+        } else {
+            searchGrp()
+        }
     }
 
     const searchGrp = async () => {
@@ -24,7 +28,6 @@ const DeliveryOrder = () => {
         data && setAllData(data) && setDisplayData(data)
     }
 
-    console.log(salesMan, deptData)
 
     useEffect(() => {
         if (deptData === 'all' && salesMan === 'all') {
