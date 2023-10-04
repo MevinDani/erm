@@ -4,7 +4,8 @@ import Login from './Login';
 import DeviceNotValid from './DeviceNotValid';
 import baseUrl from './baseurl';
 import AdminPanel from './AdminPanel';
-import GroupSales from './GroupSales';
+import GroupSales from './components/GroupSales';
+import DeliveryOrder from './components/DeliveryOrder';
 
 
 const App = () => {
@@ -53,6 +54,7 @@ const App = () => {
             <Route path='/notValid' element={<AdminPanel />} />
             <Route path='/groupSales' element={< GroupSales />}></Route>
             <Route path='/adminPanel' element={<AdminPanel />} />
+            <Route path='/deliveryOrder' element={<DeliveryOrder />} />
           </>
           : !user ?
             <Route path='/login' element={<Login />} />
