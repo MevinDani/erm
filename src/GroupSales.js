@@ -11,9 +11,12 @@ const GroupSales = () => {
 
     const searchGrp = async () => {
         const result = await fetch(`https://api-eproc.premierauto.ae/api/SalesAnalysis/SalesGroup?dateStart=${fromDate}&dateEnd=${toDate}`)
+        console.log(result)
         const data = await result.json()
         data && setAllData(data)
     }
+
+    console.log(allData)
 
     const getDeptData = (targetDeptNo) => {
         if (targetDeptNo === 'all') {
@@ -109,7 +112,7 @@ const GroupSales = () => {
             <div className='filter'>
                 <label className='labeStyle' htmlFor="brancSelect">Filter By Branch: </label>
                 <select className='selectStyle' onChange={(e) => getDeptData(e.target.value)} name="branch" id="brancSelect">
-                    <option value="all" defaultChecked>All</option>
+                    <option value="all" defaultChecked>ALL</option>
                     {uniqueDeptNo && uniqueDeptNo.map((i) => (
                         <>
                             <option value={i}>{i}</option>
@@ -134,17 +137,18 @@ const GroupSales = () => {
                     </thead>
 
                     <tbody>
-
-                        {displayData && displayData.map((g, i) => (
-                            <tr key={i}>
-                                <td>{g.GROUP || 'Unknown'}</td>
-                                <td>{g["NET SALERETURN"]}</td>
-                                <td>{g["NET SALES EXCLVAT"]}</td>
-                                <td>{g["NETCASH SALES"]}</td>
-                                <td>{g["NETCREDIT SALES"]}</td>
-                                <td>{g["VAT AMT"]}</td>
-                            </tr>
-                        ))}
+                        {
+                            displayData && displayData.map((g, i) => (
+                                <tr key={i}>
+                                    <td>{g.GROUP || 'Unknown'}</td>
+                                    <td>{g["NET SALERETURN"]}</td>
+                                    <td>{g["NET SALES EXCLVAT"]}</td>
+                                    <td>{g["NETCASH SALES"]}</td>
+                                    <td>{g["NETCREDIT SALES"]}</td>
+                                    <td>{g["VAT AMT"]}</td>
+                                </tr>
+                            ))
+                        }
                     </tbody>
                 </table>
 
