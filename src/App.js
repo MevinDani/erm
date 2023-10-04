@@ -3,6 +3,8 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import Login from './Login';
 import DeviceNotValid from './DeviceNotValid';
 import baseUrl from './baseurl';
+import AdminPanel from './AdminPanel';
+import GroupSales from './GroupSales';
 
 
 const App = () => {
@@ -13,13 +15,18 @@ const App = () => {
   const publick = localStorage.getItem("publick")
   const privatek = localStorage.getItem("privatek")
 
+  // fake user data
+  const user = localStorage.getItem("user")
+
   const navigate = useNavigate();
 
   const getDeviceValidation = async () => {
     try {
-      const result = await fetch(baseUrl + `DeviceValidator/CheckStatus?cmpcode=${cmpcode}&publick=${publick}&privatek=${privatek}`)
-      const data = await result.json()
-      setDeviceValidation(data.data[0].Column1)
+      if (cmpcode || publick || privatek) {
+        const result = await fetch(baseUrl + `DeviceValidator/CheckStatus?cmpcode=${cmpcode}&publick=${publick}&privatek=${privatek}`)
+        const data = await result.json()
+        setDeviceValidation(data.data[0].Column1)
+      }
     } catch (error) {
       console.log(error)
     }
@@ -30,20 +37,32 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-  }, [isDeviceValidated]);
-
-  useEffect(() => {
     if (isDeviceValidated == 'VALIDATED') {
       navigate('/login')
-    } else if (isDeviceValidated == 'INVALID') {
+    } else if (isDeviceValidated == 'INVALID' || !cmpcode || !publick || !privatek) {
       navigate('/notValid');
     }
-  }, [isDeviceValidated, navigate])
+  }, [])
 
   return (
     <Routes>
-      <Route path='/login' element={<Login />} />
-      <Route path='/notValid' element={<DeviceNotValid />} />
+      {
+        user ?
+          <>
+            <Route path='/login' element={<AdminPanel />} />
+            <Route path='/notValid' element={<AdminPanel />} />
+            <Route path='/groupSales' element={< GroupSales />}></Route>
+            <Route path='/adminPanel' element={<AdminPanel />} />
+          </>
+          : !user ?
+            <Route path='/login' element={<Login />} />
+            : ""
+      }
+      {
+        isDeviceValidated === "INVALID" ?
+          <Route path='/notValid' element={<DeviceNotValid />} /> : ""
+      }
+
     </Routes >
   )
 }

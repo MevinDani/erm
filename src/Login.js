@@ -19,12 +19,16 @@ const Login = () => {
         try {
             const loginData = await fetch(baseUrl + `loginuser?user=${username}&pass=${password}&cmpcode=${company_code}&guid=${pKey}`)
             const data = await loginData.json()
-            console.log(data.result1.value[0].Userlogin)
+            console.log(data.result1)
             if (data && data.result1.value[0].Userlogin === "Sucess") {
+                localStorage.setItem("user", "admin")
+                navigate("/adminPanel")
                 alert("successfull login")
             } else if (data && data.result1.value[0].Userlogin === "Failed") {
                 alert("invalid username/password")
             }
+            setUsername('')
+            setPassword('')
         } catch (error) {
             console.log(error)
         }
@@ -44,9 +48,9 @@ const Login = () => {
             <h2>Admin Login</h2>
             <div className='formContainer'>
                 <form>
-                    <input onChange={(e) => setUsername(e.target.value)} type="text" placeholder='username' />
-                    <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder='password' />
-                    <button onClick={handleLogin}>Login</button>
+                    <input onChange={(e) => setUsername(e.target.value)} value={username} type="text" placeholder='username' />
+                    <input onChange={(e) => setPassword(e.target.value)} value={password} type="password" placeholder='password' />
+                    <button className='loginBtn' onClick={handleLogin}>Login</button>
                 </form>
             </div>
         </div>

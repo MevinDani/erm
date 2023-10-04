@@ -2,7 +2,11 @@ import React from 'react'
 
 const DeviceNotValid = () => {
     return (
-        <div>DeviceNotValid</div>
+        <div>
+            <div>
+                <h3 style={{ color: "red" }}>Your Device is not Authorized to Access this Panel</h3>
+            </div>
+        </div>
     )
 }
 
