@@ -29,18 +29,18 @@ const DeliveryOrder = () => {
     }
 
 
-    useEffect(() => {
-        if (deptData === 'all' && salesMan === 'all') {
-            setDisplayData(allData)
-        } else {
-            const filteredData = allData.filter(item => {
-                const deptNoMatch = deptData === 'all' || item.DEPTNO == deptData;
-                const salesmanMatch = salesMan === 'all' || item.SALESMAN == salesMan;
-                return deptNoMatch && salesmanMatch;
-            });
-            setDisplayData(filteredData);
-        }
-    }, [salesMan, deptData])
+    // useEffect(() => {
+    //     if (deptData === 'all' && salesMan === 'all') {
+    //         setDisplayData(allData)
+    //     } else {
+    //         const filteredData = allData.filter(item => {
+    //             const deptNoMatch = deptData === 'all' || item.DEPTNO == deptData;
+    //             const salesmanMatch = salesMan === 'all' || item.SALESMAN == salesMan;
+    //             return deptNoMatch && salesmanMatch;
+    //         });
+    //         setDisplayData(filteredData);
+    //     }
+    // }, [salesMan, deptData])
 
     useEffect(() => {
         if (allData) {
@@ -48,10 +48,10 @@ const DeliveryOrder = () => {
         }
     }, [allData])
 
-    const uniqueGroups = [...new Set(allData.map(item => item.GROUP))];
-    const uniqueDeptNo = [...new Set(allData.map(item => item.DEPTNO))];
-    const uniqueSalesMan = [...new Set(allData.map(item => item.SALESMAN))];
-    const uniqueCustomer = [...new Set(allData.map(item => item.CUSTOMER))]
+    // const uniqueGroups = [...new Set(allData.map(item => item.GROUP))];
+    // const uniqueDeptNo = [...new Set(allData.map(item => item.DEPTNO))];
+    // const uniqueSalesMan = [...new Set(allData.map(item => item.SALESMAN))];
+    // const uniqueCustomer = [...new Set(allData.map(item => item.CUSTOMER))]
 
 
     return (

@@ -5,16 +5,11 @@ const LatestInvoice = () => {
 
     const [displayData, setDisplayData] = useState([])
 
-
     const getlatestInvoice = async () => {
         const result = await fetch(`https://api-eproc.premierauto.ae/api/InvoiceSearch`)
         const data = await result.json()
-        console.log(data)
         data && setDisplayData(data)
     }
-
-    console.log(displayData)
-
 
     useEffect(() => {
         getlatestInvoice()

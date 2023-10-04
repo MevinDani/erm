@@ -1,0 +1,18 @@
+.admPanCont {
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-evenly;
+    height: 100vh;
+}
+
+.items {
+    padding: 10px;
+    background-color: #0084ff;
+    height: fit-content;
+    margin-top: 20px;
+}
+
+.custom-link {
+    text-decoration: none;
+    color: #fff;
+}

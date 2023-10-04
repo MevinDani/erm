@@ -54,6 +54,7 @@ const App = () => {
       {
         user ?
           <>
+            <Route path='/' element={<AdminPanel />} />
             <Route path='/login' element={<AdminPanel />} />
             <Route path='/notValid' element={<AdminPanel />} />
             <Route path='/groupSales' element={< GroupSales />}></Route>
