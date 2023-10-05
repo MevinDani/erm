@@ -65,7 +65,7 @@ const LatestInvoice = () => {
                             displayData && displayData.map((g, i) => (
                                 <React.Fragment key={i}>
                                     <tr onClick={window.innerWidth <= 768 ? () => handleRowClick(i) : null}>
-                                        <td>{g.INVNO || 'Unknown'}</td>
+                                        <td className='plusTd'>{g.INVNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
                                         <td className={expandAll ? 'expandable' : 'hidden'}>{g["deptno"]}</td>
                                         <td className={expandAll ? 'expandable' : 'hidden'}>{g["INV_DATE"]}</td>
                                         <td className={expandAll ? 'expandable' : 'hidden'}>{g["cust_acc"]}</td>

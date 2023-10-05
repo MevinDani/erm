@@ -109,10 +109,23 @@ table {
     display: table-cell;
 }
 
+.plusTd .fa-solid {
+    display: none;
+}
 
 @media screen and (max-width: 768px) {
     .DlOtableCont .hidden {
         display: none;
+    }
+
+    .plusTd .fa-solid {
+        display: contents;
+    }
+
+    .plusTd {
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
     }
 
     /* .DlOtableCont table {

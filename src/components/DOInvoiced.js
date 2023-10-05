@@ -92,7 +92,7 @@ const DOInvoiced = () => {
                             displayData && displayData.map((g, i) => (
                                 <React.Fragment key={i}>
                                     <tr onClick={window.innerWidth <= 768 ? () => handleRowClick(i) : null} key={i}>
-                                        <td>{g.DEPTNO || 'Unknown'}</td>
+                                        <td className='plusTd'>{g.DEPTNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
                                         <td className={expandAll ? 'expandable' : 'hidden'}>{g["DONO"]}</td>
                                         <td className={expandAll ? 'expandable' : 'hidden'}>{g["DATE"]}</td>
                                         <td className={expandAll ? 'expandable' : 'hidden'}>{g.CUSTOMER}</td>
@@ -127,10 +127,6 @@ const DOInvoiced = () => {
                                             <tr>
                                                 <th className='expandable'>AMOUNT_EXCLVAT</th>
                                                 <td className='expandable'>{g["AMOUNT_EXCLVAT"]}</td>
-                                            </tr>
-                                            <tr>
-                                                <th className='expandable'>ENTERED_ON</th>
-                                                <td className='expandable'>{g["ENTERED_ON"]}</td>
                                             </tr>
                                             <tr>
                                                 <th className='expandable'>INV NO</th>

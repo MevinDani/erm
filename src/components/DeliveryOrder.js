@@ -100,7 +100,7 @@ const DeliveryOrder = () => {
                                 displayData && displayData.map((g, i) => (
                                     <React.Fragment key={i}>
                                         <tr onClick={window.innerWidth <= 768 ? () => handleRowClick(i) : null} key={i}>
-                                            <td>{g.DEPTNO || 'Unknown'}</td>
+                                            <td className='plusTd'>{g.DEPTNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
                                             <td className={expandAll ? 'expandable' : 'hidden'}>{g["DATE"]}</td>
                                             <td className={expandAll ? 'expandable' : 'hidden'}>{g["CUSTOMER"]}</td>
                                             <td className={expandAll ? 'expandable' : 'hidden'}>{g["AMOUNT"]}</td>

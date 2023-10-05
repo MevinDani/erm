@@ -163,7 +163,7 @@ const GroupSales = () => {
                         {displayData && displayData.map((g, i) => (
                             <React.Fragment key={i}>
                                 <tr onClick={window.innerWidth <= 768 ? () => handleRowClick(i) : null}>
-                                    <td>{g.GROUP || 'Unknown'}</td>
+                                    <td className='plusTd'>{g.GROUP || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
                                     <td className={expandAll ? 'expandable' : 'hidden'}>{g["NET SALERETURN"]}</td>
                                     <td className={expandAll ? 'expandable' : 'hidden'}>{g["NET SALES EXCLVAT"]}</td>
                                     <td className={expandAll ? 'expandable' : 'hidden'}>{g["NETCASH SALES"]}</td>
