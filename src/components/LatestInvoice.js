@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from 'react'
+import './LatestInvoice.css'
 
 
 const LatestInvoice = () => {
 
     const [displayData, setDisplayData] = useState([])
+    const [expandAll, setExpandAll] = useState(false);
+
 
     const getlatestInvoice = async () => {
         const result = await fetch(`https://api-eproc.premierauto.ae/api/InvoiceSearch`)
         const data = await result.json()
-        data && setDisplayData(data)
+        data && setDisplayData(data.slice(0, 20))
     }
+
+    const handleRowClick = () => {
+        setExpandAll(prevState => !prevState);
+    };
 
     useEffect(() => {
         getlatestInvoice()
@@ -17,25 +24,25 @@ const LatestInvoice = () => {
 
 
     return (
-        <div className='grpContainer'>
+        <div className='LtstContainer'>
             <span><strong>Latest 500 Invoice List</strong></span>
             {/* table */}
 
-            <div div className='tableCont' >
+            <div div className='LtstTableCont' >
                 <table border="1">
                     <thead>
-                        <tr>
+                        <tr onClick={handleRowClick}>
                             <th>INVNO</th>
-                            <th>deptno</th>
-                            <th>INV_DATE</th>
-                            <th>cust_acc</th>
-                            <th>CUSTOMER</th>
-                            <th>USER</th>
-                            <th>SALES MAN</th>
-                            <th>ENTERED_ON</th>
-                            <th>ACTION</th>
-                            <th>CONTACT_NO</th>
-                            <th>VATAMT</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>deptno</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>INV_DATE</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>cust_acc</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>CUSTOMER</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>USER</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>SALES MAN</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>ENTERED_ON</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>ACTION</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>CONTACT_NO</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>VATAMT</th>
                             <th>AMOUNT</th>
                         </tr>
                     </thead>
@@ -43,20 +50,22 @@ const LatestInvoice = () => {
                     <tbody>
                         {
                             displayData && displayData.map((g, i) => (
-                                <tr key={i}>
-                                    <td>{g.INVNO || 'Unknown'}</td>
-                                    <td>{g["deptno"]}</td>
-                                    <td>{g["INV_DATE"]}</td>
-                                    <td>{g["cust_acc"]}</td>
-                                    <td>{g["CUSTOMER"]}</td>
-                                    <td>{g["USER"]}</td>
-                                    <td>{g["SALES MAN"]}</td>
-                                    <td>{g["ENTERED_ON"]}</td>
-                                    <td>{g["ACTION"]}</td>
-                                    <td>{g["CONTACT_NO"]}</td>
-                                    <td>{g["VATAMT"]}</td>
-                                    <td>{g["AMOUNT"]}</td>
-                                </tr>
+                                <React.Fragment key={i}>
+                                    <tr key={i}>
+                                        <td>{g.INVNO || 'Unknown'}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["deptno"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["INV_DATE"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["cust_acc"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["CUSTOMER"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["USER"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["SALES MAN"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["ENTERED_ON"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["ACTION"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["CONTACT_NO"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["VATAMT"]}</td>
+                                        <td>{g["AMOUNT"]}</td>
+                                    </tr>
+                                </React.Fragment>
                             ))
                         }
                     </tbody>

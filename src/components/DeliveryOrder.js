@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import './DeliveryOrder.css'
 
 
 const DeliveryOrder = () => {
@@ -11,6 +11,7 @@ const DeliveryOrder = () => {
     const [displayData, setDisplayData] = useState([])
     const [salesMan, setSalesMan] = useState('all')
     const [deptData, setDeptData] = useState('all')
+    const [expandAll, setExpandAll] = useState(false);
 
 
     const handleGrpSearch = (e) => {
@@ -48,6 +49,10 @@ const DeliveryOrder = () => {
         }
     }, [allData])
 
+    const handleRowClick = () => {
+        setExpandAll(prevState => !prevState);
+    };
+
     // const uniqueGroups = [...new Set(allData.map(item => item.GROUP))];
     // const uniqueDeptNo = [...new Set(allData.map(item => item.DEPTNO))];
     // const uniqueSalesMan = [...new Set(allData.map(item => item.SALESMAN))];
@@ -55,16 +60,16 @@ const DeliveryOrder = () => {
 
 
     return (
-        <div className='grpContainer'>
+        <div className='DelOContainer'>
             {/* date select */}
-            <div className='grpDateCont'>
+            <div className='DelODateCont'>
                 <span><strong>Delivery Order Report</strong></span>
-                <div className='grpDateInp'>
-                    <div className='grpInp'>
+                <div className='DelODateInp'>
+                    <div className='DelOInp'>
                         <label htmlFor="fromDate">From:</label>
                         <input onChange={(e) => setFromDate(e.target.value)} type="date" id='fromDate' />
                     </div>
-                    <div className='grpInp'>
+                    <div className='DelOInp'>
                         <label htmlFor="toDate">To:</label>
                         <input onChange={(e) => setToDate(e.target.value)} type="date" id='toDate' />
                     </div>
@@ -97,18 +102,18 @@ const DeliveryOrder = () => {
 
             {/* table */}
 
-            <div div className='tableCont' >
+            <div div className='DlOtableCont' >
                 <table border="1">
                     <thead>
-                        <tr>
+                        <tr onClick={handleRowClick}>
                             <th>DEPTNO</th>
-                            <th>DATE</th>
-                            <th>CUSTOMER</th>
-                            <th>AMOUNT</th>
-                            <th>AMOUNT EXCLVAT</th>
-                            <th>DONO</th>
-                            <th>INV NO</th>
-                            <th>SALESMAN</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>DATE</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>CUSTOMER</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>AMOUNT</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>AMOUNT EXCLVAT</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>DONO</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>INV NO</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>SALESMAN</th>
                             <th>VAT</th>
                         </tr>
                     </thead>
@@ -116,17 +121,19 @@ const DeliveryOrder = () => {
                     <tbody>
                         {
                             displayData && displayData.map((g, i) => (
-                                <tr key={i}>
-                                    <td>{g.DEPTNO || 'Unknown'}</td>
-                                    <td>{g["DATE"]}</td>
-                                    <td>{g["CUSTOMER"]}</td>
-                                    <td>{g["AMOUNT"]}</td>
-                                    <td>{g["AMOUNT_EXCLVAT"]}</td>
-                                    <td>{g["DONO"]}</td>
-                                    <td>{g["INV NO"]}</td>
-                                    <td>{g["SALESMAN"]}</td>
-                                    <td>{g["VAT"]}</td>
-                                </tr>
+                                <React.Fragment key={i}>
+                                    <tr key={i}>
+                                        <td>{g.DEPTNO || 'Unknown'}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["DATE"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["CUSTOMER"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["AMOUNT"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["AMOUNT_EXCLVAT"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["DONO"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["INV NO"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["SALESMAN"]}</td>
+                                        <td>{g["VAT"]}</td>
+                                    </tr>
+                                </React.Fragment>
                             ))
                         }
                     </tbody>

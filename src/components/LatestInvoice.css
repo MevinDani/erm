@@ -1,7 +1,7 @@
-.DelOContainer {
+.LtstContainer {
     width: 100%;
     background-color: aliceblue;
-    height: max-content;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +12,7 @@ span {
     font-size: 24px;
 }
 
-.DelODateCont {
+.LtstTableCont {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,14 +21,14 @@ span {
     width: 90%;
 }
 
-.DelODateInp {
+.grpDateInp {
     width: 60%;
     display: flex;
     justify-content: space-evenly;
     height: 50px;
 }
 
-.DelOInp {
+.grpInp {
     display: flex;
     align-items: center;
     width: 100%;
@@ -41,8 +41,9 @@ input {
 
 label {
     margin-right: 10px;
-    font-size: 18px;
+    font-size: 20px;
 }
+
 
 .labeStyle {
     margin-right: 10px;
@@ -64,13 +65,19 @@ label {
     margin: 20px;
 }
 
-
-.DlOtableCont {
+.LtstTableCont {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: center;
     margin-top: 18px;
+    background-color: aliceblue;
+    display: block;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    margin: 0 auto;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 table {
@@ -81,6 +88,7 @@ table {
 .grpButton {
     padding: 5px 20px;
     background-color: #0084ff;
+    /* Blue color */
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -90,9 +98,10 @@ table {
 
 .grpButton:hover {
     background-color: #0056b3;
+    /* Darker blue color on hover */
 }
 
-.DlODateCont {
+.LtstTableCont {
     max-width: 100%;
     overflow-x: auto;
     overflow-y: auto;
@@ -100,7 +109,7 @@ table {
     /* Add a border to the container */
 }
 
-.DlOtableCont table {
+.LtstTableCont table {
     border-collapse: collapse;
 }
 
@@ -110,11 +119,11 @@ table {
 
 
 @media screen and (max-width: 768px) {
-    .DlOtableCont .hidden {
+    .LtstTableCont .hidden {
         display: none;
     }
 
-    .DlOtableCont table {
+    .LtstTableCont table {
         display: block;
         max-width: -moz-fit-content;
         max-width: fit-content;

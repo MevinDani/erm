@@ -8,6 +8,8 @@ const GroupSales = () => {
     const [allData, setAllData] = useState([])
     const [groupSums, setGroupSums] = useState([]);
     const [displayData, setDisplayData] = useState([])
+    const [expandedRow, setExpandedRow] = useState(null);
+    const [expandAll, setExpandAll] = useState(false);
 
     const searchGrp = async () => {
         const result = await fetch(`https://api-eproc.premierauto.ae/api/SalesAnalysis/SalesGroup?dateStart=${fromDate}&dateEnd=${toDate}`)
@@ -47,6 +49,7 @@ const GroupSales = () => {
             setDisplayData(filteredData)
         }
     }
+
 
     useEffect(() => {
         if (allData) {
@@ -90,6 +93,10 @@ const GroupSales = () => {
         }
     }
 
+    const handleRowClick = () => {
+        setExpandAll(prevState => !prevState);
+    };
+
     return (
         <div className='grpContainer'>
             {/* date select */}
@@ -124,35 +131,36 @@ const GroupSales = () => {
 
             {/* table */}
 
-            <div div className='tableCont' >
+            <div div className='grptableCont' >
                 <table border="1">
+
+                    {/*  */}
                     <thead>
-                        <tr>
+                        <tr onClick={handleRowClick}>
                             <th>GROUP</th>
-                            <th>NET SALE RETURN</th>
-                            <th>NET SALES EXCLVAT</th>
-                            <th>NETCASH SALES</th>
-                            <th>NETCREDIT SALES</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>NET SALE RETURN</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>NET SALES EXCLVAT</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>NETCASH SALES</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>NETCREDIT SALES</th>
                             <th>VAT AMT</th>
                         </tr>
                     </thead>
-
                     <tbody>
-                        {
-                            displayData && displayData.map((g, i) => (
-                                <tr key={i}>
+                        {displayData && displayData.map((g, i) => (
+                            <React.Fragment key={i}>
+                                <tr>
                                     <td>{g.GROUP || 'Unknown'}</td>
-                                    <td>{g["NET SALERETURN"]}</td>
-                                    <td>{g["NET SALES EXCLVAT"]}</td>
-                                    <td>{g["NETCASH SALES"]}</td>
-                                    <td>{g["NETCREDIT SALES"]}</td>
+                                    <td className={expandAll ? 'expandable' : 'hidden'}>{g["NET SALERETURN"]}</td>
+                                    <td className={expandAll ? 'expandable' : 'hidden'}>{g["NET SALES EXCLVAT"]}</td>
+                                    <td className={expandAll ? 'expandable' : 'hidden'}>{g["NETCASH SALES"]}</td>
+                                    <td className={expandAll ? 'expandable' : 'hidden'}>{g["NETCREDIT SALES"]}</td>
                                     <td>{g["VAT AMT"]}</td>
                                 </tr>
-                            ))
-                        }
+                            </React.Fragment>
+                        ))}
                     </tbody>
+                    {/*  */}
                 </table>
-
             </div >
         </div >
     )

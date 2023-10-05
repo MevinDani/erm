@@ -65,7 +65,7 @@ label {
     margin: 20px;
 }
 
-.tableCont {
+.grptableCont {
     display: flex;
     width: 100%;
     align-items: center;
@@ -93,4 +93,43 @@ table {
 .grpButton:hover {
     background-color: #0056b3;
     /* Darker blue color on hover */
+}
+
+.grptableCont {
+    max-width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    border: 1px solid #ccc;
+    /* Add a border to the container */
+}
+
+.grptableCont table {
+    border-collapse: collapse;
+}
+
+.expandable {
+    display: table-cell;
+}
+
+
+@media screen and (max-width: 768px) {
+    .grptableCont .hidden {
+        display: none;
+    }
+
+    .grptableCont table {
+        display: block;
+        max-width: -moz-fit-content;
+        max-width: fit-content;
+        margin: 0 auto;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+
+    th,
+    td {
+        min-width: 200px;
+    }
+
 }
