@@ -13,6 +13,7 @@ const DeliveryOrder = () => {
     const [deptData, setDeptData] = useState('all')
     const [expandAll, setExpandAll] = useState(false);
     const [expandedRows, setExpandedRows] = useState([]);
+    const [warningMessage, setWarningMsg] = useState("Enter Start Date and End Date")
 
 
     const handleGrpSearch = (e) => {
@@ -25,24 +26,18 @@ const DeliveryOrder = () => {
     }
 
     const searchGrp = async () => {
+        setWarningMsg("Resource Loading, Please Wait...")
         const result = await fetch(`https://api-eproc.premierauto.ae/api/DeliveryOrderReport?dateStart=${fromDate}&dateEnd=${toDate}`)
         const data = await result.json()
-        data && setAllData(data) && setDisplayData(data)
+        if (data) {
+            setAllData(data);
+            setDisplayData(data);
+        }
+        else if (!data || data.length === 0) {
+            setDisplayData([]); // Set displayData as an empty array if there's no data
+        }
     }
 
-
-    // useEffect(() => {
-    //     if (deptData === 'all' && salesMan === 'all') {
-    //         setDisplayData(allData)
-    //     } else {
-    //         const filteredData = allData.filter(item => {
-    //             const deptNoMatch = deptData === 'all' || item.DEPTNO == deptData;
-    //             const salesmanMatch = salesMan === 'all' || item.SALESMAN == salesMan;
-    //             return deptNoMatch && salesmanMatch;
-    //         });
-    //         setDisplayData(filteredData);
-    //     }
-    // }, [salesMan, deptData])
 
     useEffect(() => {
         if (allData) {
@@ -59,11 +54,6 @@ const DeliveryOrder = () => {
             }
         });
     };
-
-    // const uniqueGroups = [...new Set(allData.map(item => item.GROUP))];
-    // const uniqueDeptNo = [...new Set(allData.map(item => item.DEPTNO))];
-    // const uniqueSalesMan = [...new Set(allData.map(item => item.SALESMAN))];
-    // const uniqueCustomer = [...new Set(allData.map(item => item.CUSTOMER))]
 
 
     return (
@@ -86,100 +76,82 @@ const DeliveryOrder = () => {
 
             {/* filter */}
 
-            {/* <div className='filter'>
-                <label className='labeStyle' htmlFor="brancSelect">Filter By Branch/DEPT NO: </label>
-                <select className='selectStyle' onChange={(e) => setDeptData(e.target.value)} name="branch" id="brancSelect">
-                    <option value="all" defaultChecked>ALL</option>
-                    {uniqueDeptNo && uniqueDeptNo.map((i) => (
-                        <>
-                            <option value={i}>{i}</option>
-                        </>
-                    ))}
-                </select>
-                <label className='labeStyle' htmlFor="brancSelect">Filter By SalesMan: </label>
-                <select className='selectStyle' onChange={(e) => setSalesMan(e.target.value)} name="branch" id="brancSelect">
-                    <option value="all" defaultChecked>ALL</option>
-                    {uniqueSalesMan && uniqueSalesMan.map((i) => (
-                        <>
-                            <option value={i}>{i}</option>
-                        </>
-                    ))}
-                </select>
-            </div> */}
-
             {/* table */}
 
-            <div div className='DlOtableCont' >
-                <table border="1">
-                    <thead>
-                        <tr onClick={handleRowClick}>
-                            <th>DEPTNO</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>DATE</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>CUSTOMER</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>AMOUNT</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>AMOUNT EXCLVAT</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>DONO</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>INV NO</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>SALESMAN</th>
-                            <th>VAT</th>
-                        </tr>
-                    </thead>
+            {displayData.length !== 0 ?
+                (<div div className='DlOtableCont' >
+                    <table border="1">
+                        <thead>
+                            <tr onClick={handleRowClick}>
+                                <th>DEPTNO</th>
+                                <th className={expandAll ? 'expandable' : 'hidden'}>DATE</th>
+                                <th className={expandAll ? 'expandable' : 'hidden'}>CUSTOMER</th>
+                                <th className={expandAll ? 'expandable' : 'hidden'}>AMOUNT</th>
+                                <th className={expandAll ? 'expandable' : 'hidden'}>AMOUNT EXCLVAT</th>
+                                <th className={expandAll ? 'expandable' : 'hidden'}>DONO</th>
+                                <th className={expandAll ? 'expandable' : 'hidden'}>INV NO</th>
+                                <th className={expandAll ? 'expandable' : 'hidden'}>SALESMAN</th>
+                                <th>VAT</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        {
-                            displayData && displayData.map((g, i) => (
-                                <React.Fragment key={i}>
-                                    <tr onClick={window.innerWidth <= 768 ? () => handleRowClick(i) : null} key={i}>
-                                        <td>{g.DEPTNO || 'Unknown'}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["DATE"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["CUSTOMER"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["AMOUNT"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["AMOUNT_EXCLVAT"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["DONO"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["INV NO"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["SALESMAN"]}</td>
-                                        <td>{g["VAT"]}</td>
-                                    </tr>
-                                    {expandedRows.includes(i) && (
-                                        <>
-                                            <tr>
-                                                <th className='expandable'>DATE</th>
-                                                <td className='expandable'>{g["DATE"]}</td>
-                                            </tr>
-                                            <tr>
-                                                <th className='expandable'>CUSTOMER</th>
-                                                <td className='expandable'>{g["CUSTOMER"]}</td>
-                                            </tr>
-                                            <tr>
-                                                <th className='expandable'>AMOUNT</th>
-                                                <td className='expandable'>{g["AMOUNT"]}</td>
-                                            </tr>
-                                            <tr>
-                                                <th className='expandable'>AMOUNT_EXCLVAT</th>
-                                                <td className='expandable'>{g["AMOUNT_EXCLVAT"]}</td>
-                                            </tr>
-                                            <tr>
-                                                <th className='expandable'>DONO</th>
-                                                <td className='expandable'>{g["VAT"]}</td>
-                                            </tr>
-                                            <tr>
-                                                <th className='expandable'>INV NO</th>
-                                                <td className='expandable'>{g["INV NO"]}</td>
-                                            </tr>
-                                            <tr>
-                                                <th className='expandable'>SALESMAN</th>
-                                                <td className='expandable'>{g["SALESMAN"]}</td>
-                                            </tr>
-                                        </>
+                        <tbody>
+                            {
+                                displayData && displayData.map((g, i) => (
+                                    <React.Fragment key={i}>
+                                        <tr onClick={window.innerWidth <= 768 ? () => handleRowClick(i) : null} key={i}>
+                                            <td>{g.DEPTNO || 'Unknown'}</td>
+                                            <td className={expandAll ? 'expandable' : 'hidden'}>{g["DATE"]}</td>
+                                            <td className={expandAll ? 'expandable' : 'hidden'}>{g["CUSTOMER"]}</td>
+                                            <td className={expandAll ? 'expandable' : 'hidden'}>{g["AMOUNT"]}</td>
+                                            <td className={expandAll ? 'expandable' : 'hidden'}>{g["AMOUNT_EXCLVAT"]}</td>
+                                            <td className={expandAll ? 'expandable' : 'hidden'}>{g["DONO"]}</td>
+                                            <td className={expandAll ? 'expandable' : 'hidden'}>{g["INV NO"]}</td>
+                                            <td className={expandAll ? 'expandable' : 'hidden'}>{g["SALESMAN"]}</td>
+                                            <td>{g["VAT"]}</td>
+                                        </tr>
+                                        {expandedRows.includes(i) && (
+                                            <>
+                                                <tr>
+                                                    <th className='expandable'>DATE</th>
+                                                    <td className='expandable'>{g["DATE"]}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th className='expandable'>CUSTOMER</th>
+                                                    <td className='expandable'>{g["CUSTOMER"]}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th className='expandable'>AMOUNT</th>
+                                                    <td className='expandable'>{g["AMOUNT"]}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th className='expandable'>AMOUNT_EXCLVAT</th>
+                                                    <td className='expandable'>{g["AMOUNT_EXCLVAT"]}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th className='expandable'>DONO</th>
+                                                    <td className='expandable'>{g["VAT"]}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th className='expandable'>INV NO</th>
+                                                    <td className='expandable'>{g["INV NO"]}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th className='expandable'>SALESMAN</th>
+                                                    <td className='expandable'>{g["SALESMAN"]}</td>
+                                                </tr>
+                                            </>
 
-                                    )}
-                                </React.Fragment>
-                            ))
-                        }
-                    </tbody>
-                </table>
+                                        )}
+                                    </React.Fragment>
+                                ))
+                            }
+                        </tbody>
+                    </table>
 
-            </div >
+                </div >)
+                : (<div><h3>{warningMessage}</h3></div>)
+            }
         </div >
     )
 }

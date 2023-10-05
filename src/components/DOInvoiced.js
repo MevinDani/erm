@@ -9,6 +9,7 @@ const DOInvoiced = () => {
     const [displayData, setDisplayData] = useState([])
     const [expandAll, setExpandAll] = useState(false);
     const [expandedRows, setExpandedRows] = useState([]);
+    const [warningMessage, setWarningMsg] = useState("Enter Start Date and End Date")
 
 
     const handleGrpSearch = (e) => {
@@ -21,9 +22,16 @@ const DOInvoiced = () => {
     }
 
     const searchGrp = async () => {
+        setWarningMsg("Resource Loading, Please Wait...")
         const result = await fetch(`https://api-eproc.premierauto.ae/api/DeliveryOrderReport/DOINVOICED?dateStart=${fromDate}&dateEnd=${toDate}`)
         const data = await result.json()
-        data && setAllData(data) && setDisplayData(data)
+        if (data) {
+            setAllData(data);
+            setDisplayData(data);
+        }
+        else if (!data || data.length === 0) {
+            setDisplayData([]); // Set displayData as an empty array if there's no data
+        }
     }
 
     const handleRowClick = (index) => {
@@ -42,11 +50,6 @@ const DOInvoiced = () => {
             setDisplayData(allData)
         }
     }, [allData])
-
-    // const uniqueGroups = [...new Set(allData.map(item => item.GROUP))];
-    // const uniqueDeptNo = [...new Set(allData.map(item => item.DEPTNO))];
-    // const uniqueSalesMan = [...new Set(allData.map(item => item.SALESMAN))];
-    // const uniqueCustomer = [...new Set(allData.map(item => item.CUSTOMER))]
 
 
     return (
@@ -68,7 +71,7 @@ const DOInvoiced = () => {
             </div>
             {/* table */}
 
-            <div div className='DItableCont' >
+            {displayData.length !== 0 ? (<div div className='DItableCont' >
                 <table border="1">
                     <thead>
                         <tr onClick={handleRowClick}>
@@ -142,7 +145,7 @@ const DOInvoiced = () => {
                     </tbody>
                 </table>
 
-            </div >
+            </div >) : (<div><h3>{warningMessage}</h3></div>)}
         </div >
     )
 

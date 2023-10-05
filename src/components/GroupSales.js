@@ -11,6 +11,8 @@ const GroupSales = () => {
     const [expandedRow, setExpandedRow] = useState(null);
     const [expandAll, setExpandAll] = useState(false);
     const [expandedRows, setExpandedRows] = useState([]);
+    const [warningMessage, setWarningMsg] = useState("Enter Start Date and End Date")
+
 
     const searchGrp = async () => {
         const result = await fetch(`https://api-eproc.premierauto.ae/api/SalesAnalysis/SalesGroup?dateStart=${fromDate}&dateEnd=${toDate}`)
@@ -86,6 +88,7 @@ const GroupSales = () => {
     const uniqueDeptNo = [...new Set(allData.map(item => item.DEPTNO))];
 
     const handleGrpSearch = (e) => {
+        setWarningMsg("Resource Loading, Please Wait...")
         e.preventDefault()
         if (!fromDate || !toDate) {
             alert("select a start and end Date")
@@ -143,7 +146,7 @@ const GroupSales = () => {
 
             {/* table */}
 
-            <div div className='grptableCont' >
+            {displayData.length !== 0 ? (<div div className='grptableCont' >
                 <table border="1">
                     {/*  */}
                     <thead>
@@ -220,7 +223,7 @@ const GroupSales = () => {
                     </tbody> */}
                     {/*  */}
                 </table>
-            </div >
+            </div >) : (<div><h3>{warningMessage}</h3></div>)}
         </div >
     )
 }
