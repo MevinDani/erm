@@ -10,6 +10,7 @@ const GroupSales = () => {
     const [displayData, setDisplayData] = useState([])
     const [expandedRow, setExpandedRow] = useState(null);
     const [expandAll, setExpandAll] = useState(false);
+    const [expandedRows, setExpandedRows] = useState([]);
 
     const searchGrp = async () => {
         const result = await fetch(`https://api-eproc.premierauto.ae/api/SalesAnalysis/SalesGroup?dateStart=${fromDate}&dateEnd=${toDate}`)
@@ -93,9 +94,20 @@ const GroupSales = () => {
         }
     }
 
-    const handleRowClick = () => {
-        setExpandAll(prevState => !prevState);
+    const handleRowClick = (index) => {
+        setExpandedRows(prevState => {
+            if (prevState.includes(index)) {
+                return prevState.filter(item => item !== index);
+            } else {
+                return [...prevState, index];
+            }
+        });
     };
+
+
+    // const handleRowClick = () => {
+    //     setExpandAll(prevState => !prevState);
+    // };
 
     return (
         <div className='grpContainer'>
@@ -133,10 +145,57 @@ const GroupSales = () => {
 
             <div div className='grptableCont' >
                 <table border="1">
-
                     {/*  */}
                     <thead>
-                        <tr onClick={handleRowClick}>
+                        <tr>
+                            <th>GROUP</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>NET SALE RETURN</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>NET SALES EXCLVAT</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>NETCASH SALES</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>NETCREDIT SALES</th>
+                            <th>VAT AMT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {displayData && displayData.map((g, i) => (
+                            <React.Fragment key={i}>
+                                <tr onClick={window.innerWidth <= 768 ? () => handleRowClick(i) : null}>
+                                    <td>{g.GROUP || 'Unknown'}</td>
+                                    <td className={expandAll ? 'expandable' : 'hidden'}>{g["NET SALERETURN"]}</td>
+                                    <td className={expandAll ? 'expandable' : 'hidden'}>{g["NET SALES EXCLVAT"]}</td>
+                                    <td className={expandAll ? 'expandable' : 'hidden'}>{g["NETCASH SALES"]}</td>
+                                    <td className={expandAll ? 'expandable' : 'hidden'}>{g["NETCREDIT SALES"]}</td>
+                                    <td>{g["VAT AMT"]}</td>
+                                </tr>
+                                {expandedRows.includes(i) && (
+                                    <>
+                                        <tr>
+                                            <th className='expandable'>NET SALE RETURN</th>
+                                            <td className='expandable'>{g["NET SALERETURN"]}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='expandable'>NET SALES EXCLVAT</th>
+                                            <td className='expandable'>{g["NET SALES EXCLVAT"]}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='expandable'>NETCASH SALES</th>
+                                            <td className='expandable'>{g["NETCASH SALES"]}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='expandable'>NETCREDIT SALES</th>
+                                            <td className='expandable'>{g["NETCREDIT SALES"]}</td>
+                                        </tr>
+                                    </>
+
+                                )}
+                            </React.Fragment>
+                        ))}
+                    </tbody>
+                    {/*  */}
+
+                    {/*  */}
+                    {/* <thead>
+                        <tr>
                             <th>GROUP</th>
                             <th className={expandAll ? 'expandable' : 'hidden'}>NET SALE RETURN</th>
                             <th className={expandAll ? 'expandable' : 'hidden'}>NET SALES EXCLVAT</th>
@@ -158,7 +217,7 @@ const GroupSales = () => {
                                 </tr>
                             </React.Fragment>
                         ))}
-                    </tbody>
+                    </tbody> */}
                     {/*  */}
                 </table>
             </div >
