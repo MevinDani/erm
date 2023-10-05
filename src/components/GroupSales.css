@@ -1,7 +1,7 @@
 .grpContainer {
     width: 100%;
     background-color: aliceblue;
-    height: 100vh;
+    height: max-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,7 +24,8 @@ span {
 .grpDateInp {
     width: 60%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    align-items: center;
     height: 50px;
 }
 
@@ -125,10 +126,36 @@ table {
         white-space: nowrap;
     }
 
+    .grpInp label {
+        font-size: medium;
+    }
+
+    .grpInp input {
+        height: 20px;
+    }
+
+    .grpDateInp .grpButton {
+        height: 36px;
+        width: 63px;
+        margin-left: 10px;
+    }
+
+    .grpDateCont {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
+        width: 95%;
+    }
+
+    .grpDateInp {
+        width: 100%;
+    }
 
     th,
     td {
-        min-width: 200px;
+        min-width: 160px;
     }
 
 }

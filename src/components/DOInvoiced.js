@@ -12,7 +12,7 @@ const DOInvoiced = () => {
 
     const handleGrpSearch = (e) => {
         e.preventDefault()
-        if (!fromDate && !toDate) {
+        if (!fromDate || !toDate) {
             alert("select a start and end Date")
         } else {
             searchGrp()
@@ -56,7 +56,7 @@ const DOInvoiced = () => {
                         <label htmlFor="toDate">To:</label>
                         <input onChange={(e) => setToDate(e.target.value)} type="date" id='toDate' />
                     </div>
-                    <button onClick={handleGrpSearch} className='grpButton'>Search</button>
+                    <button onClick={handleGrpSearch} className='grpButton'>Go</button>
                 </div>
             </div>
             {/* table */}
@@ -82,7 +82,7 @@ const DOInvoiced = () => {
                             displayData && displayData.map((g, i) => (
                                 <React.Fragment key={i}>
                                     <tr key={i}>
-                                        <td>{g.DEPTNO || 'Unknown'}</td>
+                                        <td onClick={handleRowClick}>{g.DEPTNO || 'Unknown'}</td>
                                         <td className={expandAll ? 'expandable' : 'hidden'}>{g["DONO"]}</td>
                                         <td className={expandAll ? 'expandable' : 'hidden'}>{g["DATE"]}</td>
                                         <td className={expandAll ? 'expandable' : 'hidden'}>{g.CUSTOMER}</td>

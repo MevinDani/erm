@@ -11,7 +11,7 @@ const LatestInvoice = () => {
     const getlatestInvoice = async () => {
         const result = await fetch(`https://api-eproc.premierauto.ae/api/InvoiceSearch`)
         const data = await result.json()
-        data && setDisplayData(data.slice(0, 20))
+        data && setDisplayData(data.slice(0, 100))
     }
 
     const handleRowClick = () => {
@@ -52,7 +52,7 @@ const LatestInvoice = () => {
                             displayData && displayData.map((g, i) => (
                                 <React.Fragment key={i}>
                                     <tr key={i}>
-                                        <td>{g.INVNO || 'Unknown'}</td>
+                                        <td onClick={handleRowClick}>{g.INVNO || 'Unknown'}</td>
                                         <td className={expandAll ? 'expandable' : 'hidden'}>{g["deptno"]}</td>
                                         <td className={expandAll ? 'expandable' : 'hidden'}>{g["INV_DATE"]}</td>
                                         <td className={expandAll ? 'expandable' : 'hidden'}>{g["cust_acc"]}</td>

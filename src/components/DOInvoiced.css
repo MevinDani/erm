@@ -24,7 +24,8 @@ span {
 .DIDateInp {
     width: 60%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    align-items: center;
     height: 50px;
 }
 
@@ -123,9 +124,36 @@ table {
         white-space: nowrap;
     }
 
+    .DIInp label {
+        font-size: medium;
+    }
+
+    .DIInp input {
+        height: 20px;
+    }
+
+    .DIDateInp .grpButton {
+        height: 36px;
+        width: 63px;
+        margin-left: 10px;
+    }
+
+    .DIDateCont {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
+        width: 95%;
+    }
+
+    .DIDateInp {
+        width: 100%;
+    }
+
     th,
     td {
-        min-width: 200px;
+        min-width: 160px;
     }
 
 }

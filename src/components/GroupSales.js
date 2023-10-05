@@ -86,7 +86,7 @@ const GroupSales = () => {
 
     const handleGrpSearch = (e) => {
         e.preventDefault()
-        if (!fromDate && !toDate) {
+        if (!fromDate || !toDate) {
             alert("select a start and end Date")
         } else {
             searchGrp()
@@ -111,7 +111,7 @@ const GroupSales = () => {
                         <label htmlFor="toDate">To:</label>
                         <input onChange={(e) => setToDate(e.target.value)} type="date" id='toDate' />
                     </div>
-                    <button onClick={handleGrpSearch} className='grpButton'>Search</button>
+                    <button onClick={handleGrpSearch} className='grpButton'>Go</button>
                 </div>
             </div>
 
@@ -149,7 +149,7 @@ const GroupSales = () => {
                         {displayData && displayData.map((g, i) => (
                             <React.Fragment key={i}>
                                 <tr>
-                                    <td>{g.GROUP || 'Unknown'}</td>
+                                    <td onClick={handleRowClick}>{g.GROUP || 'Unknown'}</td>
                                     <td className={expandAll ? 'expandable' : 'hidden'}>{g["NET SALERETURN"]}</td>
                                     <td className={expandAll ? 'expandable' : 'hidden'}>{g["NET SALES EXCLVAT"]}</td>
                                     <td className={expandAll ? 'expandable' : 'hidden'}>{g["NETCASH SALES"]}</td>

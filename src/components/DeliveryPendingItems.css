@@ -24,7 +24,8 @@ span {
 .DPIDateInp {
     width: 60%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    align-items: center;
     height: 50px;
 }
 
@@ -123,9 +124,37 @@ table {
         white-space: nowrap;
     }
 
+
+    .DPIInp label {
+        font-size: medium;
+    }
+
+    .DPIInp input {
+        height: 20px;
+    }
+
+    .DPIDateInp .grpButton {
+        height: 36px;
+        width: 63px;
+        margin-left: 10px;
+    }
+
+    .DPIDateCont {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
+        width: 95%;
+    }
+
+    .DPIDateInp {
+        width: 100%;
+    }
+
     th,
     td {
-        min-width: 200px;
+        min-width: 160px;
     }
 
 }
