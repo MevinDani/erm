@@ -1,6 +1,7 @@
 .admPanCont {
     background-color: aliceblue;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     height: 100vh;
 }
@@ -15,4 +16,11 @@
 .custom-link {
     text-decoration: none;
     color: #fff;
+}
+
+@media screen and (max-width:768px) {
+    .admPanCont {
+        display: flex;
+        height: 50vh;
+    }
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './DOInvoiced.css'
 
 
 const DOInvoiced = () => {
@@ -6,6 +7,7 @@ const DOInvoiced = () => {
     const [toDate, setToDate] = useState('')
     const [allData, setAllData] = useState([])
     const [displayData, setDisplayData] = useState([])
+    const [expandAll, setExpandAll] = useState(false);
 
 
     const handleGrpSearch = (e) => {
@@ -23,6 +25,10 @@ const DOInvoiced = () => {
         data && setAllData(data) && setDisplayData(data)
     }
 
+    const handleRowClick = () => {
+        setExpandAll(prevState => !prevState);
+    };
+
 
     useEffect(() => {
         if (allData) {
@@ -37,16 +43,16 @@ const DOInvoiced = () => {
 
 
     return (
-        <div className='grpContainer'>
+        <div className='DIContainer'>
             {/* date select */}
-            <div className='grpDateCont'>
+            <div className='DIDateCont'>
                 <span><strong>Delivery Order Invoiced</strong></span>
-                <div className='grpDateInp'>
-                    <div className='grpInp'>
+                <div className='DIDateInp'>
+                    <div className='DIInp'>
                         <label htmlFor="fromDate">From:</label>
                         <input onChange={(e) => setFromDate(e.target.value)} type="date" id='fromDate' />
                     </div>
-                    <div className='grpInp'>
+                    <div className='DIInp'>
                         <label htmlFor="toDate">To:</label>
                         <input onChange={(e) => setToDate(e.target.value)} type="date" id='toDate' />
                     </div>
@@ -55,18 +61,18 @@ const DOInvoiced = () => {
             </div>
             {/* table */}
 
-            <div div className='tableCont' >
+            <div div className='DItableCont' >
                 <table border="1">
                     <thead>
-                        <tr>
+                        <tr onClick={handleRowClick}>
                             <th>DEPTNO</th>
-                            <th>DONO</th>
-                            <th>DATE</th>
-                            <th>CUSTOMER</th>
-                            <th>AMOUNT</th>
-                            <th>VAT</th>
-                            <th>AMOUNT_EXCLVAT</th>
-                            <th>INV NO</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>DONO</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>DATE</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>CUSTOMER</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>AMOUNT</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>VAT</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>AMOUNT_EXCLVAT</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>INV NO</th>
                             <th>SALES MAN</th>
                         </tr>
                     </thead>
@@ -74,17 +80,19 @@ const DOInvoiced = () => {
                     <tbody>
                         {
                             displayData && displayData.map((g, i) => (
-                                <tr key={i}>
-                                    <td>{g.DEPTNO || 'Unknown'}</td>
-                                    <td>{g["DONO"]}</td>
-                                    <td>{g["DATE"]}</td>
-                                    <td>{g.CUSTOMER}</td>
-                                    <td>{g["AMOUNT"]}</td>
-                                    <td>{g["VAT"]}</td>
-                                    <td>{g["AMOUNT_EXCLVAT"]}</td>
-                                    <td>{g["INV NO"]}</td>
-                                    <td>{g["SALESMAN"]}</td>
-                                </tr>
+                                <React.Fragment key={i}>
+                                    <tr key={i}>
+                                        <td>{g.DEPTNO || 'Unknown'}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["DONO"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["DATE"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g.CUSTOMER}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["AMOUNT"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["VAT"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["AMOUNT_EXCLVAT"]}</td>
+                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["INV NO"]}</td>
+                                        <td>{g["SALESMAN"]}</td>
+                                    </tr>
+                                </React.Fragment>
                             ))
                         }
                     </tbody>

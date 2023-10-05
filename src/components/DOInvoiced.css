@@ -1,7 +1,7 @@
-.grpContainer {
+.DIContainer {
     width: 100%;
     background-color: aliceblue;
-    height: 100vh;
+    height: max-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +12,7 @@ span {
     font-size: 24px;
 }
 
-.grpDateCont {
+.DIDateCont {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,14 +21,14 @@ span {
     width: 90%;
 }
 
-.grpDateInp {
+.DIDateInp {
     width: 60%;
     display: flex;
     justify-content: space-evenly;
     height: 50px;
 }
 
-.grpInp {
+.DIInp {
     display: flex;
     align-items: center;
     width: 100%;
@@ -41,9 +41,8 @@ input {
 
 label {
     margin-right: 10px;
-    font-size: 20px;
+    font-size: 18px;
 }
-
 
 .labeStyle {
     margin-right: 10px;
@@ -65,13 +64,13 @@ label {
     margin: 20px;
 }
 
-.grptableCont {
+
+.DItableCont {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: center;
     margin-top: 18px;
-    background-color: aliceblue;
 }
 
 table {
@@ -82,7 +81,6 @@ table {
 .grpButton {
     padding: 5px 20px;
     background-color: #0084ff;
-    /* Blue color */
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -92,17 +90,17 @@ table {
 
 .grpButton:hover {
     background-color: #0056b3;
-    /* Darker blue color on hover */
 }
 
-.grptableCont {
+.DItableCont {
     max-width: 100%;
     overflow-x: scroll;
     overflow-y: auto;
     /* Add a border to the container */
 }
 
-.grptableCont table {
+
+.DItableCont table {
     border-collapse: collapse;
 }
 
@@ -112,11 +110,11 @@ table {
 
 
 @media screen and (max-width: 768px) {
-    .grptableCont .hidden {
+    .DItableCont .hidden {
         display: none;
     }
 
-    .grptableCont table {
+    .DItableCont table {
         display: block;
         max-width: -moz-fit-content;
         max-width: fit-content;
@@ -124,7 +122,6 @@ table {
         overflow-x: auto;
         white-space: nowrap;
     }
-
 
     th,
     td {

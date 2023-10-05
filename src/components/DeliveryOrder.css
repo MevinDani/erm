@@ -92,13 +92,13 @@ table {
     background-color: #0056b3;
 }
 
-.DlODateCont {
+.DlOtableCont {
     max-width: 100%;
-    overflow-x: auto;
+    overflow-x: scroll;
     overflow-y: auto;
-    border: 1px solid #ccc;
     /* Add a border to the container */
 }
+
 
 .DlOtableCont table {
     border-collapse: collapse;
