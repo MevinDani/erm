@@ -19,20 +19,25 @@ const DeliveryPendItems = () => {
         if (!fromDate || !toDate) {
             alert("select a start and end Date")
         } else {
+            setWarningMsg("Resource Loading, Please Wait...")
             searchGrp()
         }
     }
 
     const searchGrp = async () => {
-        setWarningMsg("Resource Loading, Please Wait...")
-        const result = await fetch(`https://api-eproc.premierauto.ae/api/DeliveryOrderReport/DOreport/DOPending/Item?dateStart=${fromDate}&dateEnd=${toDate}`)
-        const data = await result.json()
-        if (data) {
-            setAllData(data);
-            setDisplayData(data);
-        }
-        else if (!data || data.length === 0) {
-            setDisplayData([]); // Set displayData as an empty array if there's no data
+        try {
+            const result = await fetch(`https://api-eproc.premierauto.ae/api/DeliveryOrderReport/DOreport/DOPending/Item?dateStart=${fromDate}&dateEnd=${toDate}`)
+            const data = await result.json()
+            if (data) {
+                setAllData(data);
+                setDisplayData(data);
+            }
+            else if (!data || data.length === 0) {
+                setDisplayData([]); // Set displayData as an empty array if there's no data
+            }
+        } catch (error) {
+            alert(error)
+            console.log(error)
         }
     }
 

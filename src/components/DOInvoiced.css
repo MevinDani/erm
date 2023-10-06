@@ -109,7 +109,7 @@ table {
     display: table-cell;
 }
 
-.DIoplusTd .fa-solid {
+.DIplusTd .fa-solid {
     display: none;
 }
 
@@ -118,11 +118,11 @@ table {
         display: none;
     }
 
-    .DIoplusTd .fa-solid {
+    .DIplusTd .fa-solid {
         display: contents;
     }
 
-    .DIoplusTd {
+    .DIplusTd {
         padding: 0 15px;
         display: flex;
         justify-content: space-between;
@@ -136,11 +136,11 @@ table {
         display: none;
     }
 
-    .DIoplusTd .fa-solid {
+    .DIplusTd .fa-solid {
         display: contents;
     }
 
-    .DIoplusTd {
+    .DIplusTd {
         padding: 0 15px;
         display: flex;
         justify-content: space-between;

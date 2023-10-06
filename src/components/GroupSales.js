@@ -15,9 +15,14 @@ const GroupSales = () => {
 
 
     const searchGrp = async () => {
-        const result = await fetch(`https://api-eproc.premierauto.ae/api/SalesAnalysis/SalesGroup?dateStart=${fromDate}&dateEnd=${toDate}`)
-        const data = await result.json()
-        data && setAllData(data)
+        try {
+            const result = await fetch(`https://api-eproc.premierauto.ae/api/SalesAnalysis/SalesGroup?dateStart=${fromDate}&dateEnd=${toDate}`)
+            const data = await result.json()
+            data && setAllData(data)
+        } catch (error) {
+            alert(error)
+            console.log(error)
+        }
     }
 
     const getDeptData = (targetDeptNo) => {
@@ -88,11 +93,11 @@ const GroupSales = () => {
     const uniqueDeptNo = [...new Set(allData.map(item => item.DEPTNO))];
 
     const handleGrpSearch = (e) => {
-        setWarningMsg("Resource Loading, Please Wait...")
         e.preventDefault()
         if (!fromDate || !toDate) {
             alert("select a start and end Date")
         } else {
+            setWarningMsg("Resource Loading, Please Wait...")
             searchGrp()
         }
     }

@@ -9,6 +9,8 @@ const LatestInvoice = () => {
     const [expandedRows, setExpandedRows] = useState([]);
     const [hideonIpad, setHideonIpad] = useState(false)
     const [hideonMob, setHideonMob] = useState(false)
+    const [warningMessage, setWarningMsg] = useState("Resource Loading, Please Wait...")
+
 
 
     const getlatestInvoice = async () => {
@@ -55,7 +57,7 @@ const LatestInvoice = () => {
             <span><strong>Latest 500 Invoice List</strong></span>
             {/* table */}
 
-            <div div className='LtstTableCont' >
+            {displayData.length !== 0 ? (<div div className='LtstTableCont' >
                 <table border="1">
                     {/*  */}
                     {/*  */}
@@ -145,7 +147,7 @@ const LatestInvoice = () => {
                     </tbody>
                 </table>
 
-            </div >
+            </div >) : (<div><h3>{warningMessage}</h3></div>)}
         </div >
     )
 
