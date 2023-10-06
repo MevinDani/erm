@@ -109,8 +109,25 @@ table {
     display: table-cell;
 }
 
-.plusTd .fa-solid {
+.DloplusTd .fa-solid {
     display: none;
+}
+
+@media screen and (max-width:1124px) {
+    .DlOtableCont .hidden {
+        display: none;
+    }
+
+    .DloplusTd .fa-solid {
+        display: contents;
+    }
+
+    .DloplusTd {
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -118,11 +135,11 @@ table {
         display: none;
     }
 
-    .plusTd .fa-solid {
+    .DloplusTd .fa-solid {
         display: contents;
     }
 
-    .plusTd {
+    .DloplusTd {
         padding: 0 15px;
         display: flex;
         justify-content: space-between;

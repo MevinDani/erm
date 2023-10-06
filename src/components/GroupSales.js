@@ -163,7 +163,7 @@ const GroupSales = () => {
                         {displayData && displayData.map((g, i) => (
                             <React.Fragment key={i}>
                                 <tr onClick={window.innerWidth <= 768 ? () => handleRowClick(i) : null}>
-                                    <td className='plusTd'>{g.GROUP || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
+                                    <td className='grpplusTd'>{g.GROUP || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
                                     <td className={expandAll ? 'expandable' : 'hidden'}>{g["NET SALERETURN"]}</td>
                                     <td className={expandAll ? 'expandable' : 'hidden'}>{g["NET SALES EXCLVAT"]}</td>
                                     <td className={expandAll ? 'expandable' : 'hidden'}>{g["NETCASH SALES"]}</td>
@@ -194,33 +194,6 @@ const GroupSales = () => {
                             </React.Fragment>
                         ))}
                     </tbody>
-                    {/*  */}
-
-                    {/*  */}
-                    {/* <thead>
-                        <tr>
-                            <th>GROUP</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>NET SALE RETURN</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>NET SALES EXCLVAT</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>NETCASH SALES</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>NETCREDIT SALES</th>
-                            <th>VAT AMT</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {displayData && displayData.map((g, i) => (
-                            <React.Fragment key={i}>
-                                <tr>
-                                    <td onClick={handleRowClick}>{g.GROUP || 'Unknown'}</td>
-                                    <td className={expandAll ? 'expandable' : 'hidden'}>{g["NET SALERETURN"]}</td>
-                                    <td className={expandAll ? 'expandable' : 'hidden'}>{g["NET SALES EXCLVAT"]}</td>
-                                    <td className={expandAll ? 'expandable' : 'hidden'}>{g["NETCASH SALES"]}</td>
-                                    <td className={expandAll ? 'expandable' : 'hidden'}>{g["NETCREDIT SALES"]}</td>
-                                    <td>{g["VAT AMT"]}</td>
-                                </tr>
-                            </React.Fragment>
-                        ))}
-                    </tbody> */}
                     {/*  */}
                 </table>
             </div >) : (<div><h3>{warningMessage}</h3></div>)}

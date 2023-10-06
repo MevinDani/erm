@@ -109,26 +109,43 @@ table {
     border-collapse: collapse;
 }
 
-.expandable {
-    display: table-cell;
-}
-
 .plusTd .fa-solid {
     display: none;
 }
 
 
+.expandable {
+    display: table-cell;
+}
+
+
+@media screen and (max-width:1124px) {
+    .LtstTableCont .hidden {
+        display: none;
+    }
+
+    .LtstplusTd .fa-solid {
+        display: contents;
+    }
+
+    .LtstplusTd {
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+}
 
 @media screen and (max-width: 768px) {
     .LtstTableCont .hidden {
         display: none;
     }
 
-    .plusTd .fa-solid {
+    .LtstplusTd .fa-solid {
         display: contents;
     }
 
-    .plusTd {
+    .LtstplusTd {
         padding: 0 15px;
         display: flex;
         justify-content: space-between;

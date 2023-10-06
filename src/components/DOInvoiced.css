@@ -109,8 +109,25 @@ table {
     display: table-cell;
 }
 
-.plusTd .fa-solid {
+.DIoplusTd .fa-solid {
     display: none;
+}
+
+@media screen and (max-width:1124px) {
+    .DItableCont .hidden {
+        display: none;
+    }
+
+    .DIoplusTd .fa-solid {
+        display: contents;
+    }
+
+    .DIoplusTd {
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+
 }
 
 
@@ -119,11 +136,11 @@ table {
         display: none;
     }
 
-    .plusTd .fa-solid {
+    .DIoplusTd .fa-solid {
         display: contents;
     }
 
-    .plusTd {
+    .DIoplusTd {
         padding: 0 15px;
         display: flex;
         justify-content: space-between;

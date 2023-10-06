@@ -111,7 +111,7 @@ table {
     display: table-cell;
 }
 
-.plusTd .fa-solid {
+.grpplusTd .fa-solid {
     display: none;
 }
 
@@ -121,11 +121,11 @@ table {
         display: none;
     }
 
-    .plusTd .fa-solid {
+    .grpplusTd .fa-solid {
         display: contents;
     }
 
-    .plusTd {
+    .grpplusTd {
         padding: 0 15px;
         display: flex;
         justify-content: space-between;

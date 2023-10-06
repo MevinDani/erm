@@ -10,6 +10,8 @@ const DeliveryPendItems = () => {
     const [expandAll, setExpandAll] = useState(false);
     const [expandedRows, setExpandedRows] = useState([]);
     const [warningMessage, setWarningMsg] = useState("Enter Start Date and End Date")
+    const [hideonIpad, setHideonIpad] = useState(false)
+    const [hideonMob, setHideonMob] = useState(false)
 
 
     const handleGrpSearch = (e) => {
@@ -50,6 +52,15 @@ const DeliveryPendItems = () => {
         }
     }, [allData])
 
+    useEffect(() => {
+        if (window.innerWidth <= 1124 || window.innerWidth <= 768) {
+            setHideonIpad(true)
+        }
+        if (window.innerWidth <= 768) {
+            setHideonMob(true)
+        }
+    }, [hideonIpad, hideonMob])
+
     return (
         <div className='DPIContainer'>
             {/* date select */}
@@ -74,15 +85,15 @@ const DeliveryPendItems = () => {
                     <thead>
                         <tr onClick={handleRowClick}>
                             <th>DEPTNO</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>DATE</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>CODE</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>DONO</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>DESCRIPTION</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>GROUP</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>SUBGROUP</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>SCATEG</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>SALES MAN</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>UNIT PRICE</th>
+                            <th className={hideonMob ? 'hidden' : 'expandable'}>DATE</th>
+                            <th className={hideonMob ? 'hidden' : 'expandable'}>CODE</th>
+                            <th className={hideonMob ? 'hidden' : 'expandable'}>DONO</th>
+                            <th className={hideonIpad ? 'hidden' : 'expandable'}>DESCRIPTION</th>
+                            <th className={hideonIpad ? 'hidden' : 'expandable'}>GROUP</th>
+                            <th className={hideonIpad ? 'hidden' : 'expandable'}>SUBGROUP</th>
+                            <th className={hideonMob ? 'hidden' : 'expandable'}>SCATEG</th>
+                            <th className={hideonMob ? 'hidden' : 'expandable'}>SALES MAN</th>
+                            <th className={hideonMob ? 'hidden' : 'expandable'}>UNIT PRICE</th>
                             <th>TOTAL</th>
                         </tr>
                     </thead>
@@ -91,17 +102,17 @@ const DeliveryPendItems = () => {
                         {
                             displayData && displayData.map((g, i) => (
                                 <React.Fragment key={i}>
-                                    <tr onClick={window.innerWidth <= 768 ? () => handleRowClick(i) : null} key={i}>
-                                        <td className='plusTd'>{g.DEPTNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["DATE"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g.CODE}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["DONO"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["DESCRIPTION"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["GROUP"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["SUBGROUP"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["SCATEG"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["SALES MAN"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["UNIT PRICE"]}</td>
+                                    <tr onClick={window.innerWidth <= 1124 ? () => handleRowClick(i) : null} key={i}>
+                                        <td className='DPIplusTd'>{g.DEPTNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
+                                        <td className={hideonMob ? 'hidden' : 'expandable'}>{g["DATE"]}</td>
+                                        <td className={hideonMob ? 'hidden' : 'expandable'}>{g.CODE}</td>
+                                        <td className={hideonMob ? 'hidden' : 'expandable'}>{g["DONO"]}</td>
+                                        <td className={hideonIpad ? 'hidden' : 'expandable'}>{g["DESCRIPTION"]}</td>
+                                        <td className={hideonIpad ? 'hidden' : 'expandable'}>{g["GROUP"]}</td>
+                                        <td className={hideonIpad ? 'hidden' : 'expandable'}>{g["SUBGROUP"]}</td>
+                                        <td className={hideonMob ? 'hidden' : 'expandable'}>{g["SCATEG"]}</td>
+                                        <td className={hideonMob ? 'hidden' : 'expandable'}>{g["SALES MAN"]}</td>
+                                        <td className={hideonMob ? 'hidden' : 'expandable'}>{g["UNIT PRICE"]}</td>
                                         <td>{g["TOTAL"]}</td>
                                     </tr>
                                     {

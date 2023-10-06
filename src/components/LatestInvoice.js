@@ -7,12 +7,19 @@ const LatestInvoice = () => {
     const [displayData, setDisplayData] = useState([])
     const [expandAll, setExpandAll] = useState(false);
     const [expandedRows, setExpandedRows] = useState([]);
+    const [hideonIpad, setHideonIpad] = useState(false)
+    const [hideonMob, setHideonMob] = useState(false)
 
 
     const getlatestInvoice = async () => {
-        const result = await fetch(`https://api-eproc.premierauto.ae/api/InvoiceSearch`)
-        const data = await result.json()
-        data && setDisplayData(data.slice(0, 100))
+        try {
+            const result = await fetch(`https://api-eproc.premierauto.ae/api/InvoiceSearch`)
+            const data = await result.json()
+            data && setDisplayData(data.slice(0, 100))
+        } catch (error) {
+            console.log(error)
+            alert(error)
+        }
     }
 
     // const handleRowClick = () => {
@@ -33,6 +40,15 @@ const LatestInvoice = () => {
         getlatestInvoice()
     }, [])
 
+    useEffect(() => {
+        if (window.innerWidth <= 1124 || window.innerWidth <= 768) {
+            setHideonIpad(true)
+        }
+        if (window.innerWidth <= 768) {
+            setHideonMob(true)
+        }
+    }, [hideonIpad, hideonMob])
+
 
     return (
         <div className='LtstContainer'>
@@ -44,18 +60,18 @@ const LatestInvoice = () => {
                     {/*  */}
                     {/*  */}
                     <thead>
-                        <tr onClick={handleRowClick}>
+                        <tr>
                             <th>INVNO</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>deptno</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>INV_DATE</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>cust_acc</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>CUSTOMER</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>USER</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>SALES MAN</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>ENTERED_ON</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>ACTION</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>CONTACT_NO</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>VATAMT</th>
+                            <th className={hideonMob ? 'hidden' : 'expandable'}>deptno</th>
+                            <th className={hideonMob ? 'hidden' : 'expandable'}>INV_DATE</th>
+                            <th className={hideonMob ? 'hidden' : 'expandable'}>cust_acc</th>
+                            <th className={hideonIpad ? 'hidden' : 'expandable'}>CUSTOMER</th>
+                            <th className={hideonIpad ? 'hidden' : 'expandable'}>USER</th>
+                            <th className={hideonIpad ? 'hidden' : 'expandable'}>SALES MAN</th>
+                            <th className={hideonIpad ? 'hidden' : 'expandable'}>ENTERED_ON</th>
+                            <th className={hideonIpad ? 'hidden' : 'expandable'}>ACTION</th>
+                            <th className={hideonMob ? 'hidden' : 'expandable'}>CONTACT_NO</th>
+                            <th className={hideonMob ? 'hidden' : 'expandable'}>VATAMT</th>
                             <th>AMOUNT</th>
                         </tr>
                     </thead>
@@ -64,18 +80,18 @@ const LatestInvoice = () => {
                         {
                             displayData && displayData.map((g, i) => (
                                 <React.Fragment key={i}>
-                                    <tr onClick={window.innerWidth <= 768 ? () => handleRowClick(i) : null}>
-                                        <td className='plusTd'>{g.INVNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["deptno"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["INV_DATE"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["cust_acc"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["CUSTOMER"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["USER"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["SALES MAN"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["ENTERED_ON"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["ACTION"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["CONTACT_NO"]}</td>
-                                        <td className={expandAll ? 'expandable' : 'hidden'}>{g["VATAMT"]}</td>
+                                    <tr onClick={window.innerWidth <= 1124 ? () => handleRowClick(i) : null}>
+                                        <td className='LtstplusTd'>{g.INVNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
+                                        <td className={hideonMob ? 'hidden' : 'expandable'}>{g["deptno"]}</td>
+                                        <td className={hideonMob ? 'hidden' : 'expandable'}>{g["INV_DATE"]}</td>
+                                        <td className={hideonMob ? 'hidden' : 'expandable'}>{g["cust_acc"]}</td>
+                                        <td className={hideonIpad ? 'hidden' : 'expandable'}>{g["CUSTOMER"]}</td>
+                                        <td className={hideonIpad ? 'hidden' : 'expandable'}>{g["USER"]}</td>
+                                        <td className={hideonIpad ? 'hidden' : 'expandable'}>{g["SALES MAN"]}</td>
+                                        <td className={hideonIpad ? 'hidden' : 'expandable'}>{g["ENTERED_ON"]}</td>
+                                        <td className={hideonIpad ? 'hidden' : 'expandable'}>{g["ACTION"]}</td>
+                                        <td className={hideonMob ? 'hidden' : 'expandable'}>{g["CONTACT_NO"]}</td>
+                                        <td className={hideonMob ? 'hidden' : 'expandable'}>{g["VATAMT"]}</td>
                                         <td>{g["AMOUNT"]}</td>
                                     </tr>
                                     {expandedRows.includes(i) && (
