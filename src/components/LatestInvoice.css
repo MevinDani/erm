@@ -118,6 +118,10 @@ table {
     display: table-cell;
 }
 
+#numD {
+    align-items: center;
+}
+
 
 @media screen and (max-width:1124px) {
     .LtstTableCont .hidden {

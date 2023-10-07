@@ -19,6 +19,7 @@ const GroupSales = () => {
             const result = await fetch(`https://api-eproc.premierauto.ae/api/SalesAnalysis/SalesGroup?dateStart=${fromDate}&dateEnd=${toDate}`)
             const data = await result.json()
             data && setAllData(data)
+            console.log(data)
         } catch (error) {
             alert(error)
             console.log(error)
@@ -157,11 +158,11 @@ const GroupSales = () => {
                     <thead>
                         <tr>
                             <th>GROUP</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>NET SALE RETURN</th>
-                            <th className={expandAll ? 'expandable' : 'hidden'}>NET SALES EXCLVAT</th>
                             <th className={expandAll ? 'expandable' : 'hidden'}>NETCASH SALES</th>
                             <th className={expandAll ? 'expandable' : 'hidden'}>NETCREDIT SALES</th>
-                            <th>VAT AMT</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>NET SALE RETURN</th>
+                            <th className={expandAll ? 'expandable' : 'hidden'}>VAT AMT</th>
+                            <th>NET SALES EXCLVAT</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -169,29 +170,29 @@ const GroupSales = () => {
                             <React.Fragment key={i}>
                                 <tr onClick={window.innerWidth <= 768 ? () => handleRowClick(i) : null}>
                                     <td className='grpplusTd'>{g.GROUP || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
-                                    <td className={expandAll ? 'expandable' : 'hidden'}>{g["NET SALERETURN"]}</td>
-                                    <td className={expandAll ? 'expandable' : 'hidden'}>{g["NET SALES EXCLVAT"]}</td>
-                                    <td className={expandAll ? 'expandable' : 'hidden'}>{g["NETCASH SALES"]}</td>
-                                    <td className={expandAll ? 'expandable' : 'hidden'}>{g["NETCREDIT SALES"]}</td>
-                                    <td>{g["VAT AMT"]}</td>
+                                    <td id='numD' className={expandAll ? 'expandable' : 'hidden'}>{g["NETCASH SALES"] ? parseFloat(g["NETCASH SALES"]).toFixed(2) : "Nil"}</td>
+                                    <td id='numD' className={expandAll ? 'expandable' : 'hidden'}>{g["NETCREDIT SALES"] ? parseFloat(g["NETCREDIT SALES"]).toFixed(2) : "Nil"}</td>
+                                    <td id='numD' className={expandAll ? 'expandable' : 'hidden'}>{g["NET SALERETURN"] ? parseFloat(g["NET SALERETURN"]).toFixed(2) : "Nil"}</td>
+                                    <td id='numD' className={expandAll ? 'expandable' : 'hidden'}>{g["VAT AMT"] ? parseFloat(g["VAT AMT"]).toFixed(2) : "Nil"}</td>
+                                    <td id='numD' className='last'>{g["NET SALES EXCLVAT"] ? parseFloat(g["NET SALES EXCLVAT"]).toFixed(2) : "Nil"}</td>
                                 </tr>
                                 {expandedRows.includes(i) && (
                                     <>
                                         <tr>
-                                            <th className='expandable'>NET SALE RETURN</th>
-                                            <td className='expandable'>{g["NET SALERETURN"]}</td>
-                                        </tr>
-                                        <tr>
-                                            <th className='expandable'>NET SALES EXCLVAT</th>
-                                            <td className='expandable'>{g["NET SALES EXCLVAT"]}</td>
-                                        </tr>
-                                        <tr>
                                             <th className='expandable'>NETCASH SALES</th>
-                                            <td className='expandable'>{g["NETCASH SALES"]}</td>
+                                            <td id='numD' className='expandable'>{g["NETCASH SALES"] ? parseFloat(g["NETCASH SALES"]).toFixed(2) : "Nil"}</td>
                                         </tr>
                                         <tr>
                                             <th className='expandable'>NETCREDIT SALES</th>
-                                            <td className='expandable'>{g["NETCREDIT SALES"]}</td>
+                                            <td id='numD' className='expandable'>{g["NETCREDIT SALES"] ? parseFloat(g["NETCREDIT SALES"]).toFixed(2) : "Nil"}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='expandable'>NET SALE RETURN</th>
+                                            <td id='numD' className='expandable'>{g["NET SALERETURN"] ? parseFloat(g["NET SALERETURN"]).toFixed(2) : "Nil"}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='expandable'>VAT AMT</th>
+                                            <td id='numD' className='expandable'>{g["VAT AMT"] ? parseFloat(g["VAT AMT"]).toFixed(2) : "Nil"}</td>
                                         </tr>
                                     </>
 

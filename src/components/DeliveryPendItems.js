@@ -90,15 +90,20 @@ const DeliveryPendItems = () => {
                     <thead>
                         <tr onClick={handleRowClick}>
                             <th>DEPTNO</th>
+                            <th className={hideonMob ? 'hidden' : 'expandable'}>DONO</th>
                             <th className={hideonMob ? 'hidden' : 'expandable'}>DATE</th>
                             <th className={hideonMob ? 'hidden' : 'expandable'}>CODE</th>
-                            <th className={hideonMob ? 'hidden' : 'expandable'}>DONO</th>
                             <th className={hideonIpad ? 'hidden' : 'expandable'}>DESCRIPTION</th>
+                            <th className={hideonIpad ? 'hidden' : 'expandable'}>DO QTY</th>
+                            <th className={hideonIpad ? 'hidden' : 'expandable'}>INV QTY</th>
+                            <th className={hideonIpad ? 'hidden' : 'expandable'}>ADJ_QTY</th>
+                            <th className={hideonIpad ? 'hidden' : 'expandable'}>PEND QTY</th>
+                            <th className={hideonIpad ? 'hidden' : 'expandable'}>UNIT PRICE</th>
+                            <th className={hideonIpad ? 'hidden' : 'expandable'}>SALES MAN</th>
                             <th className={hideonIpad ? 'hidden' : 'expandable'}>GROUP</th>
                             <th className={hideonIpad ? 'hidden' : 'expandable'}>SUBGROUP</th>
+                            <th className={hideonIpad ? 'hidden' : 'expandable'}>CATEG</th>
                             <th className={hideonMob ? 'hidden' : 'expandable'}>SCATEG</th>
-                            <th className={hideonMob ? 'hidden' : 'expandable'}>SALES MAN</th>
-                            <th className={hideonMob ? 'hidden' : 'expandable'}>UNIT PRICE</th>
                             <th>TOTAL</th>
                         </tr>
                     </thead>
@@ -108,56 +113,81 @@ const DeliveryPendItems = () => {
                             displayData && displayData.map((g, i) => (
                                 <React.Fragment key={i}>
                                     <tr onClick={window.innerWidth <= 1124 ? () => handleRowClick(i) : null} key={i}>
-                                        <td className='DPIplusTd'>{g.DEPTNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
-                                        <td className={hideonMob ? 'hidden' : 'expandable'}>{g["DATE"]}</td>
-                                        <td className={hideonMob ? 'hidden' : 'expandable'}>{g.CODE}</td>
-                                        <td className={hideonMob ? 'hidden' : 'expandable'}>{g["DONO"]}</td>
-                                        <td className={hideonIpad ? 'hidden' : 'expandable'}>{g["DESCRIPTION"]}</td>
-                                        <td className={hideonIpad ? 'hidden' : 'expandable'}>{g["GROUP"]}</td>
-                                        <td className={hideonIpad ? 'hidden' : 'expandable'}>{g["SUBGROUP"]}</td>
-                                        <td className={hideonMob ? 'hidden' : 'expandable'}>{g["SCATEG"]}</td>
-                                        <td className={hideonMob ? 'hidden' : 'expandable'}>{g["SALES MAN"]}</td>
-                                        <td className={hideonMob ? 'hidden' : 'expandable'}>{g["UNIT PRICE"]}</td>
-                                        <td>{g["TOTAL"]}</td>
+                                        <td id='numD' className='DPIplusTd'>{g.DEPTNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
+                                        <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["DONO"]}</td>
+                                        <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["DATE"]}</td>
+                                        <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g.CODE}</td>
+                                        <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["DESCRIPTION"]}</td>
+                                        <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["DO QTY"]}</td>
+                                        <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["INV QTY"]}</td>
+                                        <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["ADJ_QTY"]}</td>
+                                        <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["PEND QTY"]}</td>
+                                        <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["UNIT PRICE"]}</td>
+                                        <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["SALES MAN"]}</td>
+                                        <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["GROUP"]}</td>
+                                        <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["SUBGROUP"]}</td>
+                                        <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["CATEG"]}</td>
+                                        <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["SCATEG"]}</td>
+                                        <td id='numD'>{g["TOTAL"]}</td>
                                     </tr>
                                     {
                                         expandedRows.includes(i) && (
                                             <>
                                                 <tr>
+                                                    <th className='expandable'>DONO</th>
+                                                    <td id='numD' className='expandable'>{g["DONO"]}</td>
+                                                </tr>
+                                                <tr>
                                                     <th className='expandable'>DATE</th>
-                                                    <td className='expandable'>{g["DATE"]}</td>
+                                                    <td id='numD' className='expandable'>{g["DATE"]}</td>
                                                 </tr>
                                                 <tr>
                                                     <th className='expandable'>CODE</th>
-                                                    <td className='expandable'>{g["CODE"]}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th className='expandable'>DONO</th>
-                                                    <td className='expandable'>{g["DONO"]}</td>
+                                                    <td id='numD' className='expandable'>{g["CODE"]}</td>
                                                 </tr>
                                                 <tr>
                                                     <th className='expandable'>DESCRIPTION</th>
-                                                    <td className='expandable'>{g["DESCRIPTION"]}</td>
+                                                    <td id='numD' className='expandable'>{g["DESCRIPTION"]}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th className='expandable'>GROUP</th>
-                                                    <td className='expandable'>{g["GROUP"]}</td>
+                                                    <th className='expandable'>DO QTY</th>
+                                                    <td id='numD' className='expandable'>{g["DO QTY"]}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th className='expandable'>SUBGROUP</th>
-                                                    <td className='expandable'>{g["SUBGROUP"]}</td>
+                                                    <th className='expandable'>INV QTY</th>
+                                                    <td id='numD' className='expandable'>{g["INV QTY"]}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th className='expandable'>SCATEG</th>
-                                                    <td className='expandable'>{g["SCATEG"]}</td>
+                                                    <th className='expandable'>ADJ_QTY</th>
+                                                    <td id='numD' className='expandable'>{g["ADJ_QTY"]}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th className='expandable'>SALES MAN</th>
-                                                    <td className='expandable'>{g["SALES MAN"]}</td>
+                                                    <th className='expandable'>PEND QTY</th>
+                                                    <td id='numD' className='expandable'>{g["PEND QTY"]}</td>
                                                 </tr>
                                                 <tr>
                                                     <th className='expandable'>UNIT PRICE</th>
-                                                    <td className='expandable'>{g["UNIT PRICE"]}</td>
+                                                    <td id='numD' className='expandable'>{g["UNIT PRICE"]}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th className='expandable'>SALES MAN</th>
+                                                    <td id='numD' className='expandable'>{g["SALES MAN"]}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th className='expandable'>GROUP</th>
+                                                    <td id='numD' className='expandable'>{g["GROUP"]}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th className='expandable'>SUBGROUP</th>
+                                                    <td id='numD' className='expandable'>{g["SUBGROUP"]}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th className='expandable'>SCATEG</th>
+                                                    <td id='numD' className='expandable'>{g["SCATEG"]}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th className='expandable'>CATEG</th>
+                                                    <td id='numD' className='expandable'>{g["CATEG"]}</td>
                                                 </tr>
                                             </>
 

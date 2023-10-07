@@ -115,6 +115,9 @@ table {
     display: none;
 }
 
+#numD {
+    text-align: right;
+}
 
 @media screen and (max-width: 768px) {
     .grptableCont .hidden {

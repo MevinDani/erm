@@ -113,6 +113,10 @@ table {
     display: none;
 }
 
+#numD {
+    text-align: center;
+}
+
 @media screen and (max-width:1124px) {
     .DPItableCont .hidden {
         display: none;
