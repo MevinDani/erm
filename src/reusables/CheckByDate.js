@@ -1,15 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './CheckByDate.css'
 
+
 const CheckByDate = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    }
     return (
         <div className='CBDwrapper'>
             <div className='CBDCont'>
-                <div className='CBDDropCont'>
-                    <div className='CBDDropItems'>
-                        <div className='CBDDText'>Check by date</div>
-                        <div className='CBDDText'><i class="fa-solid fa-sort-down"></i></div>
+                <div className='CBDMAINDROP'>
+                    <div className='CBDDropCont'>
+                        <div className='CBDDropItems'>
+                            <div className='CBDDText'>Check by date</div>
+                            <div className='CBDDText'><i class="fa-solid fa-sort-down" onClick={toggleDropdown}></i></div>
+                        </div>
                     </div>
+                    {isOpen && (
+                        <div className='CBDDropDown'>
+                            <div className='CBDropDownCont'>
+                                <div className='CBDDropDownText'>Last 10 days</div>
+                                <div className='CBDDropDownText'>Last 5 days</div>
+                                <div className='CBDDropDownText'>Last 2 days</div>
+                            </div>
+                        </div>
+                    )}
                 </div>
                 <div className='CBDDateCont'>
                     <div className='CBDItems'>
