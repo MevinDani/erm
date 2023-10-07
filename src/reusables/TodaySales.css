@@ -1,0 +1,202 @@
+.TSSaleswrapper {
+    background-color: rgb(138, 232, 255);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.TSCont {
+    width: 40%;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    padding: 25px;
+}
+
+.TSDropCont {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.TSDropItems {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 38%;
+    padding-right: 36px;
+    padding-top: 8px;
+}
+
+.TSDropItems .TSDText {
+    font-size: 26px;
+    color: #7F7F7F;
+    border: none;
+}
+
+.TSDselectStyle {
+    font-size: 26px;
+    color: #7F7F7F;
+    border: none;
+}
+
+/* Add the following CSS to your stylesheet */
+.custom-select {
+    position: relative;
+    width: fit-content;
+    /* Adjust width as needed */
+}
+
+.custom-select select {
+    display: none;
+    /* Hide the default select element */
+}
+
+.custom-select i {
+    position: absolute;
+    right: -15px;
+    /* Adjust position as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    /* pointer-events: none; */
+    /* Make sure the icon doesn't interfere with the click */
+}
+
+/* Adjust the font size and color as needed */
+.custom-select i.fa-sort-down {
+    font-size: 24px;
+    color: #7F7F7F;
+}
+
+
+
+.TSDropItems .fa-solid {
+    padding-bottom: 12px;
+}
+
+.TSSalesCont {
+    display: flex;
+    justify-content: flex-start;
+    height: 80%;
+}
+
+.TSSalesItems {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+    width: 60%;
+    padding-left: 10%;
+}
+
+.TSSalesItems .TSText {
+    font-size: 32px;
+    color: #107F6A;
+}
+
+.TSSalesItems .TSNum {
+    font-size: 38px;
+    font-weight: bold;
+    color: #107F6A;
+}
+
+.TSSalesButton {
+    padding: 15px 42px;
+    background-color: #2FB69D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 24px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.TSSalesButton:hover {
+    background-color: #13e6bf;
+    ;
+    /* Darker blue color on hover */
+}
+
+/* For Tablets (e.g., iPad) */
+@media (max-width: 768px) {
+    .TSCont {
+        width: 60%;
+        /* Adjust width for tablets */
+        height: 250px;
+        /* Adjust height if needed */
+    }
+
+    .TSDropItems {
+        width: 50%;
+        /* Adjust width for tablets */
+        padding-right: 20px;
+        /* Adjust padding if needed */
+    }
+
+    .TSDropItems .TSDText {
+        font-size: 22px;
+        /* Adjust font size for tablets */
+    }
+
+    .TSSalesItems .TSText {
+        font-size: 28px;
+        /* Adjust font size for tablets */
+    }
+
+    .TSSalesItems .TSNum {
+        font-size: 32px;
+        /* Adjust font size for tablets */
+    }
+
+    .TSSalesButton {
+        font-size: 20px;
+        /* Adjust font size for tablets */
+    }
+}
+
+/* For Mobile Devices (e.g., iPhone) */
+@media (max-width: 480px) {
+    .TSCont {
+        width: 80%;
+        /* Adjust width for mobile devices */
+        height: auto;
+        /* Allow height to be flexible for mobile devices */
+    }
+
+    .TSDropItems {
+        width: 100%;
+        /* Adjust width for mobile devices */
+        padding-right: 10px;
+        /* Adjust padding if needed */
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .TSDropItems .TSDText {
+        font-size: 18px;
+        /* Adjust font size for mobile devices */
+    }
+
+    .TSSalesItems {
+        width: 100%;
+        /* Adjust width for mobile devices */
+        padding-left: 5%;
+        /* Adjust padding if needed */
+    }
+
+    .TSSalesItems .TSText {
+        font-size: 24px;
+        /* Adjust font size for mobile devices */
+    }
+
+    .TSSalesItems .TSNum {
+        font-size: 28px;
+        /* Adjust font size for mobile devices */
+    }
+
+    .TSSalesButton {
+        font-size: 18px;
+        /* Adjust font size for mobile devices */
+        margin-top: 8px;
+        /* Adjust margin-top for mobile devices */
+    }
+}

@@ -19,7 +19,13 @@ const AdminPanel = () => {
                 <Link className="custom-link" to='/latestInvoice'>Latest 500 Invoice List</Link>
             </div>
             <div className='items'>
-                <Link className="custom-link" to='/deliveryOrder'> Delivery Order</Link>
+                <Link className="custom-link" to='/deliveryOrder'>Delivery Order</Link>
+            </div>
+            <div className='items'>
+                <Link className="custom-link" to='/todaysSales'>Todays Sales</Link>
+            </div>
+            <div className='items'>
+                <Link className="custom-link" to='/checkByDate'>checkByDate</Link>
             </div>
         </div>
     )

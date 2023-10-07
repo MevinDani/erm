@@ -9,6 +9,8 @@ import DeliveryOrder from './components/DeliveryOrder';
 import DeliveryPendItems from './components/DeliveryPendItems';
 import DOInvoiced from './components/DOInvoiced';
 import LatestInvoice from './components/LatestInvoice';
+import TodaySales from './reusables/TodaySales';
+import CheckByDate from './reusables/CheckByDate';
 
 
 
@@ -63,6 +65,8 @@ const App = () => {
             <Route path='/deliveryPendItems' element={<DeliveryPendItems />} />
             <Route path='/doInvoiced' element={<DOInvoiced />} />
             <Route path='/latestInvoice' element={<LatestInvoice />} />
+            <Route path='/todaysSales' element={<TodaySales />} />
+            <Route path='/checkByDate' element={<CheckByDate />} />
           </>
           : !user ?
             <Route path='/login' element={<Login />} />
