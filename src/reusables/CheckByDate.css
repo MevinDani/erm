@@ -108,6 +108,12 @@
     /* Darker blue color on hover */
 }
 
+@media (max-width:1174px) {
+    .CBDDropCont {
+        width: 120%;
+    }
+}
+
 @media (max-width:1157px) {
     .CBDDropDown {
         width: 50%;
@@ -122,6 +128,12 @@
     .CBDDropItems .CBDDText {
         font-size: 22px;
         /* Adjust font size for tablets */
+    }
+}
+
+@media (max-width:996px) {
+    .CBDItems {
+        width: 80%;
     }
 }
 
@@ -175,7 +187,7 @@
     .CBDDropItems {
         width: 100%;
         /* Adjust width for mobile devices */
-        padding-right: 10px;
+        padding-right: 22px;
         /* Adjust padding if needed */
         display: flex;
         justify-content: flex-end;
@@ -184,6 +196,10 @@
     .CBDDropItems .CBDDText {
         font-size: 18px;
         /* Adjust font size for mobile devices */
+    }
+
+    .CBDDropItems .fa-solid {
+        margin-left: 8px;
     }
 
     .CBDItems {

@@ -101,13 +101,13 @@ const DeliveryOrder = () => {
                         <thead>
                             <tr onClick={handleRowClick}>
                                 <th>DEPTNO</th>
-                                <th className={hideonMob ? 'hidden' : 'expandable'}>DATE</th>
-                                <th className={hideonMob ? 'hidden' : 'expandable'}>CUSTOMER</th>
-                                <th className={hideonMob ? 'hidden' : 'expandable'}>AMOUNT</th>
-                                <th className={hideonIpad ? 'hidden' : 'expandable'}>AMOUNT EXCLVAT</th>
-                                <th className={hideonIpad ? 'hidden' : 'expandable'}>DONO</th>
-                                <th className={hideonIpad ? 'hidden' : 'expandable'}>INV NO</th>
-                                <th className={hideonMob ? 'hidden' : 'expandable'}>SALESMAN</th>
+                                <th id='numD' className={hideonMob ? 'hidden' : 'expandable'}>DATE</th>
+                                <th id='numD' className={hideonMob ? 'hidden' : 'expandable'}>CUSTOMER</th>
+                                <th id='numD' className={hideonMob ? 'hidden' : 'expandable'}>AMOUNT</th>
+                                <th id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>AMOUNT EXCLVAT</th>
+                                <th id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>DONO</th>
+                                <th id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>INV NO</th>
+                                <th id='numD' className={hideonMob ? 'hidden' : 'expandable'}>SALESMAN</th>
                                 <th>VAT</th>
                             </tr>
                         </thead>
@@ -117,45 +117,45 @@ const DeliveryOrder = () => {
                                 displayData && displayData.map((g, i) => (
                                     <React.Fragment key={i}>
                                         <tr onClick={window.innerWidth <= 1124 ? () => handleRowClick(i) : null} key={i}>
-                                            <td className='DloplusTd'>{g.DEPTNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
-                                            <td className={hideonMob ? 'hidden' : 'expandable'}>{g["DATE"]}</td>
-                                            <td className={hideonMob ? 'hidden' : 'expandable'}>{g["CUSTOMER"]}</td>
-                                            <td className={hideonMob ? 'hidden' : 'expandable'}>{g["AMOUNT"]}</td>
-                                            <td className={hideonIpad ? 'hidden' : 'expandable'}>{g["AMOUNT_EXCLVAT"]}</td>
-                                            <td className={hideonIpad ? 'hidden' : 'expandable'}>{g["DONO"]}</td>
-                                            <td className={hideonIpad ? 'hidden' : 'expandable'}>{g["INV NO"]}</td>
-                                            <td className={hideonMob ? 'hidden' : 'expandable'}>{g["SALESMAN"]}</td>
-                                            <td>{g["VAT"]}</td>
+                                            <td id='numD' className='DloplusTd'>{g.DEPTNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
+                                            <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["DATE"]}</td>
+                                            <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["CUSTOMER"]}</td>
+                                            <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["AMOUNT"]}</td>
+                                            <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["AMOUNT_EXCLVAT"]}</td>
+                                            <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["DONO"]}</td>
+                                            <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["INV NO"]}</td>
+                                            <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["SALESMAN"]}</td>
+                                            <td id='numD'>{g["VAT"]}</td>
                                         </tr>
                                         {expandedRows.includes(i) && (
                                             <>
                                                 <tr>
                                                     <th className='expandable'>DATE</th>
-                                                    <td className='expandable'>{g["DATE"]}</td>
+                                                    <td id='numD' className='expandable'>{g["DATE"]}</td>
                                                 </tr>
                                                 <tr>
                                                     <th className='expandable'>CUSTOMER</th>
-                                                    <td className='expandable'>{g["CUSTOMER"]}</td>
+                                                    <td id='numD' className='expandable'>{g["CUSTOMER"]}</td>
                                                 </tr>
                                                 <tr>
                                                     <th className='expandable'>AMOUNT</th>
-                                                    <td className='expandable'>{g["AMOUNT"]}</td>
+                                                    <td id='numD' className='expandable'>{g["AMOUNT"]}</td>
                                                 </tr>
                                                 <tr>
                                                     <th className='expandable'>AMOUNT_EXCLVAT</th>
-                                                    <td className='expandable'>{g["AMOUNT_EXCLVAT"]}</td>
+                                                    <td id='numD' className='expandable'>{g["AMOUNT_EXCLVAT"]}</td>
                                                 </tr>
                                                 <tr>
                                                     <th className='expandable'>DONO</th>
-                                                    <td className='expandable'>{g["VAT"]}</td>
+                                                    <td id='numD' className='expandable'>{g["VAT"]}</td>
                                                 </tr>
                                                 <tr>
                                                     <th className='expandable'>INV NO</th>
-                                                    <td className='expandable'>{g["INV NO"]}</td>
+                                                    <td id='numD' className='expandable'>{g["INV NO"]}</td>
                                                 </tr>
                                                 <tr>
                                                     <th className='expandable'>SALESMAN</th>
-                                                    <td className='expandable'>{g["SALESMAN"]}</td>
+                                                    <td id='numD' className='expandable'>{g["SALESMAN"]}</td>
                                                 </tr>
                                             </>
 

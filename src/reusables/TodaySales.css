@@ -175,15 +175,23 @@
     .TSDropItems {
         width: 100%;
         /* Adjust width for mobile devices */
-        padding-right: 10px;
+        padding-right: 22px;
         /* Adjust padding if needed */
         display: flex;
         justify-content: flex-end;
     }
 
     .TSDropItems .TSDText {
-        font-size: 18px;
+        font-size: 20px;
         /* Adjust font size for mobile devices */
+    }
+
+    .TSDropItems .fa-solid {
+        margin-left: 8px;
+    }
+
+    .TSDropDownCont .TSDropDownText {
+        font-size: 18px;
     }
 
     .TSSalesItems {

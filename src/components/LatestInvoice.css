@@ -133,7 +133,7 @@ table {
     }
 
     .LtstplusTd {
-        padding: 0 15px;
+        padding: 20px 15px;
         display: flex;
         justify-content: space-between;
     }

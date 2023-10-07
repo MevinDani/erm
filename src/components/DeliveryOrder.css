@@ -113,6 +113,10 @@ table {
     display: none;
 }
 
+.numD {
+    text-align: center;
+}
+
 @media screen and (max-width:1124px) {
     .DlOtableCont .hidden {
         display: none;
@@ -123,7 +127,7 @@ table {
     }
 
     .DloplusTd {
-        padding: 0 15px;
+        padding: 10px 15px;
         display: flex;
         justify-content: space-between;
     }

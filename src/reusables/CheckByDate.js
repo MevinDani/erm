@@ -20,7 +20,7 @@ const CheckByDate = () => {
                     </div>
                     {isOpen && (
                         <div className='CBDDropDown'>
-                            <div className='CBDropDownCont'>
+                            <div className='CBDDropDownCont'>
                                 <div className='CBDDropDownText'>Last 10 days</div>
                                 <div className='CBDDropDownText'>Last 5 days</div>
                                 <div className='CBDDropDownText'>Last 2 days</div>
