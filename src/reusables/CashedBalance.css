@@ -20,9 +20,12 @@
 }
 
 .CashedCont h3,
-.CashedCont span,
 .AmountBox {
     color: #7C6716;
+}
+
+.CashedCont span {
+    color: black;
 }
 
 .MinusCont,
@@ -32,8 +35,16 @@
     align-items: flex-end;
 }
 
+.Minus,
+.Plus,
+.Equals {
+    padding-top: 50px;
+    /* font-size: 26px; */
+    font-weight: bold;
+}
+
 .AmountBox {
-    border: 1px solid #7C6716;
+    border: 1.5px solid #7C6716;
     padding: 4px 10px;
     border-radius: 4px;
     font-size: 20px;
