@@ -76,7 +76,7 @@ label {
 }
 
 
-table {
+.LtstTableCont table {
     width: 95%;
     background-color: rgb(192, 226, 255);
 }

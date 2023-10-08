@@ -75,7 +75,7 @@ label {
     background-color: aliceblue;
 }
 
-table {
+.grptableCont table {
     width: 95%;
     background-color: rgb(192, 226, 255);
 }

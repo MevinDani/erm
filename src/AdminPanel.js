@@ -25,7 +25,13 @@ const AdminPanel = () => {
                 <Link className="custom-link" to='/todaysSales'>Todays Sales</Link>
             </div>
             <div className='items'>
-                <Link className="custom-link" to='/checkByDate'>checkByDate</Link>
+                <Link className="custom-link" to='/checkByDate'>CheckByDate</Link>
+            </div>
+            <div className='items'>
+                <Link className="custom-link" to='/branchWiseSales'>BranchWiseSales</Link>
+            </div>
+            <div className='items'>
+                <Link className="custom-link" to='/cashedBalance'>CashedBalance</Link>
             </div>
         </div>
     )

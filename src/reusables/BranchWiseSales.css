@@ -1,0 +1,114 @@
+.BranchWrapper {
+    background-color: rgb(138, 232, 255);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.BranchCont {
+    width: 40%;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    padding: 20px 20px 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.BranchMainHead {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.BranchMainHead h3 {
+    color: #7C7C7C;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.BranchTableCont,
+.BranchTable {
+    width: 100%;
+}
+
+.BranchTable thead {
+    background-color: #E4E4E4;
+}
+
+.BranchTable td {
+    text-align: center;
+}
+
+.BranchTable tbody tr {
+    border-bottom: 1px solid #E4E4E4;
+}
+
+
+.BranchTable {
+    border-collapse: collapse;
+    /* This collapses the borders */
+    border-spacing: 0;
+    /* This sets the spacing between cells to 0 */
+    border: none;
+    /* This removes any remaining border */
+}
+
+
+.BranchTable tbody tr {
+    border-bottom: 2px solid #E4E4E4;
+    /* Add a border at the bottom of tbody rows */
+}
+
+.BranchTable tbody tr:last-child {
+    border-bottom: none;
+    /* Remove border from the last tr */
+}
+
+.BranchTable td {
+    font-size: 18px;
+}
+
+@media (max-width: 770px) {
+    .BranchCont {
+        width: 80%;
+        /* Adjust the width as needed */
+    }
+
+    .BranchTable {
+        margin: 0 auto;
+    }
+
+    .BranchTable td {
+        font-size: 16px;
+        /* Adjust the font size as needed */
+    }
+}
+
+@media (max-width:460px) {
+
+    .BranchCont {
+        width: 80%;
+    }
+
+    .BranchTableCont {
+        width: 100%;
+    }
+
+    .BranchMainHead h3 {
+        color: #7C7C7C;
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+    .BranchTable td,
+    .BranchTable th {
+        padding: 12px 0px;
+        /* Remove padding for cells */
+    }
+
+    .BranchTable td {
+        min-width: 12px;
+    }
+}

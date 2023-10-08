@@ -74,7 +74,7 @@ label {
     margin-top: 18px;
 }
 
-table {
+.DPItableCont table {
     width: 95%;
     background-color: rgb(192, 226, 255);
 }

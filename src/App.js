@@ -11,7 +11,8 @@ import DOInvoiced from './components/DOInvoiced';
 import LatestInvoice from './components/LatestInvoice';
 import TodaySales from './reusables/TodaySales';
 import CheckByDate from './reusables/CheckByDate';
-
+import BranchWiseSales from './reusables/BranchWiseSales';
+import CashedBalance from './reusables/CashedBalance';
 
 
 const App = () => {
@@ -67,6 +68,8 @@ const App = () => {
             <Route path='/latestInvoice' element={<LatestInvoice />} />
             <Route path='/todaysSales' element={<TodaySales />} />
             <Route path='/checkByDate' element={<CheckByDate />} />
+            <Route path='/branchWiseSales' element={<BranchWiseSales />} />
+            <Route path='/cashedBalance' element={<CashedBalance />} />
           </>
           : !user ?
             <Route path='/login' element={<Login />} />

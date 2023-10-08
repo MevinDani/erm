@@ -1,0 +1,41 @@
+.CashedWrapper {
+    background-color: rgb(138, 232, 255);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.CashedCont {
+    background-color: #fff;
+    width: 80%;
+    display: flex;
+    padding: 24px;
+    justify-content: space-evenly;
+}
+
+.CashedCont h3 {
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.CashedCont h3,
+.CashedCont span,
+.AmountBox {
+    color: #7C6716;
+}
+
+.MinusCont,
+.PlusCont,
+.EqualsCont {
+    display: flex;
+    align-items: flex-end;
+}
+
+.AmountBox {
+    border: 1px solid #7C6716;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 500;
+}
