@@ -48,7 +48,7 @@
 }
 
 .TSDropDownCont {
-    padding-right: 30px;
+    padding-left: 30px;
 }
 
 .TSDropDownText {
@@ -77,7 +77,7 @@
     justify-content: space-evenly;
     align-items: start;
     width: 60%;
-    padding-left: 10%;
+    /* padding-left: 10%; */
 }
 
 .TSSalesItems .TSText {
@@ -108,16 +108,33 @@
     /* Darker blue color on hover */
 }
 
+.TSMAINDROP {
+    position: relative;
+}
+
+.TSDropDown {
+    position: absolute;
+    top: 100%;
+    left: 100;
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+    width: 30%;
+    background-color: white;
+    /* Add a background color to dropdown for visibility */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    /* Optional: Add a shadow for separation */
+}
+
 @media (max-width:1157px) {
     .TSDropDown {
-        width: 50%;
+        width: 45%;
     }
 }
 
 @media (max-width:1036px) {
-    .TSDropDown {
+    /* .TSDropDown {
         width: 50%;
-    }
+    } */
 
     .TSDropItems .TSDText {
         font-size: 22px;
@@ -160,6 +177,10 @@
         font-size: 20px;
         /* Adjust font size for tablets */
     }
+
+    .TSDropDownCont .TSDropDownText {
+        font-size: 18px;
+    }
 }
 
 /* For Mobile Devices (e.g., iPhone) */
@@ -194,10 +215,15 @@
         font-size: 18px;
     }
 
+    .TSDropDownCont {
+        padding-left: 24px;
+        width: 80%;
+    }
+
     .TSSalesItems {
         width: 100%;
         /* Adjust width for mobile devices */
-        padding-left: 5%;
+        padding-left: 2%;
         /* Adjust padding if needed */
     }
 

@@ -6,9 +6,14 @@
     justify-content: center;
 }
 
+.CashedContWrapper {
+    width: 70%;
+    display: flex;
+}
+
 .CashedCont {
     background-color: #fff;
-    width: 80%;
+    width: 100%;
     display: flex;
     padding: 24px;
     justify-content: space-evenly;
@@ -49,4 +54,37 @@
     border-radius: 4px;
     font-size: 20px;
     font-weight: 500;
+}
+
+@media (max-width:825px) {
+    .CashedContWrapper {
+        width: 50%;
+    }
+
+    .CashedCont {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 80%;
+    }
+
+    .Minus,
+    .Plus,
+    .Equals {
+        padding-top: 0px;
+        /* font-size: 26px; */
+        font-weight: bold;
+    }
+
+    .CashedCont h3,
+    .AmountBox,
+    .Minus,
+    .Plus,
+    .Equals {
+        font-size: 18px;
+    }
+
+    #CashDivs {
+        height: 20%;
+    }
 }

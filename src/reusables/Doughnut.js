@@ -15,12 +15,12 @@ const data = {
             label: 'No of Purchase',
             data: [12, 19, 3, 5, 2],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132)',
+                'rgba(54, 162, 235)',
+                'rgba(255, 206, 86)',
+                'rgba(75, 192, 192)',
+                'rgba(153, 102, 255)',
+                'rgba(255, 159, 64)',
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
@@ -38,7 +38,7 @@ const data = {
 const options = {
     // cutoutPercentage: 12,
     layout: {
-        padding: 35,
+        padding: 45,
     },
     plugins: {
         datalabels: {
@@ -46,6 +46,9 @@ const options = {
             anchor: 'end',
             align: 'end',
             offset: 10,
+            font: {
+                size: 16, // Set the font size as needed
+            },
             formatter: (value, context) => {
                 return context.chart.data.labels[context.dataIndex];
             },
@@ -83,9 +86,9 @@ const DoughnutChart = () => {
                         </div>
                         {productisOpen && (
                             <div className='DFDropDownCont'>
-                                <div className='DFDropDownText'>Last 10 days</div>
-                                <div className='DFDropDownText'>Last 5 days</div>
-                                <div className='DFDropDownText'>Last 2 days</div>
+                                <div id='LeftDrops' className='DFDropDownText'>Last 10 days</div>
+                                <div id='LeftDrops' className='DFDropDownText'>Last 5 days</div>
+                                <div id='LeftDrops' className='DFDropDownText'>Last 2 days</div>
                             </div>
                         )}
                     </div>
@@ -95,7 +98,7 @@ const DoughnutChart = () => {
                             <div className='DFDText'><i class="fa-solid fa-sort-down" onClick={toggleMonth}></i></div>
                         </div>
                         {monthisOpen && (
-                            <div className='DFDropDownCont'>
+                            <div id='RightDrops' className='DFDropDownCont'>
                                 <div className='DFDropDownText'>Last 10 days</div>
                                 <div className='DFDropDownText'>Last 5 days</div>
                                 <div className='DFDropDownText'>Last 2 days</div>
