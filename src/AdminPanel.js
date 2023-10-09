@@ -33,6 +33,9 @@ const AdminPanel = () => {
             <div className='items'>
                 <Link className="custom-link" to='/cashedBalance'>CashedBalance</Link>
             </div>
+            <div className='items'>
+                <Link className="custom-link" to='/doughnut'>DoughnutChart</Link>
+            </div>
         </div>
     )
 }

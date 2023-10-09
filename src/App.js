@@ -13,6 +13,8 @@ import TodaySales from './reusables/TodaySales';
 import CheckByDate from './reusables/CheckByDate';
 import BranchWiseSales from './reusables/BranchWiseSales';
 import CashedBalance from './reusables/CashedBalance';
+import DoughnutChart from './reusables/Doughnut';
+
 
 
 const App = () => {
@@ -70,6 +72,7 @@ const App = () => {
             <Route path='/checkByDate' element={<CheckByDate />} />
             <Route path='/branchWiseSales' element={<BranchWiseSales />} />
             <Route path='/cashedBalance' element={<CashedBalance />} />
+            <Route path='/doughnut' element={<DoughnutChart />} />
           </>
           : !user ?
             <Route path='/login' element={<Login />} />
