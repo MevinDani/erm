@@ -21,6 +21,7 @@ const LatestInvoice = () => {
         } catch (error) {
             console.log(error)
             alert(error)
+            setWarningMsg("Some Error Occured in the backend, Please try again later")
         }
     }
 
@@ -71,10 +72,10 @@ const LatestInvoice = () => {
                             <th className={hideonIpad ? 'hidden' : 'expandable'}>DO NO</th>
                             <th className={hideonIpad ? 'hidden' : 'expandable'}>deptno</th>
                             <th className={hideonIpad ? 'hidden' : 'expandable'}>SALES MAN</th>
-                            <th className={hideonIpad ? 'hidden' : 'expandable'}>CASHCRED</th>
+                            {/* <th className={hideonIpad ? 'hidden' : 'expandable'}>CASHCRED</th> */}
                             <th className={hideonIpad ? 'hidden' : 'expandable'}>cust_acc</th>
                             <th className={hideonIpad ? 'hidden' : 'expandable'}>VATAMT</th>
-                            <th className={hideonIpad ? 'hidden' : 'expandable'}>REMARKS</th>
+                            {/* <th className={hideonIpad ? 'hidden' : 'expandable'}>REMARKS</th> */}
                             <th className={hideonIpad ? 'hidden' : 'expandable'}>USER</th>
                             <th className={hideonIpad ? 'hidden' : 'expandable'}>ENTERED_ON</th>
                             <th className={hideonMob ? 'hidden' : 'expandable'}>ACTION</th>
@@ -97,10 +98,10 @@ const LatestInvoice = () => {
                                         <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["DO NO"] ? g["DO NO"] : "Nil"}</td>
                                         <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["deptno"] ? g["deptno"] : "Nil"}</td>
                                         <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["SALES MAN"] ? g["SALES MAN"] : "Nil"}</td>
-                                        <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["CASHCRED"] ? g["CASHCRED"] : "Nil"}</td>
+                                        {/* <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["CASHCRED"] ? g["CASHCRED"] : "Nil"}</td> */}
                                         <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["cust_acc"] ? g["cust_acc"] : "Nil"}</td>
                                         <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["VATAMT"] ? g["VATAMT"] : "Nil"}</td>
-                                        <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["REMARKS"] ? g["REMARKS"] : "Nil"}</td>
+                                        {/* <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["REMARKS"] ? g["REMARKS"] : "Nil"}</td> */}
                                         <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["USER"] ? g["USER"] : "Nil"}</td>
                                         <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["ENTERED_ON"] ? g["ENTERED_ON"] : "Nil"}</td>
                                         <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["ACTION"] ? g["ACTION"] : "Nil"}</td>

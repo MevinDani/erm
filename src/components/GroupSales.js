@@ -23,6 +23,7 @@ const GroupSales = () => {
         } catch (error) {
             alert(error)
             console.log(error)
+            setWarningMsg("Some Error Occured in the backend, Please try again later")
         }
     }
 

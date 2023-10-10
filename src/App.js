@@ -78,10 +78,10 @@ const App = () => {
             <Route path='/login' element={<Login />} />
             : ""
       }
-      {
+      {/* {
         isDeviceValidated === "INVALID" ?
           <Route path='/notValid' element={<DeviceNotValid />} /> : ""
-      }
+      } */}
 
     </Routes >
   )
