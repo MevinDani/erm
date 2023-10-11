@@ -21,7 +21,7 @@ const GroupSales = () => {
             data && setAllData(data)
             console.log(data)
         } catch (error) {
-            alert(error)
+            window.alert(error)
             console.log(error)
             setWarningMsg("Some Error Occured in the backend, Please try again later")
         }

@@ -102,7 +102,7 @@ const DeliveryPendItems = () => {
                             <th className={hideonIpad ? 'hidden' : 'expandable'}>UNIT PRICE</th>
                             <th className={hideonIpad ? 'hidden' : 'expandable'}>SALES MAN</th>
                             <th className={hideonIpad ? 'hidden' : 'expandable'}>GROUP</th>
-                            {/* <th className={hideonIpad ? 'hidden' : 'expandable'}>SUBGROUP</th> */}
+                            <th className={hideonIpad ? 'hidden' : 'expandable'}>SUBGROUP</th>
                             <th className={hideonIpad ? 'hidden' : 'expandable'}>CATEG</th>
                             <th className={hideonMob ? 'hidden' : 'expandable'}>SCATEG</th>
                             <th>TOTAL</th>
@@ -126,7 +126,7 @@ const DeliveryPendItems = () => {
                                         <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["UNIT PRICE"] ? g["UNIT PRICE"] : "Nil"}</td>
                                         <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["SALES MAN"] ? g["SALES MAN"] : "Nil"}</td>
                                         <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["GROUP"] ? g["GROUP"] : "Nil"}</td>
-                                        {/* <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["SUBGROUP"] ? g["SUBGROUP"] : "Nil"}</td> */}
+                                        <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["SUBGROUP"] ? g["SUBGROUP"] : "Nil"}</td>
                                         <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["CATEG"] ? g["CATEG"] : "Nil"}</td>
                                         <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["SCATEG"] ? g["SCATEG"] : "Nil"}</td>
                                         <td id='numD'>{g["TOTAL"]}</td>

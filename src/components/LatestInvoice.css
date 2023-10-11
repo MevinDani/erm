@@ -116,20 +116,26 @@ label {
 }
 
 
-
-
-.LtstplusTd .fa-solid {
-    display: none;
+.LtstplusTd {
+    width: 10%;
 }
 
+.LtstplusTd .fa-solid {
+    display: contents;
+    margin-left: 5px;
+}
 
 .expandable {
     display: table-cell;
 }
 
-#numD {
-    align-items: center;
+.LtstTableCont .hidden {
+    display: none;
 }
+
+/* #numD {
+    align-items: center;
+} */
 
 /* #SmallWidth {
     width: 50px;
