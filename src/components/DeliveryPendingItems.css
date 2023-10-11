@@ -72,11 +72,21 @@ label {
     align-items: center;
     justify-content: center;
     margin-top: 18px;
+    overflow-x: scroll;
 }
 
 .DPItableCont table {
-    width: 95%;
+    width: 98%;
     background-color: rgb(192, 226, 255);
+    display: block;
+    overflow-x: scroll;
+    /* white-space: nowrap; */
+    border-collapse: collapse;
+}
+
+.DPItableCont table td,
+.DPItableCont table th {
+    padding: 5px;
 }
 
 .grpButton {
@@ -136,6 +146,14 @@ label {
 
 
 @media screen and (max-width: 768px) {
+    .DPItableCont table {
+        width: 95%;
+        display: table;
+        overflow-x: scroll;
+        white-space: wrap;
+        border-collapse: collapse;
+    }
+
     .DPItableCont .hidden {
         display: none;
     }

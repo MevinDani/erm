@@ -75,8 +75,13 @@ label {
 }
 
 .DItableCont table {
-    width: 95%;
+    width: 98%;
     background-color: rgb(192, 226, 255);
+}
+
+.DItableCont table td,
+.DItableCont table th {
+    padding: 4px;
 }
 
 .grpButton {

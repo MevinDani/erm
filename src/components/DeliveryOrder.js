@@ -105,10 +105,10 @@ const DeliveryOrder = () => {
                                 <th id='numD' className={hideonMob ? 'hidden' : 'expandable'}>DATE</th>
                                 <th id='numD' className={hideonMob ? 'hidden' : 'expandable'}>CUSTOMER</th>
                                 <th id='numD' className={hideonMob ? 'hidden' : 'expandable'}>AMOUNT</th>
+                                <th id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>VAT</th>
                                 <th id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>DONO</th>
-                                <th id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>INV NO</th>
+                                <th id='numD' className={hideonMob ? 'hidden' : 'expandable'}>INV NO</th>
                                 <th id='numD' className={hideonMob ? 'hidden' : 'expandable'}>SALESMAN</th>
-                                <th id='numD' className={hideonMob ? 'hidden' : 'expandable'}>VAT</th>
                                 <th>AMOUNT EXCLVAT</th>
                             </tr>
                         </thead>
@@ -124,7 +124,7 @@ const DeliveryOrder = () => {
                                             <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["AMOUNT"] ? g["AMOUNT"] : "Nil"}</td>
                                             <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["VAT"] ? g["VAT"] : "Nil"}</td>
                                             <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["DONO"] ? g["DONO"] : "Nil"}</td>
-                                            <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["INV NO"] ? g["INV NO"] : "Nil"}</td>
+                                            <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["INV NO"] ? g["INV NO"] : "Nil"}</td>
                                             <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["SALESMAN"] ? g["SALESMAN"] : "Nil"}</td>
                                             <td id='numD'>{g["AMOUNT_EXCLVAT"] ? g["AMOUNT_EXCLVAT"] : "Nil"}</td>
                                         </tr>
@@ -153,6 +153,10 @@ const DeliveryOrder = () => {
                                                 <tr>
                                                     <th className='expandable'>INV NO</th>
                                                     <td id='numD' className='expandable'>{g["INV NO"] ? g["INV NO"] : "Nil"}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th className='expandable'>SALESMAN</th>
+                                                    <td id='numD' className='expandable'>{g["SALESMAN"] ? g["SALESMAN"] : "Nil"}</td>
                                                 </tr>
                                                 <tr>
                                                     <th className='expandable'>SALESMAN</th>

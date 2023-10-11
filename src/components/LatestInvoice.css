@@ -12,14 +12,14 @@ span {
     font-size: 24px;
 }
 
-.LtstTableCont {
+/* .LtstTableCont {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 20px;
     width: 90%;
-}
+} */
 
 
 .grpDateInp {
@@ -68,18 +68,36 @@ label {
 
 .LtstTableCont {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
     width: 100%;
+    max-width: 100%;
+    overflow-x: scroll;
+    min-width: 300px;
     align-items: center;
     justify-content: center;
     margin-top: 18px;
     background-color: aliceblue;
+
 }
 
 
 .LtstTableCont table {
-    width: 95%;
     background-color: rgb(192, 226, 255);
+    width: 98%;
+    display: block;
+    overflow-x: scroll;
+    /* white-space: nowrap; */
+    border-collapse: collapse;
 }
+
+.LtstTableCont table td,
+.LtstTableCont table th {
+    padding: 5px;
+}
+
 
 .grpButton {
     padding: 5px 20px;
@@ -97,17 +115,8 @@ label {
     /* Darker blue color on hover */
 }
 
-.LtstTableCont {
-    max-width: 100%;
-    overflow-x: auto;
-    overflow-y: auto;
-    /* border: 1px solid #ccc; */
-    /* Add a border to the container */
-}
 
-.LtstTableCont table {
-    border-collapse: collapse;
-}
+
 
 .LtstplusTd .fa-solid {
     display: none;
@@ -121,6 +130,11 @@ label {
 #numD {
     align-items: center;
 }
+
+/* #SmallWidth {
+    width: 50px;
+} */
+
 
 
 @media screen and (max-width:1124px) {
@@ -141,6 +155,15 @@ label {
 }
 
 @media screen and (max-width: 768px) {
+
+    .LtstTableCont table {
+        width: 95%;
+        display: table;
+        overflow-x: scroll;
+        white-space: wrap;
+        border-collapse: collapse;
+    }
+
     .LtstTableCont .hidden {
         display: none;
     }
@@ -155,18 +178,10 @@ label {
         justify-content: space-between;
     }
 
-    /* .LtstTableCont table {
-        display: block;
-        max-width: -moz-fit-content;
-        max-width: fit-content;
-        margin: 0 auto;
-        overflow-x: auto;
-        white-space: nowrap;
-    } */
-
     th,
     td {
         min-width: 160px;
+        padding: 0;
     }
 
 }
