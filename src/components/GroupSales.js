@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './GroupSales.css'
 
+
 const GroupSales = () => {
 
     const [fromDate, setFromDate] = useState('')
@@ -19,9 +20,7 @@ const GroupSales = () => {
             const result = await fetch(`https://api-eproc.premierauto.ae/api/SalesAnalysis/SalesGroup?dateStart=${fromDate}&dateEnd=${toDate}`)
             const data = await result.json()
             data && setAllData(data)
-            console.log(data)
         } catch (error) {
-            window.alert(error)
             console.log(error)
             setWarningMsg("Some Error Occured in the backend, Please try again later")
         }
@@ -58,6 +57,7 @@ const GroupSales = () => {
             const filteredData = allData.filter(item => item.DEPTNO == targetDeptNo);
             setDisplayData(filteredData)
         }
+
     }
 
 
@@ -87,6 +87,7 @@ const GroupSales = () => {
 
             sumsArray && setGroupSums(sumsArray);
             sumsArray && setDisplayData(sumsArray)
+            console.log(sumsArray)
         }
 
     }, [allData])
@@ -140,7 +141,7 @@ const GroupSales = () => {
             {/* filter */}
 
             <div className='filter'>
-                <label className='labeStyle' htmlFor="brancSelect">Filter By Branch: </label>
+                <label className='labeStyle' htmlFor="brancSelect">Filter By Branch:</label>
                 <select className='selectStyle' onChange={(e) => getDeptData(e.target.value)} name="branch" id="brancSelect">
                     <option value="all" defaultChecked>ALL</option>
                     {uniqueDeptNo && uniqueDeptNo.map((i) => (

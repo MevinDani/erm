@@ -153,11 +153,22 @@ label {
     }
 
     .LtstplusTd {
-        padding: 20px 15px;
+        padding: 0 15px;
         display: flex;
         justify-content: space-between;
     }
 
+}
+
+@media screen and (max-width: 1000px) {
+    .LtstplusTd .fa-solid {
+        display: contents;
+    }
+
+    .LtstplusTd {
+        width: 89%;
+        height: 50%;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -179,7 +190,8 @@ label {
     }
 
     .LtstplusTd {
-        padding: 0 15px;
+        width: 94%;
+        padding: 10px 15px;
         display: flex;
         justify-content: space-between;
     }

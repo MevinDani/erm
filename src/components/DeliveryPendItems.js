@@ -31,6 +31,7 @@ const DeliveryPendItems = () => {
             if (data) {
                 setAllData(data);
                 setDisplayData(data);
+                console.log(data)
             }
             else if (!data || data.length === 0) {
                 setDisplayData([]); // Set displayData as an empty array if there's no data
@@ -89,7 +90,7 @@ const DeliveryPendItems = () => {
             {displayData.length !== 0 ? (<div div className='DPItableCont' >
                 <table border="1">
                     <thead>
-                        <tr onClick={handleRowClick}>
+                        <tr>
                             <th>DEPTNO</th>
                             <th className={hideonMob ? 'hidden' : 'expandable'}>DONO</th>
                             <th className={hideonMob ? 'hidden' : 'expandable'}>DATE</th>
