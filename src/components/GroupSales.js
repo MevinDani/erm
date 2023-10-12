@@ -87,7 +87,6 @@ const GroupSales = () => {
 
             sumsArray && setGroupSums(sumsArray);
             sumsArray && setDisplayData(sumsArray)
-            console.log(sumsArray)
         }
 
     }, [allData])
@@ -170,7 +169,7 @@ const GroupSales = () => {
                     <tbody>
                         {displayData && displayData.map((g, i) => (
                             <React.Fragment key={i}>
-                                <tr onClick={window.innerWidth <= 768 ? () => handleRowClick(i) : null}>
+                                <tr data-testid={`dropdown-clicker`} onClick={window.innerWidth <= 768 ? () => handleRowClick(i) : null}>
                                     <td className='grpplusTd'>{g.GROUP || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
                                     <td id='numD' className={expandAll ? 'expandable' : 'hidden'}>{g["NETCASH SALES"] ? parseFloat(g["NETCASH SALES"]).toFixed(2) : "Nil"}</td>
                                     <td id='numD' className={expandAll ? 'expandable' : 'hidden'}>{g["NETCREDIT SALES"] ? parseFloat(g["NETCREDIT SALES"]).toFixed(2) : "Nil"}</td>
@@ -180,7 +179,7 @@ const GroupSales = () => {
                                 </tr>
                                 {expandedRows.includes(i) && (
                                     <>
-                                        <tr>
+                                        <tr data-testid={`expanded-row-${i}`}>
                                             <th className='expandable'>NETCASH SALES</th>
                                             <td id='numD' className='expandable'>{g["NETCASH SALES"] ? parseFloat(g["NETCASH SALES"]).toFixed(2) : "Nil"}</td>
                                         </tr>

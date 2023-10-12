@@ -121,7 +121,7 @@ const DOInvoiced = () => {
                                     </tr>
                                     {expandedRows.includes(i) && (
                                         <>
-                                            <tr>
+                                            <tr data-testid={`expanded-row-${i}`}>
                                                 <th className='expandable'>DONO</th>
                                                 <td id='numD' className='expandable'>{g["DONO"] ? g["DONO"] : "Nil"}</td>
                                             </tr>

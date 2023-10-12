@@ -31,7 +31,6 @@ const DeliveryPendItems = () => {
             if (data) {
                 setAllData(data);
                 setDisplayData(data);
-                console.log(data)
             }
             else if (!data || data.length === 0) {
                 setDisplayData([]); // Set displayData as an empty array if there's no data
@@ -115,7 +114,7 @@ const DeliveryPendItems = () => {
                             displayData && displayData.map((g, i) => (
                                 <React.Fragment key={i}>
                                     <tr onClick={window.innerWidth <= 1124 ? () => handleRowClick(i) : null} key={i}>
-                                        <td id='numD' className='DPIplusTd'>{g.DEPTNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
+                                        <td data-testid="dropdown-clicker" id='numD' className='DPIplusTd'>{g.DEPTNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
                                         <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["DONO"] ? g["DONO"] : "Nil"}</td>
                                         <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["DATE"] ? g["DATE"] : "Nil"}</td>
                                         <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["CODE"] ? g["CODE"] : "Nil"}</td>
@@ -135,7 +134,7 @@ const DeliveryPendItems = () => {
                                     {
                                         expandedRows.includes(i) && (
                                             <>
-                                                <tr>
+                                                <tr data-testid={`expanded-row-${i}`}>
                                                     <th className='expandable'>DONO</th>
                                                     <td id='numD' className='expandable'>{g["DONO"] ? g["DONO"] : "Nil"}</td>
                                                 </tr>

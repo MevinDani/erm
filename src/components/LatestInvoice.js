@@ -90,7 +90,7 @@ const LatestInvoice = () => {
                             displayData && displayData.map((g, i) => (
                                 <React.Fragment key={i}>
                                     <tr onClick={window.innerWidth <= 2000 ? () => handleRowClick(i) : null}>
-                                        <td id='numD' className='LtstplusTd'>{g.INVNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
+                                        <td data-testid="dropdown-clicker" id='numD' className='LtstplusTd'>{g.INVNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
                                         <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["INV_DATE"] ? g["INV_DATE"] : "Nil"}</td>
                                         <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["CUSTOMER"] ? g["CUSTOMER"] : "Nil"}</td>
                                         <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["LPO NO"] ? g["LPO NO"] : "Nil"}</td>
@@ -111,7 +111,7 @@ const LatestInvoice = () => {
                                     </tr>
                                     {expandedRows.includes(i) && (
                                         <>
-                                            <tr>
+                                            <tr data-testid={`expanded-row-${i}`}>
                                                 <th className='expandable'>INV_DATE</th>
                                                 <td id="numD" className='expandable'>{g["INV_DATE"] ? g["INV_DATE"] : "Nil"}</td>
                                             </tr>

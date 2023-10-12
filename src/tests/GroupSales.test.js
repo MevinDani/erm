@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, fireEvent, act, waitFor } from '@testing-library/react';
-import GroupSales, { getDeptData } from '../components/GroupSales';
+import { render, fireEvent, act, waitFor, screen } from '@testing-library/react';
+import GroupSales from '../components/GroupSales';
 
 
 
@@ -43,7 +43,7 @@ describe('GroupSales Component', () => {
             await new Promise((resolve) => setTimeout(resolve, 0));
         });
 
-        expect(global.fetch).toHaveBeenCalledWith(`https://api-eproc.premierauto.ae/api/SalesAnalysis/SalesGroup?dateStart=2023-10-12&dateEnd=2023-10-15`);
+        expect(global.fetch).toHaveBeenCalledWith(`https://api-eproc.premierauto.ae/api/SalesAnalysis/SalesGroup?dateStart=2023-10-12&dateEnd=2023-10-15`)
 
         expect(queryByText("GROUP")).toBeInTheDocument();
     });
@@ -78,7 +78,7 @@ describe('GroupSales Component', () => {
         const mockData = [
             {
                 DEPTNO: "BR8",
-                GROUP: "Group1",
+                GROUP: "BATTERY",
                 "NETCASH SALES": 10,
                 "NETCREDIT SALES": 20,
                 "NET SALERETURN": 5,
@@ -87,7 +87,7 @@ describe('GroupSales Component', () => {
             },
             {
                 DEPTNO: "BR1",
-                GROUP: "Group2",
+                GROUP: "A/C GAS",
                 "NETCASH SALES": 15,
                 "NETCREDIT SALES": 25,
                 "NET SALERETURN": 8,
@@ -134,7 +134,7 @@ describe('GroupSales Component', () => {
         const mockData = [
             {
                 DEPTNO: "BR8",
-                GROUP: "Group1",
+                GROUP: "BATTERY",
                 "NETCASH SALES": 10,
                 "NETCREDIT SALES": 20,
                 "NET SALERETURN": 5,
@@ -143,7 +143,7 @@ describe('GroupSales Component', () => {
             },
             {
                 DEPTNO: "BR8",
-                GROUP: "Group2",
+                GROUP: "A/C GAS",
                 "NETCASH SALES": 15,
                 "NETCREDIT SALES": 25,
                 "NET SALERETURN": 8,
@@ -184,6 +184,116 @@ describe('GroupSales Component', () => {
 
         expect(queryByText("BR8")).toBeInTheDocument();
     })
+
+    it('to check if hidden rows are not present in mobile view', async () => {
+        global.innerwidth = 500
+        const mockData = [
+            {
+                DEPTNO: "BR8",
+                GROUP: "BATTERY",
+                "NETCASH SALES": 10,
+                "NETCREDIT SALES": 20,
+                "NET SALERETURN": 5,
+                "VAT AMT": 2,
+                "NET SALES EXCLVAT": 25
+            },
+            {
+                DEPTNO: "BR8",
+                GROUP: "A/C GAS",
+                "NETCASH SALES": 15,
+                "NETCREDIT SALES": 25,
+                "NET SALERETURN": 8,
+                "VAT AMT": 3,
+                "NET SALES EXCLVAT": 30
+            },
+            // Add more mock data as needed
+        ]
+
+        global.fetch = jest.fn(() =>
+            Promise.resolve({
+                json: () => Promise.resolve(mockData),
+            })
+        );
+
+
+        const { getByLabelText, getByText, queryByText, queryAllByText } = render(<GroupSales />);
+
+        // Get input elements
+        const fromDateInput = getByLabelText('From:');
+        const toDateInput = getByLabelText('To:');
+
+        // Get button element
+        const goButton = getByText('Go');
+
+        fireEvent.change(fromDateInput, { target: { value: '2023-10-12' } });
+        fireEvent.change(toDateInput, { target: { value: '2023-10-15' } });
+        fireEvent.click(goButton);
+
+        // Wait for the fetch to resolve
+        await act(async () => {
+            await new Promise((resolve) => setTimeout(resolve, 0));
+        });
+
+        expect(global.fetch).toHaveBeenCalledWith(`https://api-eproc.premierauto.ae/api/SalesAnalysis/SalesGroup?dateStart=2023-10-12&dateEnd=2023-10-15`)
+
+        const hiddenHeaders = queryAllByText(/hidden/i);
+        expect(hiddenHeaders.length).toBe(0);
+    })
+
+
+    // it('dropdown item is visible after row click', async () => {
+    //     global.innerWidth = 750;
+    //     const mockData = [
+    //         {
+    //             DEPTNO: "BR8",
+    //             GROUP: "Group1",
+    //             "NETCASH SALES": 10,
+    //             "NETCREDIT SALES": 20,
+    //             "NET SALERETURN": 5,
+    //             "VAT AMT": 2,
+    //             "NET SALES EXCLVAT": 25
+    //         },
+    //         {
+    //             DEPTNO: "BR1",
+    //             GROUP: "Group2",
+    //             "NETCASH SALES": 15,
+    //             "NETCREDIT SALES": 25,
+    //             "NET SALERETURN": 8,
+    //             "VAT AMT": 3,
+    //             "NET SALES EXCLVAT": 30
+    //         },
+    //     ]
+
+    //     global.fetch = jest.fn(() =>
+    //         Promise.resolve({
+    //             json: () => Promise.resolve(mockData),
+    //         })
+    //     );
+
+
+    //     const { getByLabelText, getByText, queryByText, queryB } = render(<GroupSales />);
+
+    //     // Get input elements
+    //     const fromDateInput = getByLabelText('From:');
+    //     const toDateInput = getByLabelText('To:');
+
+    //     // Get button element
+    //     const goButton = getByText('Go');
+
+    //     fireEvent.change(fromDateInput, { target: { value: '2023-10-12' } });
+    //     fireEvent.change(toDateInput, { target: { value: '2023-10-15' } });
+    //     fireEvent.click(goButton);
+
+    //     // Wait for the fetch to resolve
+    //     await act(async () => {
+    //         await new Promise((resolve) => setTimeout(resolve, 0));
+    //     });
+
+    //     // Simulate a row click
+    //     fireEvent.click(getByText('Group1'));
+
+    //     expect(queryByText()).toBeInTheDocument();
+    // });
 
 
 

@@ -51,7 +51,7 @@ describe('Delivery Pending Items', () => {
             await new Promise((resolve) => setTimeout(resolve, 0));
         });
 
-        expect(global.fetch).toHaveBeenCalledWith(`https://api-eproc.premierauto.ae/api/DeliveryOrderReport/DOreport/DOPending/Item?dateStart=2023-10-12&dateEnd=2023-10-15`);
+        expect(global.fetch).toHaveBeenCalledWith(`https://api-eproc.premierauto.ae/api/DeliveryOrderReport/DOreport/DOPending/Item?dateStart=2023-10-12&dateEnd=2023-10-15`)
 
         expect(queryByText("DEPTNO")).toBeInTheDocument();
     });
@@ -81,4 +81,130 @@ describe('Delivery Pending Items', () => {
 
         expect(getByText("Some Error Occured in the backend, Please try again later")).toBeInTheDocument();
     })
+
+    it('to check if hidden rows are not present in mobile view', async () => {
+        global.innerwidth = 500
+        const mockData = [
+            {
+                "DEPTNO": "BR9 ",
+                "DONO": 935275.0,
+                "DATE": "2023-10-12T00:00:00",
+                "CODE": "MMC894601",
+                "DESCRIPTION": "SP-PAD KIT,FR BRAKE *S/S*",
+                "DO QTY": 1.0,
+                "INV QTY": 0.000,
+                "ADJ_QTY": 0.0,
+                "PEND QTY": 1.000,
+                "UNIT PRICE": 475.000,
+                "TOTAL": 475.000000,
+                "SALES MAN": "IRSHAD",
+                "SUBGROUP": "MF 1",
+                "CATEG": "",
+                "SCATEG": "GENERAL"
+            }
+        ];
+
+        global.fetch = jest.fn(() =>
+            Promise.resolve({
+                json: () => Promise.resolve(mockData),
+            })
+        );
+
+
+        const { getByLabelText, getByText, queryByText, queryAllByText } = render(<DeliveryPendItems />);
+
+        // Get input elements
+        const fromDateInput = getByLabelText('From:');
+        const toDateInput = getByLabelText('To:');
+
+        // Get button element
+        const goButton = getByText('Go');
+
+        fireEvent.change(fromDateInput, { target: { value: '2023-10-12' } });
+        fireEvent.change(toDateInput, { target: { value: '2023-10-15' } });
+        fireEvent.click(goButton);
+
+        // Wait for the fetch to resolve
+        await act(async () => {
+            await new Promise((resolve) => setTimeout(resolve, 0));
+        });
+
+        expect(global.fetch).toHaveBeenCalledWith(`https://api-eproc.premierauto.ae/api/DeliveryOrderReport/DOreport/DOPending/Item?dateStart=2023-10-12&dateEnd=2023-10-15`)
+
+        const hiddenHeaders = queryAllByText(/hidden/i);
+        expect(hiddenHeaders.length).toBe(0);
+    })
+
+    // it('dropdown item is visible after row click', async () => {
+    //     global.innerWidth = 750;
+    //     const mockData = [
+    //         {
+    //             "DEPTNO": "BR9 ",
+    //             "DONO": 935275.0,
+    //             "DATE": "2023-10-12T00:00:00",
+    //             "CODE": "MMC894601",
+    //             "DESCRIPTION": "SP-PAD KIT,FR BRAKE *S/S*",
+    //             "DO QTY": 1.0,
+    //             "INV QTY": 0.000,
+    //             "ADJ_QTY": 0.0,
+    //             "PEND QTY": 1.000,
+    //             "UNIT PRICE": 475.000,
+    //             "TOTAL": 475.000000,
+    //             "SALES MAN": "IRSHAD",
+    //             "GROUP": "MITSUBISHI",
+    //             "SUBGROUP": "MF 1",
+    //             "CATEG": "",
+    //             "SCATEG": "GENERAL"
+    //         },
+    //         {
+    //             "DEPTNO": "BR8 ",
+    //             "DONO": 935275.0,
+    //             "DATE": "2023-10-12T00:00:00",
+    //             "CODE": "MMT324480",
+    //             "DESCRIPTION": "SP-SPRING RETURN",
+    //             "DO QTY": 2.0,
+    //             "INV QTY": 0.000,
+    //             "ADJ_QTY": 0.0,
+    //             "PEND QTY": 2.000,
+    //             "UNIT PRICE": 18.000,
+    //             "TOTAL": 36.000000,
+    //             "SALES MAN": "IRSHAD",
+    //             "GROUP": "MITSUBISHI",
+    //             "SUBGROUP": "MC 1",
+    //             "CATEG": "",
+    //             "SCATEG": "GENERAL"
+    //         }
+    //     ]
+
+    //     global.fetch = jest.fn(() =>
+    //         Promise.resolve({
+    //             json: () => Promise.resolve(mockData),
+    //         })
+    //     );
+
+
+    //     const { getByLabelText, getByText, queryByText } = render(<DeliveryPendItems />);
+
+    //     // Get input elements
+    //     const fromDateInput = getByLabelText('From:');
+    //     const toDateInput = getByLabelText('To:');
+
+    //     // Get button element
+    //     const goButton = getByText('Go');
+
+    //     fireEvent.change(fromDateInput, { target: { value: '2023-10-12' } });
+    //     fireEvent.change(toDateInput, { target: { value: '2023-10-15' } });
+    //     fireEvent.click(goButton);
+
+    //     // Wait for the fetch to resolve
+    //     await act(async () => {
+    //         await new Promise((resolve) => setTimeout(resolve, 0));
+    //     });
+
+    //     // Simulate a row click
+    //     fireEvent.click(getByText('BR9'));
+
+    //     expect(queryByText("DONO")).toBeInTheDocument();
+    // });
+
 })

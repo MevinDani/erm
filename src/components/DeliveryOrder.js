@@ -118,7 +118,7 @@ const DeliveryOrder = () => {
                                 displayData && displayData.map((g, i) => (
                                     <React.Fragment key={i}>
                                         <tr onClick={window.innerWidth <= 1124 ? () => handleRowClick(i) : null} key={i}>
-                                            <td id='numD' className='DloplusTd'>{g.DEPTNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
+                                            <td data-testid="dropdown-clicker" id='numD' className='DloplusTd'>{g.DEPTNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
                                             <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["DATE"] ? g["DATE"] : "Nil"}</td>
                                             <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["CUSTOMER"] ? g["CUSTOMER"] : "Nil"}</td>
                                             <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["AMOUNT"] ? g["AMOUNT"] : "Nil"}</td>
@@ -130,7 +130,7 @@ const DeliveryOrder = () => {
                                         </tr>
                                         {expandedRows.includes(i) && (
                                             <>
-                                                <tr>
+                                                <tr data-testid={`expanded-row-${i}`}>
                                                     <th className='expandable'>DATE</th>
                                                     <td id='numD' className='expandable'>{g["DATE"] ? g["DATE"] : "Nil"}</td>
                                                 </tr>
