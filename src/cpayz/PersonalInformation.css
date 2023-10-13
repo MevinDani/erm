@@ -1,0 +1,140 @@
+.PI-Wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.PI-Cont {
+    width: 95%;
+}
+
+.PI-Head-Cont {
+    height: 50px;
+    background-color: #00A0B6;
+    display: flex;
+    color: white;
+}
+
+.PI-Head-Cont {
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.PI-PI {
+    padding: 10px;
+    font-size: 18px;
+}
+
+.PI-Head-left-content {
+    display: flex;
+    align-items: center;
+}
+
+.PI-Head-right-content {
+    margin-left: auto;
+}
+
+
+.PI-Body {
+    display: flex;
+}
+
+.PI-left-content {
+    flex: 1;
+    background-color: #7F9D9D;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.PI-right-content {
+    flex: 4;
+    /* Adjust this value as needed to control the relative width */
+}
+
+.PI-Upload-Cont {
+    flex: 8;
+    display: flex;
+    align-items: center;
+}
+
+.PI-SDC-Cont {
+    flex: 6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.PI-LeftButton {
+    text-align: center;
+    background-color: #BDD7D6;
+    padding: 15px;
+    width: 180px;
+}
+
+.PI-right-content {
+    padding: 12px;
+}
+
+.PI-RHead-Cont {
+    background-color: #BDD7D6;
+    padding: 10px;
+}
+
+.PI-Login {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.PI-Edit-Cont {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 15px;
+}
+
+.PI-Edit {
+    background-color: #7F9D9D;
+    padding: 8px;
+}
+
+.PI-RBODY-Cont {
+    padding: 10px;
+}
+
+.PI-RPerson {
+    display: flex;
+    padding: 12px;
+}
+
+.PI-Personal {
+    padding-left: 10px;
+    font-size: 22px;
+}
+
+.PI-Name {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.DOB-CONT {
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.DBCONT,
+.NATCONT,
+.MARCONT,
+.HGH,
+.GNDCONT,
+.WGHCONT{
+padding: 10px;
+}

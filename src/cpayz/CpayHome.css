@@ -3,6 +3,7 @@
     display: flex;
     justify-content: space-between;
     padding: 12px;
+    background-color: #EAF0FC;
 }
 
 .CPH-left {
@@ -18,23 +19,26 @@
 }
 
 .CPHL-Items {
+    color: #627281;
     display: flex;
     justify-content: space-evenly;
 }
 
 .C- {
-    font-size: 30PX;
-    font-weight: bold;
+    font-size: 40PX;
+    font-weight: bolder;
     color: #00A0B6;
 }
 
 .PAYZ {
-    font-size: 30PX;
-    font-weight: bold;
+    font-size: 40PX;
+    font-weight: bolder;
     color: #0C3A75;
 }
 
 .HR {
+    font-style: italic;
+    font-size: 20px;
     color: #0C3A75;
 }
 
@@ -54,3 +58,99 @@
     font-size: 24px;
     color: #00A0B6;
 }
+
+/* CBODY */
+
+.CPZ-Body-Cont {
+    display: flex;
+}
+
+/* CBODY-LEFT */
+
+.CPB-Left {
+    background-color: #0C3A75;
+    color: white;
+    padding: 14px;
+    height: 100vh;
+    text-align: left;
+}
+
+.CPL-Options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 80px;
+    background-color: #0C3A75;
+    margin-top: 12px;
+}
+
+
+.CPL-Options select {
+    background-color: #0C3A75;
+    color: white;
+    font-size: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+.CPL-Options select option {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+
+.CPAdmin-Head {
+    width: 80%;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.CPZ-Left-Manage {
+    width: 100%;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start
+}
+
+.MNG {
+    padding-left: 10px;
+}
+
+.SuppTick {
+    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+}
+
+/* This will make the middle div take up remaining space */
+
+.CPB-Middle {
+    flex: 1;
+}
+
+/* CBODY-RIGHT */
+
+.CPB-Right {
+    text-align: right;
+    background-color: #B0C4DE;
+    width: 70px;
+}
+
+.CPR-Items {
+    padding-top: 20px;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* .CPB-Left,
+.CPB-Right {
+    width: 280px;
+} */

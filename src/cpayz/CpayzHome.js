@@ -1,5 +1,8 @@
 import React from 'react'
 import './CpayHome.css'
+import CpayzResouce from './CpayzResouce'
+import PersonalInformation from './PersonalInformation'
+
 
 const CpayzHome = () => {
     return (
@@ -36,11 +39,72 @@ const CpayzHome = () => {
             {/* main-body */}
             <div className='CPZ-Body-Cont'>
 
-                <div className='CPB-Left'></div>
+                <div className='CPB-Left'>
 
-                <div className='CPB-Middle'></div>
-                
-                <div className='CPB-Left'></div>
+                    <div className='CPL-Options'>
+                        <div>
+                            <select id="fruit" name="fruit">
+                                <option value="apple">SH11-PREMIER AUTO PARTS</option>
+                                <option value="banana">ELECTRONICS</option>
+                            </select>
+                        </div>
+                        <div className='CPAdmin-Head'>
+                            <i class="fa-solid fa-user fa-2x"></i>
+                            <span>Admin</span>
+                        </div>
+                    </div>
+
+                    <div className='CPZ-Left-Manage'>
+                        <i class="fa-regular fa-user"></i>
+                        <div className='MNG'>Resource Management</div>
+                    </div>
+                    <div className='CPZ-Left-Manage'>
+                        <i class="fa-regular fa-user"></i>
+                        <div className='MNG'>Payroll Management</div>
+                    </div>
+                    <div className='CPZ-Left-Manage'>
+                        <i class="fa-regular fa-user"></i>
+                        <div className='MNG'>Leave Management</div>
+                    </div>
+                    <div className='CPZ-Left-Manage'>
+                        <i class="fa-regular fa-user"></i>
+                        <div className='MNG'>End of Service</div>
+                    </div>
+                    <div className='CPZ-Left-Manage'>
+                        <i class="fa-regular fa-user"></i>
+                        <div className='MNG'>Fleet Management</div>
+                    </div>
+                    <div className='CPZ-Left-Manage'>
+                        <i class="fa-regular fa-user"></i>
+                        <div className='MNG'>Document Management</div>
+                    </div>
+                    <div className='CPZ-Left-Manage'>
+                        <i class="fa-regular fa-user"></i>
+                        <div className='MNG'>Task Assignments</div>
+                    </div>
+                    <div className='CPZ-Left-Manage'>
+                        <i class="fa-regular fa-user"></i>
+                        <div className='MNG'>Accounts</div>
+                    </div>
+
+                    <div className='SuppTick'>
+                        <a>Online Support Ticket</a>
+                    </div>
+
+                </div>
+
+                <div className='CPB-Middle'><PersonalInformation /></div>
+
+                <div className='CPB-Right'>
+                    <div className='CPR-Items'>
+                        <div><i class="fa-solid fa-power-off"></i></div>
+                        <div><i class="fa-solid fa-user-gear"></i></div>
+                        <div><i class="fa-solid fa-gear"></i></div>
+                        <div><i class="fa-regular fa-floppy-disk"></i></div>
+                        <div><i class="fa-regular fa-bell"></i></div>
+                    </div>
+                    <div></div>
+                </div>
             </div>
 
 

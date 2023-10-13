@@ -25,8 +25,8 @@ form {
 }
 
 
-input[type="text"],
-input[type="password"] {
+.formContainer input[type="text"],
+.formContainer input[type="password"] {
     margin-bottom: 12px;
     margin-top: 20px;
     width: 100%;

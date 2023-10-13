@@ -48,7 +48,7 @@
     color: #7F7F7F;
 }
 
-.fa-solid {
+.DFDropItems .fa-solid {
     padding-left: 15px;
     padding-bottom: 10px;
 }
@@ -111,7 +111,7 @@
         font-size: 18px;
     }
 
-    .fa-solid {
+    .DFDropItems .fa-solid {
         padding-left: 4px;
         padding-bottom: 5px;
     }
