@@ -15,7 +15,7 @@ const TodaySales = () => {
                     <div className='TSDropCont'>
                         <div className='TSDropItems'>
                             <div className='TSDText'>Last 30 days</div>
-                            <div className='TSDText'><i class="fa-solid fa-sort-down" onClick={toggleDropdown}></i></div>
+                            <div className='TSDText'><i data-testid="dropdown-clicker" class="fa-solid fa-sort-down" onClick={toggleDropdown}></i></div>
                         </div>
                     </div>
                     {isOpen && (

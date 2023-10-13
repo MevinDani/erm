@@ -125,10 +125,11 @@ describe("Latest Invoice", () => {
         );
 
 
-        const { getByText, queryAllByText } = render(<LatestInvoice />);
+        const { queryByTestId, queryAllByText } = render(<LatestInvoice />);
         expect(global.fetch).toHaveBeenCalledWith(`https://api-eproc.premierauto.ae/api/InvoiceSearch`)
         const hiddenHeaders = queryAllByText(/hidden/i);
         expect(hiddenHeaders.length).toBe(0);
+        expect(queryByTestId('expanded-row-0')).toBeNull();
     })
 
     it('dropdown item is visible after row click', async () => {
@@ -184,7 +185,7 @@ describe("Latest Invoice", () => {
 
 
         const { getAllByTestId, getByText, queryByText, queryAllByText, getByTestId } = render(<LatestInvoice />);
-        expect(global.fetch).toHaveBeenCalledWith(`https://api-eproc.premierauto.ae/api/InvoiceSearch`)
+        expect(global.fetch).toHaveBeenCalledWith(`https://api-eproc.premierauto.ae/api/InvoiceSearch`);
 
         // Wait for the fetch to resolve
         await act(async () => {

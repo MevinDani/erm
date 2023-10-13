@@ -15,7 +15,7 @@ const CheckByDate = () => {
                     <div className='CBDDropCont'>
                         <div className='CBDDropItems'>
                             <div className='CBDDText'>Check by date</div>
-                            <div className='CBDDText'><i class="fa-solid fa-sort-down" onClick={toggleDropdown}></i></div>
+                            <div className='CBDDText'><i data-testid="dropdown-clicker" class="fa-solid fa-sort-down" onClick={toggleDropdown}></i></div>
                         </div>
                     </div>
                     {isOpen && (

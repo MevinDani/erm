@@ -82,20 +82,20 @@ const DoughnutChart = () => {
                     <div className='DFProdCont'>
                         <div className='DFDropItems'>
                             <div className='DFDText'>Top 5 products</div>
-                            <div className='DFDText'><i class="fa-solid fa-sort-down" onClick={toggleProduct}></i></div>
+                            <div className='DFDText'><i data-testid="dropdown-clicker-1" class="fa-solid fa-sort-down" onClick={toggleProduct}></i></div>
                         </div>
                         {productisOpen && (
                             <div className='DFDropDownCont'>
-                                <div id='LeftDrops' className='DFDropDownText'>Last 10 days</div>
-                                <div id='LeftDrops' className='DFDropDownText'>Last 5 days</div>
-                                <div id='LeftDrops' className='DFDropDownText'>Last 2 days</div>
+                                <div id='LeftDrops' className='DFDropDownText'>Clutch</div>
+                                <div id='LeftDrops' className='DFDropDownText'>Battery</div>
+                                <div id='LeftDrops' className='DFDropDownText'>Filter</div>
                             </div>
                         )}
                     </div>
                     <div className='DFMonthCont'>
                         <div className='DFDropItems'>
                             <div className='DFDText'>current month</div>
-                            <div className='DFDText'><i class="fa-solid fa-sort-down" onClick={toggleMonth}></i></div>
+                            <div className='DFDText'><i data-testid="dropdown-clicker-2" class="fa-solid fa-sort-down" onClick={toggleMonth}></i></div>
                         </div>
                         {monthisOpen && (
                             <div id='RightDrops' className='DFDropDownCont'>

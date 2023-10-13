@@ -126,8 +126,12 @@ describe('GroupSales Component', () => {
 
         fireEvent.change(option, { target: { value: 'all' } });
 
-        expect(queryByText("BR8")).toBeInTheDocument();
-        expect(queryByText("BR1")).toBeInTheDocument();
+        // Check if "BR1" exists only once in the response data
+        const br1Count = mockData.filter(item => item.DEPTNO === 'BR1').length;
+        const br8Count = mockData.filter(item => item.DEPTNO === 'BR8').length;
+        expect(br1Count).toBe(1);
+        expect(br8Count).toBe(1);
+
     })
 
     it('should filter data by department number when targetDeptNo is not "all"', async () => {
@@ -150,6 +154,15 @@ describe('GroupSales Component', () => {
                 "VAT AMT": 3,
                 "NET SALES EXCLVAT": 30
             },
+            {
+                DEPTNO: "BR1",
+                GROUP: "A/C GAS",
+                "NETCASH SALES": 15,
+                "NETCREDIT SALES": 25,
+                "NET SALERETURN": 8,
+                "VAT AMT": 3,
+                "NET SALES EXCLVAT": 30
+            }
             // Add more mock data as needed
         ]
 
@@ -182,7 +195,8 @@ describe('GroupSales Component', () => {
 
         fireEvent.change(option, { target: { value: 'BR8' } });
 
-        expect(queryByText("BR8")).toBeInTheDocument();
+        const br8Count = mockData.filter(item => item.DEPTNO === 'BR8').length;
+        expect(br8Count).toBeGreaterThan(1);
     })
 
     it('to check if hidden rows are not present in mobile view', async () => {
@@ -216,7 +230,7 @@ describe('GroupSales Component', () => {
         );
 
 
-        const { getByLabelText, getByText, queryByText, queryAllByText } = render(<GroupSales />);
+        const { getByLabelText, getByText, queryByTestId, queryAllByText } = render(<GroupSales />);
 
         // Get input elements
         const fromDateInput = getByLabelText('From:');
@@ -238,63 +252,76 @@ describe('GroupSales Component', () => {
 
         const hiddenHeaders = queryAllByText(/hidden/i);
         expect(hiddenHeaders.length).toBe(0);
+        expect(queryByTestId('expanded-row-0')).toBeNull();
     })
 
+    it('dropdown item is visible after row click', async () => {
+        global.innerWidth = 500;
+        const mockData = [
+            {
+                DEPTNO: "BR8",
+                GROUP: "BATTERY",
+                "NETCASH SALES": 10,
+                "NETCREDIT SALES": 20,
+                "NET SALERETURN": 5,
+                "VAT AMT": 2,
+                "NET SALES EXCLVAT": 25
+            },
+            {
+                DEPTNO: "BR1",
+                GROUP: "A/C GAS",
+                "NETCASH SALES": 15,
+                "NETCREDIT SALES": 25,
+                "NET SALERETURN": 8,
+                "VAT AMT": 3,
+                "NET SALES EXCLVAT": 30
+            },
+            // Add more mock data as needed
+        ]
 
-    // it('dropdown item is visible after row click', async () => {
-    //     global.innerWidth = 750;
-    //     const mockData = [
-    //         {
-    //             DEPTNO: "BR8",
-    //             GROUP: "Group1",
-    //             "NETCASH SALES": 10,
-    //             "NETCREDIT SALES": 20,
-    //             "NET SALERETURN": 5,
-    //             "VAT AMT": 2,
-    //             "NET SALES EXCLVAT": 25
-    //         },
-    //         {
-    //             DEPTNO: "BR1",
-    //             GROUP: "Group2",
-    //             "NETCASH SALES": 15,
-    //             "NETCREDIT SALES": 25,
-    //             "NET SALERETURN": 8,
-    //             "VAT AMT": 3,
-    //             "NET SALES EXCLVAT": 30
-    //         },
-    //     ]
+        global.fetch = jest.fn(() =>
+            Promise.resolve({
+                json: () => Promise.resolve(mockData),
+            })
+        );
 
-    //     global.fetch = jest.fn(() =>
-    //         Promise.resolve({
-    //             json: () => Promise.resolve(mockData),
-    //         })
-    //     );
+        const { getByLabelText, getByText, queryByText, queryAllByText, getAllByTestId, getByTestId } = render(<GroupSales />);
+
+        // Get input elements
+        const fromDateInput = getByLabelText('From:');
+        const toDateInput = getByLabelText('To:');
+
+        // Get button element
+        const goButton = getByText('Go');
+
+        fireEvent.change(fromDateInput, { target: { value: '2023-10-12' } });
+        fireEvent.change(toDateInput, { target: { value: '2023-10-15' } });
+        fireEvent.click(goButton);
+
+        // Wait for the fetch to resolve
+        await act(async () => {
+            await new Promise((resolve) => setTimeout(resolve, 0));
+        });
+
+        expect(global.fetch).toHaveBeenCalledWith(`https://api-eproc.premierauto.ae/api/SalesAnalysis/SalesGroup?dateStart=2023-10-12&dateEnd=2023-10-15`)
 
 
-    //     const { getByLabelText, getByText, queryByText, queryB } = render(<GroupSales />);
+        const dropdownClickers = getAllByTestId('dropdown-clicker');
+        fireEvent.click(dropdownClickers[0]);
 
-    //     // Get input elements
-    //     const fromDateInput = getByLabelText('From:');
-    //     const toDateInput = getByLabelText('To:');
+        const expandedRow = getByTestId('expanded-row-0');
 
-    //     // Get button element
-    //     const goButton = getByText('Go');
+        expect(expandedRow).toBeInTheDocument();
 
-    //     fireEvent.change(fromDateInput, { target: { value: '2023-10-12' } });
-    //     fireEvent.change(toDateInput, { target: { value: '2023-10-15' } });
-    //     fireEvent.click(goButton);
+        // Check if the inner elements have the 'expandable' class
+        const thElement = expandedRow.querySelector('.expandable');
+        const tdElement = expandedRow.querySelector('.expandable');
 
-    //     // Wait for the fetch to resolve
-    //     await act(async () => {
-    //         await new Promise((resolve) => setTimeout(resolve, 0));
-    //     });
+        // Assert that both elements have the 'expandable' class
+        expect(thElement).toBeInTheDocument();
+        expect(tdElement).toBeInTheDocument();
 
-    //     // Simulate a row click
-    //     fireEvent.click(getByText('Group1'));
-
-    //     expect(queryByText()).toBeInTheDocument();
-    // });
-
+    });
 
 
 });

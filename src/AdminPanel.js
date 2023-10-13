@@ -40,6 +40,11 @@ const AdminPanel = () => {
                     <Link className="custom-link" to='/doughnut'>DoughnutChart</Link>
                 </div>
             </div>
+            <div>
+                <div className='items'>
+                    <Link className="custom-link" to='/cpayzHome'>CpayzHome</Link>
+                </div>
+            </div>
         </div>
     )
 }

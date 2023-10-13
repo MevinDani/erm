@@ -1,0 +1,56 @@
+.Cpayz-HeaderNav-Container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+}
+
+.CPH-left {
+    display: flex;
+}
+
+.CPH-Left-Item {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    font-size: 14px;
+    padding: 12PX;
+}
+
+.CPHL-Items {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.C- {
+    font-size: 30PX;
+    font-weight: bold;
+    color: #00A0B6;
+}
+
+.PAYZ {
+    font-size: 30PX;
+    font-weight: bold;
+    color: #0C3A75;
+}
+
+.HR {
+    color: #0C3A75;
+}
+
+.CUBIX {
+    font-weight: bold;
+}
+
+.CPH-right {
+    width: 100px;
+}
+
+.Power {
+    font-style: italic;
+}
+
+.CUBIX-RIGHT {
+    font-size: 24px;
+    color: #00A0B6;
+}
