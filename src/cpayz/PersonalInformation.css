@@ -45,7 +45,7 @@
 .PI-left-content {
     flex: 1;
     background-color: #7F9D9D;
-    height: 600px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -135,6 +135,24 @@
 .MARCONT,
 .HGH,
 .GNDCONT,
-.WGHCONT{
-padding: 10px;
+.WGHCONT {
+    padding: 10px;
+}
+
+.JobDetails {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.JOBPADDER {
+    padding: 10px;
+}
+
+.JobType {
+    padding-top: 50px;
+}
+
+.Grade {
+    padding-top: 96px;
 }

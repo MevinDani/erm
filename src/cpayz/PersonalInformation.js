@@ -66,6 +66,7 @@ const PersonalInformation = () => {
                                 <i class="fa-solid fa-user-tie fa-2x"></i>
                                 <div className='PI-Personal'>Personal</div>
                             </div>
+
                             <div className='PI-Name'>
                                 <div className='PI-Title'>
                                     <label htmlFor="title">Title</label>
@@ -123,6 +124,73 @@ const PersonalInformation = () => {
                                     <div className='WGHCONT'>
                                         <label htmlFor="WT">Weight</label>
                                         <input type="text" name="" id="WT" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='PI-RPerson'>
+                                <i class="fa-solid fa-map-location-dot fa-2x"></i>
+                                <div className='PI-Personal'>Official</div>
+                            </div>
+
+                            <div className='JobDetails'>
+                                <div className='JoinDt'>
+                                    <div className="JOBPADDER">
+                                        <label htmlFor="JoinDate">Join Date</label>
+                                        <input type="date" id='JoinDate' />
+                                    </div>
+                                    <div className="JOBPADDER">
+                                        <label htmlFor="JT">Job Tilte</label>
+                                        <select id="JT" name="fruit">
+                                            <option value="apple">Managing Director</option>
+                                            <option value="banana">Administrator</option>
+                                        </select>
+                                    </div>
+                                    <div className="JOBPADDER">
+                                        <label htmlFor="branch">Branch</label>
+                                        <select id="branch" name="fruit">
+                                            <option value="apple">Premier Auto Parts</option>
+                                            <option value="banana">Administrator</option>
+                                        </select>
+                                    </div>
+                                    <div className="JOBPADDER">
+                                        <label htmlFor="bankAcc">Bank Account</label>
+                                        <input type="text" id='bankAcc' />
+                                    </div>
+                                </div>
+
+                                <div className='JobType'>
+                                    <div className="JOBPADDER">
+                                        <label htmlFor="JTY">Job Type</label>
+                                        <select id="JTY" name="fruit">
+                                            <option value="apple">Select</option>
+                                            <option value="banana">Administrator</option>
+                                        </select>
+                                    </div>
+                                    <div className="JOBPADDER">
+                                        <label htmlFor="div">Division</label>
+                                        <select id="div" name="fruit">
+                                            <option value="apple">Select</option>
+                                            <option value="banana">Administrator</option>
+                                        </select>
+                                    </div>
+                                    <div className="JOBPADDER">
+                                        <label htmlFor="bankName">Bank Name</label>
+                                        <input type="text" id='bankName' />
+                                    </div>
+                                </div>
+
+                                <div className='Grade'>
+                                    <div className="JOBPADDER">
+                                        <label htmlFor="GRD">Grade</label>
+                                        <select id="GRD" name="fruit">
+                                            <option value="apple">Select</option>
+                                            <option value="banana">Administrator</option>
+                                        </select>
+                                    </div>
+                                    <div className="JOBPADDER">
+                                        <label htmlFor="bankName">Agent ID</label>
+                                        <input type="text" id='bankName' />
                                     </div>
                                 </div>
                             </div>
