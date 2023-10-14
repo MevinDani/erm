@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './CpayHome.css'
 import CpayzResouce from './CpayzResouce'
 import PersonalInformation from './PersonalInformation'
 
 
 const CpayzHome = () => {
+    const [showComponent, setShowComponent] = useState(false);
+
+    const handleClick = () => {
+        setShowComponent(true);
+    };
+
+    const handleComeBack = () => {
+        setShowComponent(false);
+    }
     return (
         <div className='Cpayz-Wrapper'>
 
@@ -93,7 +102,7 @@ const CpayzHome = () => {
 
                 </div>
 
-                <div className='CPB-Middle'><PersonalInformation /></div>
+                <div className='CPB-Middle'>{showComponent ? <PersonalInformation handleComeBack={handleComeBack} /> : <CpayzResouce handleClick={handleClick} />}</div>
 
                 <div className='CPB-Right'>
                     <div className='CPR-Items'>
@@ -108,7 +117,8 @@ const CpayzHome = () => {
             </div>
 
 
-
+            {/* PersonalInformation */}
+            {/* CpayzResouce */}
 
 
         </div>

@@ -129,7 +129,7 @@ const options = {
 };
 
 
-const CpayzResouce = () => {
+const CpayzResouce = ({ handleClick }) => {
 
     return (
         <div className='CPR-Wrapeer'>
@@ -226,7 +226,7 @@ const CpayzResouce = () => {
             <div className='CPR-Date-Square'>
                 <div className='CPR-Date'>{new Date().toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}</div>
                 <div className='CPR-Square-Items2'>
-                    <div className='CPR-Square2'>
+                    <div onClick={handleClick} className='CPR-Square2'>
                         <div>Resource Listing</div>
                     </div>
                     <div className='CPR-Square2'>

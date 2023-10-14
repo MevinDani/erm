@@ -1,7 +1,7 @@
 import React from 'react'
 import './PersonalInformation.css'
 
-const PersonalInformation = () => {
+const PersonalInformation = ({ handleComeBack }) => {
     return (
         <div className='PI-Wrapper'>
 
@@ -11,7 +11,7 @@ const PersonalInformation = () => {
                         <i className="fa-solid fa-pen-to-square"></i>
                         <span className='PI-PI'>Personal Information</span>
                     </div>
-                    <div className='PI-Head-right-content'>
+                    <div onClick={handleComeBack} className='PI-Head-right-content'>
                         <i className="fa-solid fa-chevron-left"></i>
                     </div>
                 </div>

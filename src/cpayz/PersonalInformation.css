@@ -26,7 +26,7 @@
 
 .PI-PI {
     padding: 10px;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 .PI-Head-left-content {
@@ -309,4 +309,86 @@ input:checked+.slider:before {
 .ContactCont input {
     width: 100%;
     /* margin-bottom: 12px; */
+}
+
+.PI-LeftButton:hover {
+    cursor: pointer;
+    background-color: #aff0ed;
+}
+
+.PI-Edit:hover {
+    cursor: pointer;
+    background-color: #aff0ed;
+}
+
+.PI-Head-right-content i:hover {
+    cursor: pointer;
+}
+
+@media (max-width:1500px) {
+    .PI-Wrapper {
+        width: 100%;
+    }
+
+    .PI-Cont {
+        width: 100%;
+    }
+
+    .PI-right-content {
+        flex: 6;
+        padding: 2px;
+        /* Adjust this value as needed to control the relative width */
+    }
+
+    .PI-LeftButton {
+        padding: 5px;
+        width: fit-content;
+    }
+
+}
+
+
+@media (max-width: 767px) {
+    .PI-Cont {
+        width: 100%;
+    }
+
+    .PI-Head-Cont {
+        height: 40px;
+    }
+
+    .PI-Head-Cont,
+    .PI-PI {
+        font-size: 1em;
+    }
+
+    .PI-left-content,
+    .PI-right-content,
+    .PI-Upload-Cont,
+    .PI-SDC-Cont {
+        padding: 6px;
+    }
+
+    .PI-RHead-Cont {
+        padding: 8px;
+    }
+
+    .PI-RBODY-Cont,
+    .PI-Personal,
+    .PI-Name,
+    .DOB-CONT,
+    .DBCONT,
+    .NATCONT,
+    .MARCONT,
+    .HGH,
+    .GNDCONT,
+    .WGHCONT,
+    .JobDetails,
+    .JOBPADDER,
+    .JobType,
+    .Grade,
+    .ToggleComments,
+    .AllowTogglerCont {
+        font-size: 0
+    }
 }

@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     background-color: #EAF0FC;
-    height: 100%;
+    height: 100vh;
 }
 
 .CPR-Square-Cont {
@@ -100,4 +100,9 @@
     padding: 20px 40px 10px 40px;
     margin-top: 25px;
     margin-bottom: 30px;
+}
+
+.CPR-Square2:hover {
+    cursor: pointer;
+    background-color: #00A0B6;
 }
