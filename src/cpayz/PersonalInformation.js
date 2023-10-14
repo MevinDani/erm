@@ -194,6 +194,83 @@ const PersonalInformation = () => {
                                     </div>
                                 </div>
                             </div>
+                            <div className='AllowOnline'>
+                                <div className='AllowTogglerCont'>
+                                    <div>Allow Online</div>
+                                    <div className='ToggleSwitch'>
+                                        <label class="switch">
+                                            <input type="checkbox" />
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span className='ToggleComments'>
+                                        ** Only applicable for online app module.<br /> Contact for purchase the module: + 97142677221
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='ContactWrapper'>
+                            <div id='contactInfo' className='PI-RPerson'>
+                                <i class="fa-solid fa-user-tie fa-2x"></i>
+                                <div className='PI-Personal'>Contact Information</div>
+                            </div>
+                            <div className='PI-RPerson'>
+                                <i class="fa-solid fa-house fa-2x"></i>
+                                <div className='PI-Personal'>Address</div>
+                            </div>
+
+                            <div className='ContactInfoCont'>
+
+                                <div className='AddressCont'>
+                                    <div className='CurrentHomeCont'>
+                                        <div>Current Address</div>
+                                        <div>Home Airport</div>
+                                    </div>
+                                    <div className='AddressBoxesCont'>
+                                        <textarea id='cmtBox' name="comment" form="usrform"></textarea>
+                                        <input type="text" />
+                                    </div>
+                                    <div className='HomeCont'>
+                                        <div>Home Address</div>
+                                    </div>
+                                    <div className='AddressBoxesCont'>
+                                        <textarea name="comment" form="usrform"></textarea>
+                                    </div>
+                                </div>
+
+                                <div className='PI-RPerson'>
+                                    <i class="fa-solid fa-at fa-2x"></i>
+                                    <div className='PI-Personal'>Contact</div>
+                                </div>
+
+                                <div className='ContactCont'>
+
+                                    <div className='workCont'>
+                                        <div>Work Mobile</div>
+                                        <div>Work Phone</div>
+                                        <div>Work Email</div>
+                                    </div>
+                                    <div className='WorkBoxCont'>
+                                        <input type="number" />
+                                        <input type="number" />
+                                        <input type="text" />
+                                    </div>
+                                    <div className='workCont'>
+                                        <div>Personal Mobile</div>
+                                        <div>Personal Phone</div>
+                                        <div>Personal Email</div>
+                                    </div>
+                                    <div className='WorkBoxCont'>
+                                        <input type="number" />
+                                        <input type="number" />
+                                        <input type="text" />
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
