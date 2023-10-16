@@ -7,6 +7,7 @@ import EmiratesIdExpiry from './EmiratesIdExpiry'
 import TimeSheets from './TimeSheets'
 import PayRoll from './PayRoll'
 import TimeReport from './TimeReport'
+import EOS from './EOS'
 
 
 const CpayzHome = () => {
@@ -14,6 +15,7 @@ const CpayzHome = () => {
     const [showPassport, setShowPassport] = useState(false);
     const [showEmirates, setShowEmirates] = useState(false);
     const [showPayRoll, setShowPayRoll] = useState(false);
+    const [showEOS, setShowEOS] = useState(false);
 
 
     const handleClick = () => {
@@ -46,6 +48,14 @@ const CpayzHome = () => {
 
     const handlePayRollRecall = () => {
         setShowPayRoll(false);
+    }
+
+    const handleEOSView = () => {
+        setShowEOS(true);
+    }
+
+    const handleEOSRecall = () => {
+        setShowEOS(false);
     }
 
     console.log(showPayRoll)
@@ -111,7 +121,7 @@ const CpayzHome = () => {
                         <i class="fa-regular fa-user"></i>
                         <div className='MNG'>Leave Management</div>
                     </div>
-                    <div className='CPZ-Left-Manage'>
+                    <div onClick={handleEOSView} className='CPZ-Left-Manage'>
                         <i class="fa-regular fa-user"></i>
                         <div className='MNG'>End of Service</div>
                     </div>
@@ -150,6 +160,8 @@ const CpayzHome = () => {
                             <EmiratesIdExpiry handleEmiratesRecall={handleEmiratesRecall} /> // Replace with your component
                         ) : showPayRoll ? (
                             <PayRoll handlePayRollRecall={handlePayRollRecall} /> // Replace with your component
+                        ) : showEOS ? (
+                            <EOS handleEOSRecall={handleEOSRecall} /> // Replace with your component
                         ) : (
                             <CpayzResouce handleClick={handleClick} handlePassportView={handlePassportView} handleEmiratesView={handleEmiratesView} />
                         )

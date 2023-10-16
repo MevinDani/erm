@@ -1,0 +1,125 @@
+.EOS-Head-Cont {
+    height: 50px;
+    background-color: #00A0B6;
+    display: flex;
+    color: white;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.EOS-EOS {
+    padding: 10px;
+    font-size: 22px;
+}
+
+.EOS-Head-left-content {
+    display: flex;
+    align-items: center;
+}
+
+.EOS-Head-right-content {
+    margin-left: auto;
+}
+
+.EOS-Head-right-content i:hover {
+    cursor: pointer;
+}
+
+.EOS-TOP-BANNER {
+    display: flex;
+    background-color: #BDD7D6;
+}
+
+/* .PRL-USERPROF {
+    width: 50%;
+} */
+
+.EOS-TOP-LEFT {
+    width: 40%;
+}
+
+.EOS-TOP-RIGHT {
+    padding: 8px;
+    width: 60%;
+    display: flex;
+}
+
+.EOS-RIGHT-NAMES {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.EOS-RIGHT-DATES {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.EOS-RIGHT-2DATES {
+    display: flex;
+    justify-content: space-between;
+}
+
+.EOS-TOP-BANNER input {
+    height: 25px;
+}
+
+.EOS-MID,
+.EOS-BTM {
+    width: 35%;
+    padding: 15px;
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.EOS-MID input {
+    height: 25px;
+    width: 100%;
+    margin-left: 15px;
+}
+
+.EOS-MID-BLANK-CONT {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.EOS-MID-BLANK {
+    width: 95%;
+    border: 2px solid #BDD7D6;
+    min-height: 200px;
+}
+
+.EOS-BTM-BLANK-CONT {
+    padding: 12px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.EOS-BTM-BLANK {
+    width: 75%;
+    border: 2px solid #BDD7D6;
+    min-height: 200px;
+}
+
+.EOS-BTM-BTNS-CONT {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.EOS-BTNS {
+    padding: 12px;
+    background-color: #7F9D9D;
+}
