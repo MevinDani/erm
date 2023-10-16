@@ -129,14 +129,14 @@ const options = {
 };
 
 
-const CpayzResouce = ({ handleClick }) => {
+const CpayzResouce = ({ handleClick, handlePassportView, handleEmiratesView }) => {
 
     return (
         <div className='CPR-Wrapeer'>
 
             <div className='CPR-Square-Cont3'>
                 <div className='CPR-Square-Items3'>
-                    <div className='CPR-Square3'>
+                    <div onClick={handlePassportView} className='CPR-Square3'>
                         <div>(10)</div>
                         <div>Passport Expiry</div>
                     </div>
@@ -156,7 +156,7 @@ const CpayzResouce = ({ handleClick }) => {
                     </div>
                 </div>
                 <div className='CPR-Square-Items3'>
-                    <div id='SQ3' className='CPR-Square3'>
+                    <div onClick={handleEmiratesView} id='SQ3' className='CPR-Square3'>
                         <div>(10)</div>
                         <div>Emirates ID Expiry</div>
                     </div>

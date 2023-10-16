@@ -2,10 +2,16 @@ import React, { useState } from 'react'
 import './CpayHome.css'
 import CpayzResouce from './CpayzResouce'
 import PersonalInformation from './PersonalInformation'
+import PassPortExpiry from './PassPortExpiry'
+import EmiratesIdExpiry from './EmiratesIdExpiry'
+import TimeSheets from './TimeSheets'
 
 
 const CpayzHome = () => {
     const [showComponent, setShowComponent] = useState(false);
+    const [showPassport, setShowPassport] = useState(false);
+    const [showEmirates, setShowEmirates] = useState(false);
+
 
     const handleClick = () => {
         setShowComponent(true);
@@ -14,6 +20,23 @@ const CpayzHome = () => {
     const handleComeBack = () => {
         setShowComponent(false);
     }
+
+    const handlePassportView = () => {
+        setShowPassport(true);
+    }
+
+    const handlePassportRecall = () => {
+        setShowPassport(false);
+    }
+
+    const handleEmiratesView = () => {
+        setShowEmirates(true);
+    }
+
+    const handleEmiratesRecall = () => {
+        setShowEmirates(false);
+    }
+
     return (
         <div className='Cpayz-Wrapper'>
 
@@ -102,7 +125,22 @@ const CpayzHome = () => {
 
                 </div>
 
-                <div className='CPB-Middle'>{showComponent ? <PersonalInformation handleComeBack={handleComeBack} /> : <CpayzResouce handleClick={handleClick} />}</div>
+                <div className='CPB-Middle'>
+                    <TimeSheets />
+                    {/* {
+                        showPassport ? (
+                            <PassPortExpiry handlePassportRecall={handlePassportRecall} />
+                        ) : showComponent ? (
+                            <PersonalInformation handleComeBack={handleComeBack} />
+                        ) : showEmirates ? (
+                            <EmiratesIdExpiry handleEmiratesRecall={handleEmiratesRecall} /> // Replace with your component
+                        ) : (
+                            <CpayzResouce handleClick={handleClick} handlePassportView={handlePassportView} handleEmiratesView={handleEmiratesView} />
+                        )
+                    } */}
+
+
+                </div>
 
                 <div className='CPB-Right'>
                     <div className='CPR-Items'>
@@ -119,6 +157,7 @@ const CpayzHome = () => {
 
             {/* PersonalInformation */}
             {/* CpayzResouce */}
+            {/* PassPortExpiry */}
 
 
         </div>

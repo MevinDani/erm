@@ -36,6 +36,10 @@
     margin-bottom: 30px;
 }
 
+.CPR-Square3:hover {
+    cursor: pointer;
+}
+
 .CPR-Square-Items {
     display: flex;
     justify-content: space-evenly;

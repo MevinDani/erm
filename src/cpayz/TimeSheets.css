@@ -1,0 +1,105 @@
+.TimeSheetWrapper {
+    width: 100%;
+}
+
+.TimeSheetCont {
+    width: 90%;
+}
+
+.TSH-Head-Cont {
+    height: 50px;
+    background-color: #00A0B6;
+    display: flex;
+    color: white;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.TSH-TSH {
+    padding: 10px;
+    font-size: 22px;
+}
+
+.TSH-Head-left-content {
+    display: flex;
+    align-items: center;
+}
+
+.TSH-Head-right-content {
+    margin-left: auto;
+}
+
+.TSH-Head-right-content i:hover {
+    cursor: pointer;
+}
+
+.TSH-TOPCONT {
+    display: flex;
+}
+
+.TSH-TOPTABLECONT {
+    width: 90%;
+    overflow-x: scroll;
+}
+
+.TSH-Table {
+    min-width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+    /* Prevent line breaks */
+}
+
+.TSH-Table th,
+.TSH-Table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Add any additional styling you need for your table */
+
+
+
+
+.TSH-Table table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.TSH-Table table td,
+.TSH-Table table th {
+    border-top: 1px solid #ECF0F1;
+    padding: 10px;
+}
+
+.TSH-Table table td {
+    border-left: 1px solid #ECF0F1;
+    border-right: 1px solid #ECF0F1;
+}
+
+.TSH-Table table th {
+    background-color: #ffffff;
+}
+
+/* CSS */
+.TSH-Table table tr:nth-child(even) {
+    background-color: #94e6e0;
+}
+
+.TSH-Table table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+
+.TSH-Table table tr:nth-of-type(even) td {
+    background-color: lighten(#4ECDC4, 35%);
+}
+
+.TSH-Table table tr:hover {
+    background-color: #BDD7D6;
+    cursor: pointer;
+}
