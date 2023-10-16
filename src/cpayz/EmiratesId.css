@@ -1,5 +1,3 @@
-
-
 .EID-Head-Cont {
     height: 50px;
     background-color: #EE6B61;
@@ -46,8 +44,6 @@ p {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
-    overflow: hidden;
-
 }
 
 .EID-Table table td,

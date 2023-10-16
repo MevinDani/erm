@@ -1,0 +1,135 @@
+.PRL-TOPTABLECONT {
+    width: 100%;
+    height: auto;
+    overflow-x: scroll;
+}
+
+.PRL-Table {
+    min-width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+    /* Prevent line breaks */
+}
+
+.PRL-Table th,
+.PRL-Table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Add any additional styling you need for your table */
+
+
+.PRL-Table table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.PRL-Table table td,
+.PRL-Table table th {
+    border-top: 1px solid #ECF0F1;
+    padding: 10px;
+}
+
+.PRL-Table table td {
+    border-left: 1px solid #ECF0F1;
+    border-right: 1px solid #ECF0F1;
+}
+
+.PRL-Table table th {
+    background-color: #ffffff;
+}
+
+/* CSS */
+.PRL-Table table tr:nth-child(even) {
+    background-color: #94e6e0;
+}
+
+.PRL-Table table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+
+.PRL-Table table tr:nth-of-type(even) td {
+    background-color: lighten(#4ECDC4, 35%);
+}
+
+.PRL-Table table tr:hover {
+    background-color: #BDD7D6;
+    cursor: pointer;
+}
+
+
+.PRL-Selected-User {
+    margin-top: 12px;
+    display: flex;
+    padding: 12px;
+    background-color: #BDD7D6;
+}
+
+.AvatarCont {
+    padding: 12px;
+    background-color: #ffffff;
+}
+
+.PRL-User-Details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px;
+    margin-left: 18px;
+    font-size: 18px;
+}
+
+.PRL-ID-Cont,
+.PRL-Name-Cont,
+.PRL-Sales-Cont {
+    display: flex;
+}
+
+.PRL-data {
+    padding-left: 12px;
+}
+
+.PRL-BODYCONT {
+    display: flex;
+    width: 100%;
+}
+
+.PRL-LFT-CONT {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+    border: 5px solid #4ECDC4;
+}
+
+.PRL-RIGHT-CONT {
+    width: 40%;
+}
+
+.PRL-TOPTABLECONT h3 {
+    color: blue;
+}
+
+.PRL-RIGHT-BANNER {
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.PRL-RIGHT-BANNER button {
+    padding: 8px;
+}
+
+.PRL-Bottom-BANNER {
+    padding: 8px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.PRL-Bottom-BANNER button {
+    padding: 8px;
+}

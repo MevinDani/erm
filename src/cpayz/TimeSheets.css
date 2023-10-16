@@ -3,7 +3,7 @@
 }
 
 .TimeSheetCont {
-    width: 90%;
+    width: 100%;
 }
 
 .TSH-Head-Cont {
@@ -15,6 +15,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.TSH-TOPCONT {
+    border-bottom: 5px solid #4ECDC4;
 }
 
 
@@ -40,8 +44,75 @@
     display: flex;
 }
 
+.TSH-DEPCONT {
+    display: flex;
+    flex-direction: column;
+    background-color: #BDD7D6;
+}
+
+.TSH-DEP {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px;
+}
+
+.TSH-MONTH,
+.GENEMPBUTTON {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px;
+}
+
+.GENEMPBUTTON button {
+    padding: 12px;
+    background-color: #7F9D9D;
+    font-size: 14px;
+    border: #7F9D9D;
+}
+
+.GENEMPBUTTON button:hover {
+    background-color: #a2e0e0;
+    cursor: pointer;
+}
+
+.TSH-Selected-User {
+    margin-top: 12px;
+    display: flex;
+    padding: 12px;
+    background-color: #BDD7D6;
+}
+
+.TSH-USERPROF {
+    font-size: 16px;
+}
+
+.AvatarCont {
+    padding: 12px;
+    background-color: #ffffff;
+}
+
+.TSH-User-Details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.TSH-ID-Cont,
+.TSH-Name-Cont,
+.TSH-Sales-Cont {
+    display: flex;
+}
+
+.TSH-data {
+    padding-left: 12px;
+}
+
+
 .TSH-TOPTABLECONT {
-    width: 90%;
+    width: 100%;
     overflow-x: scroll;
 }
 
@@ -101,5 +172,27 @@
 
 .TSH-Table table tr:hover {
     background-color: #BDD7D6;
+    cursor: pointer;
+}
+
+.TSH-BOTTOM-TABLE-CONT {
+    margin-top: 18px;
+}
+
+.TSH-BTM-BTNS-CONT {
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.TSH-BTM-BTNS-CONT button {
+    padding: 12px;
+    background-color: #7F9D9D;
+    font-size: 14px;
+    border: #7F9D9D;
+}
+
+.TSH-BTM-BTNS-CONT button:hover {
+    background-color: #a2e0e0;
     cursor: pointer;
 }

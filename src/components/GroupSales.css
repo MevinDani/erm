@@ -40,7 +40,7 @@
     height: 100%;
 }
 
-label {
+.grpContainer label {
     margin-right: 10px;
     font-size: 20px;
 }

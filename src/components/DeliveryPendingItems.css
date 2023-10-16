@@ -40,7 +40,7 @@
     height: 100%;
 }
 
-label {
+.DPIContainer label {
     margin-right: 10px;
     font-size: 18px;
 }

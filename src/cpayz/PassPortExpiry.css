@@ -42,8 +42,6 @@ p {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
-    overflow: hidden;
-
 }
 
 .PSE-Table table td,

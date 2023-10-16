@@ -5,12 +5,15 @@ import PersonalInformation from './PersonalInformation'
 import PassPortExpiry from './PassPortExpiry'
 import EmiratesIdExpiry from './EmiratesIdExpiry'
 import TimeSheets from './TimeSheets'
+import PayRoll from './PayRoll'
+import TimeReport from './TimeReport'
 
 
 const CpayzHome = () => {
     const [showComponent, setShowComponent] = useState(false);
     const [showPassport, setShowPassport] = useState(false);
     const [showEmirates, setShowEmirates] = useState(false);
+    const [showPayRoll, setShowPayRoll] = useState(false);
 
 
     const handleClick = () => {
@@ -36,6 +39,16 @@ const CpayzHome = () => {
     const handleEmiratesRecall = () => {
         setShowEmirates(false);
     }
+
+    const handlePayRollView = () => {
+        setShowPayRoll(true);
+    }
+
+    const handlePayRollRecall = () => {
+        setShowPayRoll(false);
+    }
+
+    console.log(showPayRoll)
 
     return (
         <div className='Cpayz-Wrapper'>
@@ -90,7 +103,7 @@ const CpayzHome = () => {
                         <i class="fa-regular fa-user"></i>
                         <div className='MNG'>Resource Management</div>
                     </div>
-                    <div className='CPZ-Left-Manage'>
+                    <div onClick={handlePayRollView} className='CPZ-Left-Manage'>
                         <i class="fa-regular fa-user"></i>
                         <div className='MNG'>Payroll Management</div>
                     </div>
@@ -126,20 +139,21 @@ const CpayzHome = () => {
                 </div>
 
                 <div className='CPB-Middle'>
-                    <TimeSheets />
-                    {/* {
+                    {/* <TimeSheets /> */}
+                    {/* < TimeReport /> */}
+                    {
                         showPassport ? (
                             <PassPortExpiry handlePassportRecall={handlePassportRecall} />
                         ) : showComponent ? (
                             <PersonalInformation handleComeBack={handleComeBack} />
                         ) : showEmirates ? (
                             <EmiratesIdExpiry handleEmiratesRecall={handleEmiratesRecall} /> // Replace with your component
+                        ) : showPayRoll ? (
+                            <PayRoll handlePayRollRecall={handlePayRollRecall} /> // Replace with your component
                         ) : (
                             <CpayzResouce handleClick={handleClick} handlePassportView={handlePassportView} handleEmiratesView={handleEmiratesView} />
                         )
-                    } */}
-
-
+                    }
                 </div>
 
                 <div className='CPB-Right'>

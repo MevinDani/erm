@@ -40,7 +40,7 @@
     height: 100%;
 }
 
-label {
+.DelOContainer label {
     margin-right: 10px;
     font-size: 18px;
 }

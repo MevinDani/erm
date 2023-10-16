@@ -1,3 +1,11 @@
+.Cpayz-Wrapper {
+    width: 100%;
+}
+
+.CPZ-Body-Cont {
+    width: 100%;
+}
+
 .Cpayz-HeaderNav-Container {
     width: 100%;
     display: flex;
@@ -73,7 +81,8 @@
     padding: 14px;
     height: auto;
     text-align: left;
-    flex: 2;
+    /* flex: 1; */
+    width: 18%;
 }
 
 .CPL-Options {
@@ -132,7 +141,8 @@
 /* This will make the middle div take up remaining space */
 
 .CPB-Middle {
-    flex: 10;
+    /* flex: 10; */
+    width: 80%;
 }
 
 /* CBODY-RIGHT */
@@ -140,8 +150,8 @@
 .CPB-Right {
     text-align: right;
     background-color: #B0C4DE;
-    flex: 1;
-    width: 70px;
+    /* flex: 1; */
+    width: 5%;
 }
 
 .CPR-Items {
@@ -185,7 +195,7 @@
     }
 
     .CPB-Middle {
-        flex: 25;
+        flex: 5;
     }
 
     .CPB-Right {
