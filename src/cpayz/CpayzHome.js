@@ -18,10 +18,22 @@ const CpayzHome = () => {
     const [showEmirates, setShowEmirates] = useState(false);
     const [showPayRoll, setShowPayRoll] = useState(false);
     const [showEOS, setShowEOS] = useState(false);
+    const [showTimeSheets, setShowTimeSheets] = useState(false);
+    const [showTimeReport, setShowTimeReport] = useState(false);
+    const [showEOSAPP, setShowEOSAPP] = useState(false);
+    const [showGrat, setShowGrat] = useState(false);
 
 
     const handleClick = () => {
         setShowComponent(true);
+        setShowPassport(false);
+        setShowEmirates(false);
+        setShowPayRoll(false);
+        setShowEOS(false);
+        setShowGrat(false);
+        setShowEOSAPP(false);
+        setShowTimeReport(false)
+        setShowTimeSheets(false)
     };
 
     const handleComeBack = () => {
@@ -30,6 +42,14 @@ const CpayzHome = () => {
 
     const handlePassportView = () => {
         setShowPassport(true);
+        setShowComponent(false);
+        setShowEmirates(false);
+        setShowPayRoll(false);
+        setShowEOS(false);
+        setShowGrat(false)
+        setShowEOSAPP(false)
+        setShowTimeReport(false)
+        setShowTimeSheets(false)
     }
 
     const handlePassportRecall = () => {
@@ -38,6 +58,14 @@ const CpayzHome = () => {
 
     const handleEmiratesView = () => {
         setShowEmirates(true);
+        setShowPassport(false);
+        setShowComponent(false);
+        setShowPayRoll(false);
+        setShowEOS(false);
+        setShowGrat(false)
+        setShowEOSAPP(false)
+        setShowTimeReport(false)
+        setShowTimeSheets(false)
     }
 
     const handleEmiratesRecall = () => {
@@ -46,6 +74,14 @@ const CpayzHome = () => {
 
     const handlePayRollView = () => {
         setShowPayRoll(true);
+        setShowEmirates(false);
+        setShowPassport(false);
+        setShowComponent(false);
+        setShowEOS(false);
+        setShowGrat(false)
+        setShowEOSAPP(false)
+        setShowTimeReport(false)
+        setShowTimeSheets(false)
     }
 
     const handlePayRollRecall = () => {
@@ -54,13 +90,84 @@ const CpayzHome = () => {
 
     const handleEOSView = () => {
         setShowEOS(true);
+        setShowPayRoll(false);
+        setShowEmirates(false);
+        setShowPassport(false);
+        setShowComponent(false);
+        setShowGrat(false)
+        setShowEOSAPP(false)
+        setShowTimeReport(false)
+        setShowTimeSheets(false)
     }
 
     const handleEOSRecall = () => {
         setShowEOS(false);
     }
 
-    console.log(showPayRoll)
+    const handleTMSHRecall = () => {
+        setShowTimeSheets(false)
+    }
+
+    const handleTMSView = () => {
+        setShowTimeSheets(true)
+        setShowEOS(false);
+        setShowPayRoll(false);
+        setShowEmirates(false);
+        setShowPassport(false);
+        setShowComponent(false);
+        setShowGrat(false)
+        setShowEOSAPP(false)
+        setShowTimeReport(false)
+    }
+
+    const handleTRPRecall = () => {
+        setShowTimeReport(false)
+    }
+
+    const handleTRPView = () => {
+        setShowTimeReport(true)
+        setShowTimeSheets(false)
+        setShowEOS(false);
+        setShowPayRoll(false);
+        setShowEmirates(false);
+        setShowPassport(false);
+        setShowComponent(false);
+        setShowGrat(false)
+        setShowEOSAPP(false)
+
+    }
+
+    const handleEOSAPPRecall = () => {
+        setShowEOSAPP(false)
+    }
+
+    const handleEOSAPPView = () => {
+        setShowEOSAPP(true)
+        setShowTimeReport(false)
+        setShowTimeSheets(false)
+        setShowEOS(false);
+        setShowPayRoll(false);
+        setShowEmirates(false);
+        setShowPassport(false);
+        setShowComponent(false);
+        setShowGrat(false);
+    }
+
+    const handleGratRecall = () => {
+        setShowGrat(false)
+    }
+
+    const handleGratView = () => {
+        setShowGrat(true)
+        setShowEOSAPP(false)
+        setShowTimeReport(false)
+        setShowTimeSheets(false)
+        setShowEOS(false);
+        setShowPayRoll(false);
+        setShowEmirates(false);
+        setShowPassport(false);
+        setShowComponent(false);
+    }
 
     return (
         <div className='Cpayz-Wrapper'>
@@ -161,13 +268,27 @@ const CpayzHome = () => {
                         ) : showComponent ? (
                             <PersonalInformation handleComeBack={handleComeBack} />
                         ) : showEmirates ? (
-                            <EmiratesIdExpiry handleEmiratesRecall={handleEmiratesRecall} /> // Replace with your component
+                            <EmiratesIdExpiry handleEmiratesRecall={handleEmiratesRecall} />
                         ) : showPayRoll ? (
-                            <PayRoll handlePayRollRecall={handlePayRollRecall} /> // Replace with your component
+                            <PayRoll handlePayRollRecall={handlePayRollRecall} />
                         ) : showEOS ? (
-                            <EOS handleEOSRecall={handleEOSRecall} /> // Replace with your component
+                            <EOS handleEOSRecall={handleEOSRecall} />
+                        ) : showTimeSheets ? (
+                            <TimeSheets handleTMSHRecall={handleTMSHRecall} />
+                        ) : showTimeReport ? (
+                            <TimeReport handleTRPRecall={handleTRPRecall} />
+                        ) : showEOSAPP ? (
+                            <EOSApplication handleEOSAPPRecall={handleEOSAPPRecall} />
+                        ) : showGrat ? (
+                            <GratuityMon handleGratRecall={handleGratRecall} />
                         ) : (
-                            <CpayzResouce handleClick={handleClick} handlePassportView={handlePassportView} handleEmiratesView={handleEmiratesView} />
+                            <CpayzResouce handleClick={handleClick}
+                                handlePassportView={handlePassportView}
+                                handleEmiratesView={handleEmiratesView}
+                                handleTMSView={handleTMSView}
+                                handleTRPView={handleTRPView}
+                                handleEOSAPPView={handleEOSAPPView}
+                                handleGratView={handleGratView} />
                         )
                     }
                 </div>

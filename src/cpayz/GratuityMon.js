@@ -1,7 +1,7 @@
 import React from 'react'
 import './GratuityMon.css'
 
-const GratuityMon = () => {
+const GratuityMon = ({ handleGratRecall }) => {
     return (
         <div className='GMT-WRAPPER'>
             <div className='GMT-CONT'>
@@ -11,7 +11,7 @@ const GratuityMon = () => {
                         <i className="fa-solid fa-pen-to-square"></i>
                         <span className='GMT-GMT'>Gratuity Monitor</span>
                     </div>
-                    <div className='GMT-Head-right-content'>
+                    <div onClick={handleGratRecall} className='GMT-Head-right-content'>
                         <i className="fa-solid fa-chevron-left"></i>
                     </div>
                 </div>

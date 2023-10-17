@@ -129,7 +129,7 @@ const options = {
 };
 
 
-const CpayzResouce = ({ handleClick, handlePassportView, handleEmiratesView }) => {
+const CpayzResouce = ({ handleClick, handlePassportView, handleEmiratesView, handleTMSView, handleTRPView, handleEOSAPPView, handleGratView }) => {
 
     return (
         <div className='CPR-Wrapeer'>
@@ -231,6 +231,18 @@ const CpayzResouce = ({ handleClick, handlePassportView, handleEmiratesView }) =
                     </div>
                     <div className='CPR-Square2'>
                         <div>Personal Info Creation</div>
+                    </div>
+                    <div onClick={handleTMSView} className='CPR-Square2'>
+                        <div>TimeSheets</div>
+                    </div>
+                    <div onClick={handleTRPView} className='CPR-Square2'>
+                        <div>TimeReport</div>
+                    </div>
+                    <div onClick={handleEOSAPPView} className='CPR-Square2'>
+                        <div>EOSApplication</div>
+                    </div>
+                    <div onClick={handleGratView} className='CPR-Square2'>
+                        <div>GratuityMon</div>
                     </div>
                 </div>
             </div>

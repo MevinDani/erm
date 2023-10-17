@@ -1,7 +1,7 @@
 import React from 'react'
 import './TimeReport.css'
 
-const TimeReport = () => {
+const TimeReport = ({ handleTRPRecall }) => {
     return (
         <div className='TimeReportWrapper'>
             <div className='TimeReportCont'>
@@ -11,7 +11,7 @@ const TimeReport = () => {
                         <i class="fa-solid fa-user"></i>
                         <span className='TRP-TRP'>TIMESHEET REPORT</span>
                     </div>
-                    <div className='TRP-Head-right-content'>
+                    <div onClick={handleTRPRecall} className='TRP-Head-right-content'>
                         <i className="fa-solid fa-chevron-left"></i>
                     </div>
                 </div>

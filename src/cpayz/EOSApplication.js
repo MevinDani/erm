@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './EOSApplication.css'
 
-const EOSApplication = () => {
+const EOSApplication = ({handleEOSAPPRecall}) => {
 
     const [userDisplay, setUserDisplay] = useState([])
     const [fromDate, setFromDate] = useState("")
@@ -391,7 +391,7 @@ const EOSApplication = () => {
                         <i className="fa-solid fa-pen-to-square"></i>
                         <span className='EOSAPP-EOSAPP'>END OF SERVICE APPLICATION</span>
                     </div>
-                    <div className='EOSAPP-Head-right-content'>
+                    <div onClick={handleEOSAPPRecall} className='EOSAPP-Head-right-content'>
                         <i className="fa-solid fa-chevron-left"></i>
                     </div>
                 </div>

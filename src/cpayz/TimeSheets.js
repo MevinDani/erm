@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './TimeSheets.css'
 
-const TimeSheets = () => {
+const TimeSheets = ({handleTMSHRecall}) => {
     const [userDisplay, setUserDisplay] = useState([])
 
     const results = [
@@ -110,7 +110,7 @@ const TimeSheets = () => {
                         <i class="fa-solid fa-user"></i>
                         <span className='TSH-TSH'>TIMESHEETS</span>
                     </div>
-                    <div className='TSH-Head-right-content'>
+                    <div onClick={handleTMSHRecall} className='TSH-Head-right-content'>
                         <i className="fa-solid fa-chevron-left"></i>
                     </div>
                 </div>

@@ -2,6 +2,11 @@
     height: 100vh;
 }
 
+.EOSAPP-TOPTABLECONT {
+    height: 400px;
+}
+
+
 .EOSAPP-Head-Cont {
     height: 50px;
     background-color: #00A0B6;
@@ -216,9 +221,9 @@
 }
 
 .EOSAPP-RIGHT-TOP {
-    border: 1px solid #BDD7D6;
+    border: 2px solid #BDD7D6;
     padding: 12px;
-    height: 300px;
+    height: 350px;
 }
 
 .EOSAPP-RIGHT-INPTS {
