@@ -129,11 +129,13 @@
 }
 
 .EOSAPP-BTM-LEFT-INPTS {
+    padding: 8px;
     width: 65%;
     height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    border: 1px solid #00A0B6;
 }
 
 .EOSAPP-DIVDEP {
@@ -155,6 +157,7 @@
 .EOSAPP-TOPTABLECONT {
     width: 100%;
     overflow-x: scroll;
+    overflow-y: scroll;
 }
 
 .EOSAPP-Table {

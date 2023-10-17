@@ -258,10 +258,6 @@ const CpayzHome = () => {
                 </div>
 
                 <div className='CPB-Middle'>
-                    {/* <TimeSheets /> */}
-                    {/* < TimeReport /> */}
-                    {/* <EOSApplication /> */}
-                    {/* <GratuityMon /> */}
                     {
                         showPassport ? (
                             <PassPortExpiry handlePassportRecall={handlePassportRecall} />
