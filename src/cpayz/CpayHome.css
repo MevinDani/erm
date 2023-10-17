@@ -183,10 +183,10 @@
 }
 
 
-/* .CPB-Left,
+.CPB-Left,
 .CPB-Right {
-    width: 280px;
-} */
+    height: auto;
+}
 
 @media (max-width:1500px) {
     .CPB-Left {

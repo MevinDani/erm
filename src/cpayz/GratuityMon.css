@@ -1,0 +1,173 @@
+.GMT-WRAPPER {
+    height: 100vh;
+}
+
+.GMT-Head-Cont {
+    height: 50px;
+    background-color: #00A0B6;
+    display: flex;
+    color: white;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.GMT-GMT {
+    padding: 10px;
+    font-size: 22px;
+}
+
+.GMT-Head-left-content {
+    display: flex;
+    align-items: center;
+}
+
+.GMT-Head-right-content {
+    margin-left: auto;
+}
+
+.GMT-Head-right-content i:hover {
+    cursor: pointer;
+}
+
+.GMT-Selected-User {
+    margin-top: 12px;
+    display: flex;
+    padding: 12px;
+    background-color: #BDD7D6;
+}
+
+.AvatarCont {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: #ffffff;
+}
+
+.GMT-User-Details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px;
+    margin-left: 18px;
+    font-size: 18px;
+}
+
+.GMT-ID-Cont,
+.GMT-Name-Cont,
+.GMT-Sales-Cont {
+    display: flex;
+}
+
+.GMT-data {
+    padding-left: 12px;
+    font-weight: bold;
+}
+
+.GMT-User-Details>div {
+    padding: 5px;
+}
+
+.GMT-BODY-CONT {
+    display: flex;
+}
+
+.GMT-LEFT-CONT {
+    padding: 12px;
+    width: 60%;
+    border: 1px solid #BDD7D6;
+    background-color: #BDD7D6;
+}
+
+.GMT-LEFT-BOX {
+    margin-top: 12px;
+    min-height: 350px;
+    background-color: white;
+}
+
+.GMT-RIGHT-WRAPPER {
+    padding: 12px;
+    width: 40%;
+}
+
+.GMT-RIGHT-CONT {
+    border: 1px solid #BDD7D6;
+    padding: 12px;
+}
+
+.GMT-RIGHT-DATECONT {
+    display: flex;
+}
+
+.GMT-RIGHT-DNAMES,
+.GMT-RIGHT-DDTLS {
+    width: 50%;
+}
+
+.GMT-RIGHT-DNAMES div {
+    padding: 12px;
+}
+
+.GMT-RIGHT-DDTLS div {
+    padding: 10px;
+}
+
+.GMT-RIGHT-DDTLS input {
+    height: 25px;
+}
+
+#gmtNums {
+    color: blue;
+    font-weight: bold;
+}
+
+.GMT-RIGHT-YMDSCONT {
+    padding: 12px;
+    display: flex;
+    border: 1px solid #BDD7D6;
+}
+
+.GMT-YRS,
+.GMT-MONTHS,
+.GMT-DAYS {
+    width: 33%;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+}
+
+.GMT-GSL-CONT {
+    display: flex;
+}
+
+.GMT-GSL-NAMES,
+.GMT-GSL-VALUES {
+    width: 50%;
+}
+
+.GMT-GSL-NAMES div,
+.GMT-GSL-VALUES div {
+    padding: 12px;
+}
+
+#gmtGslNms {
+    font-weight: bold;
+}
+
+#gmtNums2 {
+    color: red;
+    font-weight: bold;
+}
+
+.GMT-GSL-BTM-BANNER {
+    display: flex;
+    background-color: #BDD7D6;
+    padding: 12px;
+}
+
+.GMT-GSL-BTM-BANNER div {
+    padding: 12px;
+    width: 50%;
+}

@@ -67,7 +67,75 @@ const PersonalInformation = ({ handleComeBack }) => {
                                 <div className='PI-Personal'>Personal</div>
                             </div>
 
-                            <div className='PI-Name'>
+                            <div className='PI-PERSONAL-CONT'>
+
+                                <div className='PI-TITLE-CONT'>
+                                    <div id='PINMS'>Title</div>
+                                    <div>
+                                        <select id="title" name="fruit">
+                                            <option value="apple">Mr.</option>
+                                            <option value="banana">Mrs.</option>
+                                        </select>
+                                    </div>
+                                    <div>Date of Birth</div>
+                                    <div>Nationality</div>
+                                </div>
+
+                                <div className='PI-FNAME-CONT'>
+                                    <div id='PINMS'>First Name</div>
+                                    <div>
+                                        <input type="text" />
+                                    </div>
+                                    <div>
+                                        <input type="date" name="" id="" />
+                                    </div>
+                                    <div>
+                                        <select id="title" name="fruit">
+                                            <option value="apple"></option>
+                                            <option value="banana"></option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div className='PI-MN-CONT'>
+                                    <div id='PINMS'>Middle Name</div>
+                                    <div>
+                                        <input type="text" name="" id="" />
+                                    </div>
+                                    <div className='MaritalStatus'>
+                                        <div>Marital Status</div>
+                                        <select id="title" name="fruit">
+                                            <option value="apple">Married.</option>
+                                            <option value="banana">Single.</option>
+                                        </select>
+                                    </div>
+                                    <div className='MaritalStatus'>
+                                        <div>Height</div>
+                                        <input type="text" />
+                                    </div>
+                                </div>
+
+                                <div className='PI-LSTN-CONT'>
+                                    <div id='PINMS'>Last Name</div>
+                                    <div>
+                                        <input type="text" />
+                                    </div>
+                                    <div className='MaritalStatus'>
+                                        <div>Gender</div>
+                                        <select id="title" name="fruit">
+                                            <option value="apple">Male</option>
+                                            <option value="banana">Female</option>
+                                        </select>
+                                    </div>
+                                    <div className='MaritalStatus'>
+                                        <div>Weight</div>
+                                        <div><input type="text" name="" id="" /></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            {/* <div className='PI-Name'>
                                 <div className='PI-Title'>
                                     <label htmlFor="title">Title</label>
                                     <select id="title" name="fruit">
@@ -126,14 +194,91 @@ const PersonalInformation = ({ handleComeBack }) => {
                                         <input type="text" name="" id="WT" />
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
                             <div className='PI-RPerson'>
                                 <i class="fa-solid fa-map-location-dot fa-2x"></i>
                                 <div className='PI-Personal'>Official</div>
                             </div>
 
-                            <div className='JobDetails'>
+                            <div className='PI-OFFICIAL-CONT'>
+
+                                <div className='PI-OFFLEFT'>
+                                    <div className='PI-OFFNAMES'>
+                                        <div>Join Date</div>
+                                        <div>Job Title</div>
+                                        <div>Branch</div>
+                                        <div>Bank Account</div>
+                                    </div>
+
+                                    <div className='PI-OFF-INP1'>
+                                        <div>
+                                            <input type="date" name="" id="" />
+                                        </div>
+                                        <div>
+                                            <select id="JT" name="fruit">
+                                                <option value="apple">Managing Director</option>
+                                                <option value="banana">Administrator</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <select id="branch" name="fruit">
+                                                <option value="apple">Premier Auto Parts</option>
+                                                <option value="banana">Administrator</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <input type="text" name="" id="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className='PI-OFFRIGHT'>
+                                    <div className='PI-OFFRIGHT1'>
+                                        <div className='PI-OFFNAMES2'>
+                                            <div>Job Type</div>
+                                            <div>Division</div>
+                                            <div>Bank Name</div>
+                                        </div>
+                                        <div className='PI-OFFINP2'>
+                                            <div>
+                                                <select id="JT" name="fruit">
+                                                    <option value="apple"></option>
+                                                    <option value="banana"></option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <select id="branch" name="fruit">
+                                                    <option value="apple"></option>
+                                                    <option value="banana"></option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <input type="text" name="" id="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='PI-OFFRIGHT2'>
+                                        <div className='PI-OFFNAMES3'>
+                                            <div>Gender</div>
+                                            <div>Agent ID</div>
+                                        </div>
+                                        <div className='PI-OFFINP3'>
+                                            <div>
+                                                <select id="JT" name="fruit">
+                                                    <option value="apple"></option>
+                                                    <option value="banana"></option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <input type="text" name="" id="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* <div className='JobDetails'>
                                 <div className='JoinDt'>
                                     <div className="JOBPADDER">
                                         <label htmlFor="JoinDate">Join Date</label>
@@ -193,7 +338,7 @@ const PersonalInformation = ({ handleComeBack }) => {
                                         <input type="text" id='bankName' />
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className='AllowOnline'>
                                 <div className='AllowTogglerCont'>
                                     <div>Allow Online</div>

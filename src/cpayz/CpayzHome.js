@@ -8,6 +8,8 @@ import TimeSheets from './TimeSheets'
 import PayRoll from './PayRoll'
 import TimeReport from './TimeReport'
 import EOS from './EOS'
+import EOSApplication from './EOSApplication'
+import GratuityMon from './GratuityMon'
 
 
 const CpayzHome = () => {
@@ -151,6 +153,8 @@ const CpayzHome = () => {
                 <div className='CPB-Middle'>
                     {/* <TimeSheets /> */}
                     {/* < TimeReport /> */}
+                    {/* <EOSApplication /> */}
+                    {/* <GratuityMon /> */}
                     {
                         showPassport ? (
                             <PassPortExpiry handlePassportRecall={handlePassportRecall} />

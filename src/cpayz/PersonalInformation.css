@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    height: auto;
 }
 
 .PI-Cont {
@@ -44,17 +45,19 @@
 }
 
 .PI-left-content {
-    flex: 1;
+    /* flex: 1; */
     background-color: #7F9D9D;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 15%;
 }
 
 .PI-right-content {
-    flex: 4;
+    width: 85%;
+    /* flex: 4; */
     /* Adjust this value as needed to control the relative width */
 }
 
@@ -79,9 +82,9 @@
     width: 180px;
 }
 
-.PI-right-content {
+/* .PI-right-content {
     padding: 12px;
-}
+} */
 
 .PI-RHead-Cont {
     background-color: #BDD7D6;
@@ -324,6 +327,134 @@ input:checked+.slider:before {
 .PI-Head-right-content i:hover {
     cursor: pointer;
 }
+
+/* PIPIPIPI */
+
+.PI-PERSONAL-CONT {
+    display: flex;
+    height: 180px;
+}
+
+
+.PI-TITLE-CONT select {
+    width: 100%;
+}
+
+
+.PI-FNAME-CONT,
+.PI-TITLE-CONT,
+.PI-MN-CONT,
+.PI-LSTN-CONT {
+    width: 25%;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.PI-FNAME-CONT input,
+.PI-TITLE-CONT input,
+.PI-MN-CONT input,
+.PI-LSTN-CONT input {
+    width: 100%;
+}
+
+.PI-FNAME-CONT select {
+    width: 100%;
+}
+
+.MaritalStatus {
+    display: flex;
+}
+
+.MaritalStatus div {
+    width: 50%;
+}
+
+.MaritalStatus select {
+    width: 50%;
+}
+
+#PINMS {
+    text-align: center;
+}
+
+.PI-OFFICIAL-CONT {
+    display: flex;
+}
+
+.PI-OFFLEFT {
+    width: 40%;
+    display: flex;
+    padding: 12px;
+}
+
+.PI-OFFNAMES {
+    width: 40%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.PI-OFF-INP1 {
+    width: 60%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.PI-OFF-INP1 input,
+.PI-OFF-INP1 select {
+    width: 100%;
+}
+
+.PI-OFFRIGHT {
+    width: 60%;
+    display: flex;
+    padding: 12px;
+}
+
+.PI-OFFRIGHT1 {
+    width: 50%;
+    display: flex;
+    padding: 12px;
+    justify-content: space-between;
+}
+
+.PI-OFFNAMES2,
+.PI-OFFINP2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.PI-OFFINP2 input,
+.PI-OFFINP2 select {
+    width: 100%;
+}
+
+.PI-OFFRIGHT2 {
+    width: 50%;
+    display: flex;
+    padding: 12px;
+    justify-content: space-around;
+}
+
+.PI-OFFNAMES3,
+.PI-OFFINP3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.PI-OFFINP3 input,
+.PI-OFFINP3 select {
+    width: 100%;
+}
+
 
 @media (max-width:1500px) {
     .PI-Wrapper {

@@ -1,0 +1,315 @@
+.EOSAPP-WRAPPER {
+    height: 100vh;
+}
+
+.EOSAPP-Head-Cont {
+    height: 50px;
+    background-color: #00A0B6;
+    display: flex;
+    color: white;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.EOSAPP-EOSAPP {
+    padding: 10px;
+    font-size: 22px;
+}
+
+.EOSAPP-Head-left-content {
+    display: flex;
+    align-items: center;
+}
+
+.EOSAPP-Head-right-content {
+    margin-left: auto;
+}
+
+.EOSAPP-Head-right-content i:hover {
+    cursor: pointer;
+}
+
+.EOSAPP-TOP-BANNER {
+    display: flex;
+    background-color: #BDD7D6;
+}
+
+/* .PRL-USERPROF {
+    width: 50%;
+} */
+
+.EOSAPP-TOP-LEFT {
+    width: 60%;
+}
+
+.EOSAPP-TOP-RIGHT {
+    padding: 8px;
+    width: 40%;
+    display: flex;
+}
+
+.EOSAPP-RIGHT-NAMES {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-weight: bold;
+}
+
+.EOSAPP-RIGHT-DATES {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-weight: bold;
+    color: #00A0B6;
+}
+
+.EOSAPP-RIGHT-2DATES {
+    display: flex;
+    justify-content: space-between;
+}
+
+.EOSAPP-TOP-BANNER input {
+    height: 25px;
+}
+
+.EOSAPP-Selected-User {
+    margin-top: 12px;
+    display: flex;
+    padding: 12px;
+    background-color: #BDD7D6;
+}
+
+.AvatarCont {
+    padding: 12px;
+    background-color: #ffffff;
+}
+
+.EOSAPP-User-Details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px;
+    margin-left: 18px;
+    font-size: 18px;
+}
+
+.EOSAPP-ID-Cont,
+.EOSAPP-Name-Cont,
+.EOSAPP-Sales-Cont {
+    display: flex;
+}
+
+.EOSAPP-data {
+    padding-left: 12px;
+    font-weight: bold;
+}
+
+.EOSAPP-BTM-CONT {
+    padding: 12px;
+    display: flex;
+}
+
+.EOSAPP-BTM-LEFT {
+    width: 60%;
+}
+
+.EOSAPP-LSTFILT {
+    color: red;
+    font-weight: bold;
+}
+
+.EOSAPP-BTM-LEFT-INPTS {
+    width: 65%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.EOSAPP-DIVDEP {
+    display: flex;
+    justify-content: space-between;
+}
+
+.EOSAPP-DIVDEP select {
+    width: 180px;
+    height: 30px;
+    margin-left: 5px;
+}
+
+.EOSAPP-SRCH input {
+    width: 100%;
+    height: 30px;
+}
+
+.EOSAPP-TOPTABLECONT {
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.EOSAPP-Table {
+    min-width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+    /* Prevent line breaks */
+}
+
+.EOSAPP-Table th,
+.EOSAPP-Table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Add any additional styling you need for your table */
+
+
+
+
+.EOSAPP-Table table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.EOSAPP-Table table td,
+.EOSAPP-Table table th {
+    border-top: 1px solid #ECF0F1;
+    padding: 10px;
+}
+
+.EOSAPP-Table table td {
+    border-left: 1px solid #ECF0F1;
+    border-right: 1px solid #ECF0F1;
+}
+
+.EOSAPP-Table table th {
+    background-color: #ffffff;
+}
+
+/* CSS */
+.EOSAPP-Table table tr:nth-child(even) {
+    background-color: #94e6e0;
+}
+
+.EOSAPP-Table table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+
+.EOSAPP-Table table tr:nth-of-type(even) td {
+    background-color: lighten(#4ECDC4, 35%);
+}
+
+.EOSAPP-Table table tr:hover {
+    background-color: #BDD7D6;
+    cursor: pointer;
+}
+
+.EOSAPP-BTM-RIGHT {
+    width: 40%;
+}
+
+.EOSAPP-RIGHT-TOP {
+    border: 1px solid #BDD7D6;
+    padding: 12px;
+    height: 300px;
+}
+
+.EOSAPP-RIGHT-INPTS {
+    display: flex;
+    justify-content: space-between;
+    height: 40%;
+}
+
+.EOSAPP-DATE-CONT {
+    width: 70%;
+    display: flex;
+}
+
+.EOSAPP-DATE-DTLS,
+.EOSAPP-DATE-INPTS {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.EOSAPP-DATE-INPTS {
+    margin-left: 40px;
+}
+
+.EOSAPP-DATE-INPTS input {
+    height: 25px;
+}
+
+.EOSAPP-DATE-INPTS select {
+    width: 100%;
+    height: 25px;
+}
+
+.EOSAPP-DAYS {
+    font-weight: bold;
+    color: red;
+}
+
+.EOSAPP-RIGHT-BOX {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+    height: 60%;
+}
+
+.EOSAPP-REASON {
+    font-weight: bold;
+    color: red;
+}
+
+.EOSAPP-RIGHT-BOX textarea {
+    height: 70%;
+    width: 99%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.EOSAPP-RIGHT-BOX button {
+    width: 20%;
+    padding: 8px;
+    background-color: #BDD7D6;
+    border: #BDD7D6;
+    font-weight: bold;
+}
+
+.EOSAPP-RIGHT-BOX button:hover {
+    background-color: #7cc7c5;
+}
+
+.EOSAPP-RIGHT-BOTTOM {
+    padding: 12px;
+}
+
+.EOSAPP-STATUS-MONITOR {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stsMnt {
+    font-weight: bold;
+    color: red;
+}
+
+.EOSAPP-STATUS-MONITOR button {
+    width: 25%;
+    padding: 8px;
+    background-color: #BDD7D6;
+    border: #BDD7D6;
+    font-weight: bold;
+}
+
+.EOSAPP-STATUS-MONITOR button:hover {
+    background-color: #7cc7c5;
+}
