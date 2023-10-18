@@ -1,0 +1,111 @@
+.COMPDOC-WRAPPER {
+    height: 100vh;
+}
+
+/* .COMPDOC-CONT {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #BDD7D6;
+} */
+
+.CMPDOC-Head-Cont {
+    width: 100%;
+    background-color: #EE6B61;
+    display: flex;
+    color: white;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.CMPDOC-CMPDOC {
+    padding: 10px;
+    font-size: 22px;
+}
+
+.CMPDOC-Head-left-content {
+    display: flex;
+    align-items: center;
+}
+
+.CMPDOC-Head-right-content {
+    margin-left: auto;
+}
+
+.CMPDOC-Head-right-content i:hover {
+    cursor: pointer;
+}
+
+.CMPDOC-Table {
+    width: 100%;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #BDD7D6;
+}
+
+.CMPDOC-Table table {
+    width: 90%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.CMPDOC-Table table thead th {
+    background-color: #F0F0F0;
+}
+
+.CMPDOC-Table table td,
+.CMPDOC-Table table th {
+    border-top: 1px solid #ECF0F1;
+    padding: 10px;
+}
+
+.CMPDOC-Table table td {
+    border-left: 1px solid #ECF0F1;
+    border-right: 1px solid #ECF0F1;
+}
+
+.CMPDOC-Table table th {
+    background-color: #ffffff;
+}
+
+/* CSS */
+.CMPDOC-Table table tr:nth-child(even) {
+    background-color: #c8fffb;
+}
+
+.CMPDOC-Table table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+
+.CMPDOC-Table table tr:nth-of-type(even) td {
+    background-color: lighten(#4ECDC4, 35%);
+}
+
+.CMPDOC-Table table tr:hover {
+    background-color: #BDD7D6;
+    cursor: pointer;
+}
+
+.CMPDOC-BTM-BANNER {
+    padding: 25px;
+    background-color: #7F9D9D;
+}
+
+.SVDTLS-BUTTON button {
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #BDD7D6;
+    border: #BDD7D6;
+}
+
+.SVDTLS-BUTTON button:hover {
+    background-color: #c8fffb;
+}

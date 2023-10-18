@@ -10,6 +10,7 @@ import TimeReport from './TimeReport'
 import EOS from './EOS'
 import EOSApplication from './EOSApplication'
 import GratuityMon from './GratuityMon'
+import CompanyDoc from './CompanyDoc'
 
 
 const CpayzHome = () => {
@@ -22,6 +23,7 @@ const CpayzHome = () => {
     const [showTimeReport, setShowTimeReport] = useState(false);
     const [showEOSAPP, setShowEOSAPP] = useState(false);
     const [showGrat, setShowGrat] = useState(false);
+    const [showCompDoc, setShowCompDoc] = useState(false);
 
 
     const handleClick = () => {
@@ -34,6 +36,7 @@ const CpayzHome = () => {
         setShowEOSAPP(false);
         setShowTimeReport(false)
         setShowTimeSheets(false)
+        setShowCompDoc(false)
     };
 
     const handleComeBack = () => {
@@ -50,6 +53,7 @@ const CpayzHome = () => {
         setShowEOSAPP(false)
         setShowTimeReport(false)
         setShowTimeSheets(false)
+        setShowCompDoc(false)
     }
 
     const handlePassportRecall = () => {
@@ -66,6 +70,7 @@ const CpayzHome = () => {
         setShowEOSAPP(false)
         setShowTimeReport(false)
         setShowTimeSheets(false)
+        setShowCompDoc(false)
     }
 
     const handleEmiratesRecall = () => {
@@ -82,6 +87,7 @@ const CpayzHome = () => {
         setShowEOSAPP(false)
         setShowTimeReport(false)
         setShowTimeSheets(false)
+        setShowCompDoc(false)
     }
 
     const handlePayRollRecall = () => {
@@ -98,6 +104,7 @@ const CpayzHome = () => {
         setShowEOSAPP(false)
         setShowTimeReport(false)
         setShowTimeSheets(false)
+        setShowCompDoc(false)
     }
 
     const handleEOSRecall = () => {
@@ -118,6 +125,7 @@ const CpayzHome = () => {
         setShowGrat(false)
         setShowEOSAPP(false)
         setShowTimeReport(false)
+        setShowCompDoc(false)
     }
 
     const handleTRPRecall = () => {
@@ -134,6 +142,7 @@ const CpayzHome = () => {
         setShowComponent(false);
         setShowGrat(false)
         setShowEOSAPP(false)
+        setShowCompDoc(false)
 
     }
 
@@ -151,6 +160,7 @@ const CpayzHome = () => {
         setShowPassport(false);
         setShowComponent(false);
         setShowGrat(false);
+        setShowCompDoc(false)
     }
 
     const handleGratRecall = () => {
@@ -159,6 +169,24 @@ const CpayzHome = () => {
 
     const handleGratView = () => {
         setShowGrat(true)
+        setShowEOSAPP(false)
+        setShowTimeReport(false)
+        setShowTimeSheets(false)
+        setShowEOS(false);
+        setShowPayRoll(false);
+        setShowEmirates(false);
+        setShowPassport(false);
+        setShowComponent(false);
+        setShowCompDoc(false)
+    }
+
+    const handleCompDocRecall = () => {
+        setShowCompDoc(false)
+    }
+
+    const handleCompDocView = () => {
+        setShowCompDoc(true)
+        setShowGrat(false)
         setShowEOSAPP(false)
         setShowTimeReport(false)
         setShowTimeSheets(false)
@@ -238,7 +266,7 @@ const CpayzHome = () => {
                         <i class="fa-regular fa-user"></i>
                         <div className='MNG'>Fleet Management</div>
                     </div>
-                    <div className='CPZ-Left-Manage'>
+                    <div onClick={handleCompDocView} className='CPZ-Left-Manage'>
                         <i class="fa-regular fa-user"></i>
                         <div className='MNG'>Document Management</div>
                     </div>
@@ -277,6 +305,8 @@ const CpayzHome = () => {
                             <EOSApplication handleEOSAPPRecall={handleEOSAPPRecall} />
                         ) : showGrat ? (
                             <GratuityMon handleGratRecall={handleGratRecall} />
+                        ) : showCompDoc ? (
+                            <CompanyDoc handleCompDocRecall={handleCompDocRecall} />
                         ) : (
                             <CpayzResouce handleClick={handleClick}
                                 handlePassportView={handlePassportView}
@@ -300,12 +330,6 @@ const CpayzHome = () => {
                     <div></div>
                 </div>
             </div>
-
-
-            {/* PersonalInformation */}
-            {/* CpayzResouce */}
-            {/* PassPortExpiry */}
-
 
         </div>
     )
