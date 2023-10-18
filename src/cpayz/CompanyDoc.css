@@ -11,6 +11,7 @@
 
 .CMPDOC-Head-Cont {
     width: 100%;
+    height: 50px;
     background-color: #EE6B61;
     display: flex;
     color: white;
@@ -76,7 +77,7 @@
 
 /* CSS */
 .CMPDOC-Table table tr:nth-child(even) {
-    background-color: #c8fffb;
+    background-color: #F0F8FF
 }
 
 .CMPDOC-Table table tr:nth-child(odd) {
@@ -89,7 +90,7 @@
 }
 
 .CMPDOC-Table table tr:hover {
-    background-color: #BDD7D6;
+    background-color: #C0C0C0;
     cursor: pointer;
 }
 

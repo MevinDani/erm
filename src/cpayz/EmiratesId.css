@@ -67,7 +67,7 @@ p {
 
 /* CSS */
 .EID-Table table tr:nth-child(even) {
-    background-color: #94e6e0;
+    background-color: #F0F8FF;
 }
 
 .EID-Table table tr:nth-child(odd) {
@@ -80,7 +80,7 @@ p {
 }
 
 .EID-Table table tr:hover {
-    background-color: #BDD7D6;
+    background-color: #C0C0C0;
     cursor: pointer;
 }
 
@@ -113,6 +113,7 @@ p {
 
 .EID-data {
     padding-left: 12px;
+    font-weight: bold;
 }
 
 

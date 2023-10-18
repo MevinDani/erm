@@ -202,7 +202,7 @@
 
 /* CSS */
 .EOSAPP-Table table tr:nth-child(even) {
-    background-color: #94e6e0;
+    background-color: #F0F8FF;
 }
 
 .EOSAPP-Table table tr:nth-child(odd) {
@@ -215,7 +215,7 @@
 }
 
 .EOSAPP-Table table tr:hover {
-    background-color: #BDD7D6;
+    background-color: #C0C0C0;
     cursor: pointer;
 }
 

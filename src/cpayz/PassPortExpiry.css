@@ -65,7 +65,7 @@ p {
 
 /* CSS */
 .PSE-Table table tr:nth-child(even) {
-    background-color: #94e6e0;
+    background-color: #F0F8FF;
 }
 
 .PSE-Table table tr:nth-child(odd) {
@@ -78,7 +78,7 @@ p {
 }
 
 .PSE-Table table tr:hover {
-    background-color: #BDD7D6;
+    background-color: #C0C0C0;
     cursor: pointer;
 }
 
@@ -89,9 +89,15 @@ p {
     background-color: #BDD7D6;
 }
 
-.AvatarCont {
-    padding: 12px;
-    background-color: #ffffff;
+.PSE-AvatarCont {
+    display: flex;
+    align-items: center;
+    /* padding: 12px; */
+    /* background-color: #ffffff; */
+}
+
+.PSE-USER {
+    font-size: 80px;
 }
 
 .PSE-User-Details {
@@ -99,7 +105,7 @@ p {
     flex-direction: column;
     justify-content: space-between;
     padding: 8px;
-    margin-left: 18px;
+    /* margin-left: 15px; */
     font-size: 18px;
 }
 
@@ -111,6 +117,7 @@ p {
 
 .PSE-data {
     padding-left: 12px;
+    font-weight: bold;
 }
 
 

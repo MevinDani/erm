@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './PassPortExpiry.css'
+import { HiUserCircle } from "react-icons/hi2";
 
 const PassPortExpiry = ({ handlePassportRecall }) => {
 
@@ -116,8 +117,8 @@ const PassPortExpiry = ({ handlePassportRecall }) => {
                 {
                     userDisplay && userDisplay.map((i, k) => (
                         <div className='PSE-Selected-User'>
-                            <div className='AvatarCont'>
-                                <i class="fa-solid fa-user fa-5x"></i>
+                            <div className='PSE-AvatarCont'>
+                                <HiUserCircle className='PSE-USER' />
                             </div>
                             <div className='PSE-User-Details'>
                                 <div className='PSE-ID-Cont'>

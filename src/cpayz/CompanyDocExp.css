@@ -1,0 +1,136 @@
+.CMPDOCEXP-WRAPPER {
+    height: 100vh;
+}
+
+.CMPDOCEXP-Head-Cont {
+    width: 100%;
+    height: 50px;
+    background-color: #EE6B61;
+    display: flex;
+    color: white;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.CMPDOCEXP-CMPDOCEXP {
+    padding: 10px;
+    font-size: 22px;
+}
+
+.CMPDOCEXP-Head-left-content {
+    display: flex;
+    align-items: center;
+}
+
+.CMPDOCEXP-Head-right-content {
+    margin-left: auto;
+}
+
+.CMPDOCEXP-Head-right-content i:hover {
+    cursor: pointer;
+}
+
+.CEXP-CEXP {
+    background-color: #BDD7D6;
+    font-size: 22px;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.CEXPID {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+}
+
+.CMPDOCEXP-Table {
+    width: 100%;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #BDD7D6;
+    overflow-y: scroll;
+}
+
+.CMPDOCEXP-Table table {
+    width: 99%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.CMPDOCEXP-Table table thead th {
+    background-color: #F0F0F0;
+}
+
+.CMPDOCEXP-Table table td,
+.CMPDOCEXP-Table table th {
+    border-top: 1px solid #ECF0F1;
+    padding: 10px;
+}
+
+.CMPDOCEXP-Table table td {
+    border-left: 1px solid #ECF0F1;
+    border-right: 1px solid #ECF0F1;
+}
+
+.CMPDOCEXP-Table table th {
+    background-color: #ffffff;
+}
+
+/* CSS */
+.CMPDOCEXP-Table table tr:nth-child(even) {
+    background-color: #F0F8FF
+}
+
+.CMPDOCEXP-Table table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+
+.CMPDOCEXP-Table table tr:nth-of-type(even) td {
+    background-color: lighten(#4ECDC4, 35%);
+}
+
+.CMPDOCEXP-Table table tr:hover {
+    background-color: #C0C0C0;
+    cursor: pointer;
+}
+
+.CMPDOCEXP-Selected-User {
+    margin-top: 12px;
+    display: flex;
+    padding: 12px;
+    background-color: #BDD7D6;
+}
+
+.AvatarCont {
+    padding: 12px;
+    background-color: #ffffff;
+}
+
+.CMPDOCEXP-User-Details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px;
+    margin-left: 18px;
+    font-size: 18px;
+
+}
+
+.CMPDOCEXP-ID-Cont,
+.CMPDOCEXP-Name-Cont,
+.CMPDOCEXP-Sales-Cont {
+    display: flex;
+}
+
+.CMPDOCEXP-data {
+    padding-left: 12px;
+    font-weight: bold;
+}

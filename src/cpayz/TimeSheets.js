@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import './TimeSheets.css'
+import { HiUserCircle } from "react-icons/hi2";
 
-const TimeSheets = ({handleTMSHRecall}) => {
+const TimeSheets = ({ handleTMSHRecall }) => {
     const [userDisplay, setUserDisplay] = useState([])
 
     const results = [
@@ -135,8 +136,8 @@ const TimeSheets = ({handleTMSHRecall}) => {
                             userDisplay && userDisplay.map((i) => (
                                 <div className='TSH-USERPROF'>
                                     <div className='TSH-Selected-User'>
-                                        <div className='AvatarCont'>
-                                            <i class="fa-solid fa-user fa-5x"></i>
+                                        <div className='PSE-AvatarCont'>
+                                            <HiUserCircle className='PSE-USER' />
                                         </div>
                                         <div className='TSH-User-Details'>
                                             <div className='TSH-ID-Cont'>

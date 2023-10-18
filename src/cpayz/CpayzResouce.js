@@ -129,7 +129,7 @@ const options = {
 };
 
 
-const CpayzResouce = ({ handleClick, handlePassportView, handleEmiratesView, handleTMSView, handleTRPView, handleEOSAPPView, handleGratView }) => {
+const CpayzResouce = ({ handleClick, handlePassportView, handleEmiratesView, handleTMSView, handleTRPView, handleEOSAPPView, handleGratView, handleCompDocExpView }) => {
 
     return (
         <div className='CPR-Wrapeer'>
@@ -170,7 +170,7 @@ const CpayzResouce = ({ handleClick, handlePassportView, handleEmiratesView, han
                         <div>(10)</div>
                         <div>Personal ID Expiry</div>
                     </div>
-                    <div id='SQ4' className='CPR-Square3'>
+                    <div onClick={handleCompDocExpView} id='SQ4' className='CPR-Square3'>
                         <div>(10)</div>
                         <div>Documents Expiry</div>
                     </div>

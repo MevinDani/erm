@@ -11,6 +11,9 @@ import EOS from './EOS'
 import EOSApplication from './EOSApplication'
 import GratuityMon from './GratuityMon'
 import CompanyDoc from './CompanyDoc'
+import CompanyDocExp from './CompanyDocExp'
+import { HiUserCircle } from "react-icons/hi2";
+import { HiOutlineUser } from "react-icons/hi";
 
 
 const CpayzHome = () => {
@@ -24,6 +27,7 @@ const CpayzHome = () => {
     const [showEOSAPP, setShowEOSAPP] = useState(false);
     const [showGrat, setShowGrat] = useState(false);
     const [showCompDoc, setShowCompDoc] = useState(false);
+    const [showCompDocExp, setShowCompDocExp] = useState(false);
 
 
     const handleClick = () => {
@@ -37,6 +41,8 @@ const CpayzHome = () => {
         setShowTimeReport(false)
         setShowTimeSheets(false)
         setShowCompDoc(false)
+        setShowCompDocExp(false)
+
     };
 
     const handleComeBack = () => {
@@ -54,6 +60,8 @@ const CpayzHome = () => {
         setShowTimeReport(false)
         setShowTimeSheets(false)
         setShowCompDoc(false)
+        setShowCompDocExp(false)
+
     }
 
     const handlePassportRecall = () => {
@@ -71,6 +79,8 @@ const CpayzHome = () => {
         setShowTimeReport(false)
         setShowTimeSheets(false)
         setShowCompDoc(false)
+        setShowCompDocExp(false)
+
     }
 
     const handleEmiratesRecall = () => {
@@ -88,6 +98,8 @@ const CpayzHome = () => {
         setShowTimeReport(false)
         setShowTimeSheets(false)
         setShowCompDoc(false)
+        setShowCompDocExp(false)
+
     }
 
     const handlePayRollRecall = () => {
@@ -105,6 +117,8 @@ const CpayzHome = () => {
         setShowTimeReport(false)
         setShowTimeSheets(false)
         setShowCompDoc(false)
+        setShowCompDocExp(false)
+
     }
 
     const handleEOSRecall = () => {
@@ -126,6 +140,8 @@ const CpayzHome = () => {
         setShowEOSAPP(false)
         setShowTimeReport(false)
         setShowCompDoc(false)
+        setShowCompDocExp(false)
+
     }
 
     const handleTRPRecall = () => {
@@ -143,6 +159,8 @@ const CpayzHome = () => {
         setShowGrat(false)
         setShowEOSAPP(false)
         setShowCompDoc(false)
+        setShowCompDocExp(false)
+
 
     }
 
@@ -161,6 +179,8 @@ const CpayzHome = () => {
         setShowComponent(false);
         setShowGrat(false);
         setShowCompDoc(false)
+        setShowCompDocExp(false)
+
     }
 
     const handleGratRecall = () => {
@@ -178,6 +198,8 @@ const CpayzHome = () => {
         setShowPassport(false);
         setShowComponent(false);
         setShowCompDoc(false)
+        setShowCompDocExp(false)
+
     }
 
     const handleCompDocRecall = () => {
@@ -186,6 +208,26 @@ const CpayzHome = () => {
 
     const handleCompDocView = () => {
         setShowCompDoc(true)
+        setShowGrat(false)
+        setShowEOSAPP(false)
+        setShowTimeReport(false)
+        setShowTimeSheets(false)
+        setShowEOS(false);
+        setShowPayRoll(false);
+        setShowEmirates(false);
+        setShowPassport(false);
+        setShowComponent(false);
+        setShowCompDocExp(false)
+
+    }
+
+    const handleCompDocExpRecall = () => {
+        setShowCompDocExp(false)
+    }
+
+    const handleCompDocExpView = () => {
+        setShowCompDocExp(true)
+        setShowCompDoc(false)
         setShowGrat(false)
         setShowEOSAPP(false)
         setShowTimeReport(false)
@@ -241,41 +283,42 @@ const CpayzHome = () => {
                             </select>
                         </div>
                         <div className='CPAdmin-Head'>
-                            <i class="fa-solid fa-user fa-2x"></i>
+                            <HiUserCircle className='reactUser' />
+                            {/* <i class="fa-solid fa-user fa-2x"></i> */}
                             <span>Admin</span>
                         </div>
                     </div>
 
                     <div className='CPZ-Left-Manage'>
-                        <i class="fa-regular fa-user"></i>
+                        <HiOutlineUser className='CPH-LFT-USER' />
                         <div className='MNG'>Resource Management</div>
                     </div>
                     <div onClick={handlePayRollView} className='CPZ-Left-Manage'>
-                        <i class="fa-regular fa-user"></i>
+                        <HiOutlineUser className='CPH-LFT-USER' />
                         <div className='MNG'>Payroll Management</div>
                     </div>
                     <div className='CPZ-Left-Manage'>
-                        <i class="fa-regular fa-user"></i>
+                        <HiOutlineUser className='CPH-LFT-USER' />
                         <div className='MNG'>Leave Management</div>
                     </div>
                     <div onClick={handleEOSView} className='CPZ-Left-Manage'>
-                        <i class="fa-regular fa-user"></i>
+                        <HiOutlineUser className='CPH-LFT-USER' />
                         <div className='MNG'>End of Service</div>
                     </div>
                     <div className='CPZ-Left-Manage'>
-                        <i class="fa-regular fa-user"></i>
+                        <HiOutlineUser className='CPH-LFT-USER' />
                         <div className='MNG'>Fleet Management</div>
                     </div>
                     <div onClick={handleCompDocView} className='CPZ-Left-Manage'>
-                        <i class="fa-regular fa-user"></i>
+                        <HiOutlineUser className='CPH-LFT-USER' />
                         <div className='MNG'>Document Management</div>
                     </div>
                     <div className='CPZ-Left-Manage'>
-                        <i class="fa-regular fa-user"></i>
+                        <HiOutlineUser className='CPH-LFT-USER' />
                         <div className='MNG'>Task Assignments</div>
                     </div>
                     <div className='CPZ-Left-Manage'>
-                        <i class="fa-regular fa-user"></i>
+                        <HiOutlineUser className='CPH-LFT-USER' />
                         <div className='MNG'>Accounts</div>
                     </div>
 
@@ -307,6 +350,8 @@ const CpayzHome = () => {
                             <GratuityMon handleGratRecall={handleGratRecall} />
                         ) : showCompDoc ? (
                             <CompanyDoc handleCompDocRecall={handleCompDocRecall} />
+                        ) : showCompDocExp ? (
+                            <CompanyDocExp handleCompDocExpRecall={handleCompDocExpRecall} />
                         ) : (
                             <CpayzResouce handleClick={handleClick}
                                 handlePassportView={handlePassportView}
@@ -314,7 +359,8 @@ const CpayzHome = () => {
                                 handleTMSView={handleTMSView}
                                 handleTRPView={handleTRPView}
                                 handleEOSAPPView={handleEOSAPPView}
-                                handleGratView={handleGratView} />
+                                handleGratView={handleGratView}
+                                handleCompDocExpView={handleCompDocExpView} />
                         )
                     }
                 </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import './EOS.css'
+import { HiUserCircle } from "react-icons/hi2";
 
 const EOS = ({ handleEOSRecall }) => {
     return (
@@ -20,8 +21,8 @@ const EOS = ({ handleEOSRecall }) => {
                     <div className='EOS-TOP-LEFT'>
                         <div className='PRL-USERPROF'>
                             <div className='PRL-Selected-User'>
-                                <div className='AvatarCont'>
-                                    <i class="fa-solid fa-user fa-5x"></i>
+                                <div className='PSE-AvatarCont'>
+                                    <HiUserCircle className='PSE-USER' />
                                 </div>
                                 <div className='PRL-User-Details'>
                                     <div className='PRL-ID-Cont'>

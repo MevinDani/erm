@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './EOSApplication.css'
+import { HiUserCircle } from "react-icons/hi2";
 
-const EOSApplication = ({handleEOSAPPRecall}) => {
+const EOSApplication = ({ handleEOSAPPRecall }) => {
 
     const [userDisplay, setUserDisplay] = useState([])
     const [fromDate, setFromDate] = useState("")
@@ -402,8 +403,8 @@ const EOSApplication = ({handleEOSAPPRecall}) => {
                             userDisplay.length === 0 &&
                             <div className='EOSAPP-USERPROF'>
                                 <div className='EOSAPP-Selected-User'>
-                                    <div className='AvatarCont'>
-                                        <i class="fa-solid fa-user fa-5x"></i>
+                                    <div className='PSE-AvatarCont'>
+                                        <HiUserCircle className='PSE-USER' />
                                     </div>
                                     <div className='EOSAPP-User-Details'>
                                         <div className='EOSAPP-ID-Cont'>
@@ -430,8 +431,8 @@ const EOSApplication = ({handleEOSAPPRecall}) => {
                             userDisplay && userDisplay.map((i) => (
                                 <div className='EOSAPP-USERPROF'>
                                     <div className='EOSAPP-Selected-User'>
-                                        <div className='AvatarCont'>
-                                            <i class="fa-solid fa-user fa-5x"></i>
+                                        <div className='PSE-AvatarCont'>
+                                            <HiUserCircle className='PSE-USER' />
                                         </div>
                                         <div className='EOSAPP-User-Details'>
                                             <div className='EOSAPP-ID-Cont'>

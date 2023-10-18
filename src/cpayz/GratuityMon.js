@@ -1,5 +1,6 @@
 import React from 'react'
 import './GratuityMon.css'
+import { HiUserCircle } from "react-icons/hi2";
 
 const GratuityMon = ({ handleGratRecall }) => {
     return (
@@ -24,8 +25,8 @@ const GratuityMon = ({ handleGratRecall }) => {
                         <div className='GMT-LEFT-DTLS'>
                             <div className='GMT-USERPROF'>
                                 <div className='GMT-Selected-User'>
-                                    <div className='AvatarCont'>
-                                        <i class="fa-solid fa-user fa-5x"></i>
+                                    <div className='PSE-AvatarCont'>
+                                        <HiUserCircle className='PSE-USER' />
                                     </div>
                                     <div className='GMT-User-Details'>
                                         <div className='GMT-ID-Cont'>

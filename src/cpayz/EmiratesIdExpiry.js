@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './EmiratesId.css'
+import { HiUserCircle } from "react-icons/hi2";
 
 const EmiratesIdExpiry = ({ handleEmiratesRecall }) => {
     const [userDisplay, setUserDisplay] = useState([])
@@ -98,8 +99,8 @@ const EmiratesIdExpiry = ({ handleEmiratesRecall }) => {
                 {
                     userDisplay && userDisplay.map((i, k) => (
                         <div className='EID-Selected-User'>
-                            <div className='AvatarCont'>
-                                <i class="fa-solid fa-user fa-5x"></i>
+                            <div className='PSE-AvatarCont'>
+                                <HiUserCircle className='PSE-USER' />
                             </div>
                             <div className='EID-User-Details'>
                                 <div className='EID-ID-Cont'>
