@@ -33,7 +33,7 @@
     margin-left: auto;
 }
 
-.TRP-Head-right-content i:hover {
+.TRP-Head-right-content:hover {
     cursor: pointer;
 }
 

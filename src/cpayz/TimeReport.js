@@ -1,5 +1,7 @@
 import React from 'react'
 import './TimeReport.css'
+import { HiUserCircle } from "react-icons/hi2";
+import { GoChevronLeft } from "react-icons/go";
 
 const TimeReport = ({ handleTRPRecall }) => {
     return (
@@ -8,11 +10,11 @@ const TimeReport = ({ handleTRPRecall }) => {
 
                 <div className='TRP-Head-Cont'>
                     <div className='TRP-Head-left-content'>
-                        <i class="fa-solid fa-user"></i>
+                        <HiUserCircle className='PI-GrClose' />
                         <span className='TRP-TRP'>TIMESHEET REPORT</span>
                     </div>
                     <div onClick={handleTRPRecall} className='TRP-Head-right-content'>
-                        <i className="fa-solid fa-chevron-left"></i>
+                        <GoChevronLeft className='PI-GrClose' />
                     </div>
                 </div>
 

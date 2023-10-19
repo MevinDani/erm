@@ -79,6 +79,7 @@
     background-color: #0C3A75;
     color: white;
     padding: 14px;
+    padding-top: 25px;
     height: auto;
     text-align: left;
     /* flex: 1; */
@@ -93,6 +94,7 @@
     height: 80px;
     background-color: #0C3A75;
     margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 
