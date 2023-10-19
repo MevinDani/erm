@@ -38,7 +38,7 @@
     margin-left: auto;
 }
 
-.TSH-Head-right-content i:hover {
+.TSH-Head-right-content:hover {
     cursor: pointer;
 }
 

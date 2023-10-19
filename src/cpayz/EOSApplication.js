@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './EOSApplication.css'
 import { HiUserCircle } from "react-icons/hi2";
+import { GoChevronLeft } from "react-icons/go";
+import { BiEdit } from "react-icons/bi";
 
 const EOSApplication = ({ handleEOSAPPRecall }) => {
 
@@ -389,11 +391,11 @@ const EOSApplication = ({ handleEOSAPPRecall }) => {
 
                 <div className='EOSAPP-Head-Cont'>
                     <div className='EOSAPP-Head-left-content'>
-                        <i className="fa-solid fa-pen-to-square"></i>
+                        <BiEdit className='PI-BiEdit' />
                         <span className='EOSAPP-EOSAPP'>END OF SERVICE APPLICATION</span>
                     </div>
                     <div onClick={handleEOSAPPRecall} className='EOSAPP-Head-right-content'>
-                        <i className="fa-solid fa-chevron-left"></i>
+                        <GoChevronLeft className='PI-GrClose' />
                     </div>
                 </div>
 

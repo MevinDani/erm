@@ -36,7 +36,7 @@
     margin-left: auto;
 }
 
-.CMPDOC-Head-right-content i:hover {
+.CMPDOC-Head-right-content:hover {
     cursor: pointer;
 }
 

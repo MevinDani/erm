@@ -1,6 +1,8 @@
 import React from 'react'
 import './GratuityMon.css'
 import { HiUserCircle } from "react-icons/hi2";
+import { GoChevronLeft } from "react-icons/go";
+import { BiEdit } from "react-icons/bi";
 
 const GratuityMon = ({ handleGratRecall }) => {
     return (
@@ -9,11 +11,11 @@ const GratuityMon = ({ handleGratRecall }) => {
 
                 <div className='GMT-Head-Cont'>
                     <div className='GMT-Head-left-content'>
-                        <i className="fa-solid fa-pen-to-square"></i>
+                        <BiEdit className='PI-BiEdit' />
                         <span className='GMT-GMT'>Gratuity Monitor</span>
                     </div>
                     <div onClick={handleGratRecall} className='GMT-Head-right-content'>
-                        <i className="fa-solid fa-chevron-left"></i>
+                        <GoChevronLeft className='PI-GrClose' />
                     </div>
                 </div>
 

@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import './EmiratesId.css'
 import { HiUserCircle } from "react-icons/hi2";
+import { BiEdit } from "react-icons/bi";
+import { GoChevronLeft } from "react-icons/go";
+
 
 const EmiratesIdExpiry = ({ handleEmiratesRecall }) => {
     const [userDisplay, setUserDisplay] = useState([])
@@ -51,11 +54,11 @@ const EmiratesIdExpiry = ({ handleEmiratesRecall }) => {
 
                 <div className='EID-Head-Cont'>
                     <div className='EID-Head-left-content'>
-                        <i className="fa-solid fa-pen-to-square"></i>
+                        <BiEdit className='PI-BiEdit' />
                         <span className='EID-EID'>Alters</span>
                     </div>
                     <div onClick={handleEmiratesRecall} className='EID-Head-right-content'>
-                        <i className="fa-solid fa-chevron-left"></i>
+                        <GoChevronLeft className='PI-GrClose' />
                     </div>
                 </div>
 

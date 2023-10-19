@@ -1,6 +1,7 @@
 .EOS-Wrapper {
     height: 100vh;
 }
+
 .EOS-Head-Cont {
     height: 50px;
     background-color: #00A0B6;
@@ -27,7 +28,7 @@
     margin-left: auto;
 }
 
-.EOS-Head-right-content i:hover {
+.EOS-Head-right-content:hover {
     cursor: pointer;
 }
 

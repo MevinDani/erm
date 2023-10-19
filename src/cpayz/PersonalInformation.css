@@ -39,6 +39,15 @@
     margin-left: auto;
 }
 
+.PI-BiEdit {
+    font-size: 30px;
+}
+
+.PI-GrClose {
+    font-size: 30px;
+    font-weight: bold;
+}
+
 
 .PI-Body {
     display: flex;
@@ -324,7 +333,7 @@ input:checked+.slider:before {
     background-color: #aff0ed;
 }
 
-.PI-Head-right-content i:hover {
+.PI-Head-right-content:hover {
     cursor: pointer;
 }
 
@@ -453,6 +462,10 @@ input:checked+.slider:before {
 .PI-OFFINP3 input,
 .PI-OFFINP3 select {
     width: 100%;
+}
+
+.PI-FaUserTie {
+    font-size: 30px;
 }
 
 

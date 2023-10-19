@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import './PassPortExpiry.css'
 import { HiUserCircle } from "react-icons/hi2";
+import { BiEdit } from "react-icons/bi";
+import { GoChevronLeft } from "react-icons/go";
+
 
 const PassPortExpiry = ({ handlePassportRecall }) => {
 
@@ -64,11 +67,11 @@ const PassPortExpiry = ({ handlePassportRecall }) => {
 
                 <div className='PSE-Head-Cont'>
                     <div className='PSE-Head-left-content'>
-                        <i className="fa-solid fa-pen-to-square"></i>
+                        <BiEdit className='PI-BiEdit' />
                         <span className='PSE-PSE'>Alters</span>
                     </div>
                     <div onClick={handlePassportRecall} className='PSE-Head-right-content'>
-                        <i className="fa-solid fa-chevron-left"></i>
+                        <GoChevronLeft className='PI-GrClose' />
                     </div>
                 </div>
 

@@ -1,6 +1,9 @@
 import React from 'react'
 import './EOS.css'
 import { HiUserCircle } from "react-icons/hi2";
+import { GoChevronLeft } from "react-icons/go";
+import { BiEdit } from "react-icons/bi";
+
 
 const EOS = ({ handleEOSRecall }) => {
     return (
@@ -9,11 +12,11 @@ const EOS = ({ handleEOSRecall }) => {
 
                 <div className='EOS-Head-Cont'>
                     <div className='EOS-Head-left-content'>
-                        <i className="fa-solid fa-pen-to-square"></i>
+                        <BiEdit className='PI-BiEdit' />
                         <span className='EOS-EOS'>END OF SERVICE APPROVAL</span>
                     </div>
                     <div onClick={handleEOSRecall} className='EOS-Head-right-content'>
-                        <i className="fa-solid fa-chevron-left"></i>
+                        <GoChevronLeft className='PI-GrClose' />
                     </div>
                 </div>
 

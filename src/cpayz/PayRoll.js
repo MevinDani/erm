@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './PayRoll.css'
 import { HiUserCircle } from "react-icons/hi2";
+import { GoChevronLeft } from "react-icons/go";
 
 const PayRoll = ({ handlePayRollRecall }) => {
 
@@ -72,11 +73,11 @@ const PayRoll = ({ handlePayRollRecall }) => {
         <div className='PayRollWrapper'>
             <div className='TSH-Head-Cont'>
                 <div className='TSH-Head-left-content'>
-                    <i class="fa-solid fa-user"></i>
+                    <HiUserCircle className='PI-GrClose' />
                     <span className='TSH-TSH'>Payroll Additions/Deductions</span>
                 </div>
                 <div onClick={handlePayRollRecall} className='TSH-Head-right-content'>
-                    <i className="fa-solid fa-chevron-left"></i>
+                    <GoChevronLeft className='PI-GrClose' />
                 </div>
             </div>
 

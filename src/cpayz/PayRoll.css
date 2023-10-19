@@ -8,6 +8,10 @@
     overflow-x: scroll;
 }
 
+.TSH-Head-right-content:hover {
+    cursor: pointer;
+}
+
 .PRL-Table {
     min-width: 100%;
     border-collapse: collapse;

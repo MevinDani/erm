@@ -3,6 +3,8 @@ import './CompanyDoc.css'
 import { FcPlus, FcRemoveImage } from "react-icons/fc";
 import { TfiClose } from "react-icons/tfi";
 import { AiFillEye } from "react-icons/ai";
+import { BiEdit } from "react-icons/bi";
+import { GoChevronLeft } from "react-icons/go";
 
 
 
@@ -13,11 +15,11 @@ const CompanyDoc = ({ handleCompDocRecall }) => {
 
                 <div className='CMPDOC-Head-Cont'>
                     <div className='CMPDOC-Head-left-content'>
-                        <i className="fa-solid fa-pen-to-square"></i>
+                        <BiEdit className='PI-BiEdit' />
                         <span className='CMPDOC-CMPDOC'>COMPANY DOCUMENTS</span>
                     </div>
                     <div onClick={handleCompDocRecall} className='CMPDOC-Head-right-content'>
-                        <i className="fa-solid fa-chevron-left"></i>
+                        <GoChevronLeft className='PI-GrClose' />
                     </div>
                 </div>
 

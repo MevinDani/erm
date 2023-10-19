@@ -14,6 +14,11 @@ import CompanyDoc from './CompanyDoc'
 import CompanyDocExp from './CompanyDocExp'
 import { HiUserCircle } from "react-icons/hi2";
 import { HiOutlineUser } from "react-icons/hi";
+import { FaPowerOff } from "react-icons/fa";
+import { GrUserSettings } from "react-icons/gr";
+import { IoMdSettings } from "react-icons/io";
+import { FaRegFloppyDisk } from "react-icons/fa6";
+import { BsBell } from "react-icons/bs";
 
 
 const CpayzHome = () => {
@@ -367,11 +372,11 @@ const CpayzHome = () => {
 
                 <div className='CPB-Right'>
                     <div className='CPR-Items'>
-                        <div><i class="fa-solid fa-power-off"></i></div>
-                        <div><i class="fa-solid fa-user-gear"></i></div>
-                        <div><i class="fa-solid fa-gear"></i></div>
-                        <div><i class="fa-regular fa-floppy-disk"></i></div>
-                        <div><i class="fa-regular fa-bell"></i></div>
+                        <div><FaPowerOff /></div>
+                        <div><GrUserSettings /></div>
+                        <div><IoMdSettings /></div>
+                        <div><FaRegFloppyDisk /></div>
+                        <div><BsBell /></div>
                     </div>
                     <div></div>
                 </div>

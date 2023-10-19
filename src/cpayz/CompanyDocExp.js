@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import './CompanyDocExp.css'
 import { HiUserCircle } from "react-icons/hi2";
+import { BiEdit } from "react-icons/bi";
+import { GoChevronLeft } from "react-icons/go";
+
 
 
 const CompanyDocExp = ({ handleCompDocExpRecall }) => {
@@ -44,11 +47,11 @@ const CompanyDocExp = ({ handleCompDocExpRecall }) => {
 
                 <div className='CMPDOCEXP-Head-Cont'>
                     <div className='CMPDOCEXP-Head-left-content'>
-                        <i className="fa-solid fa-pen-to-square"></i>
+                        <BiEdit className='PI-BiEdit' />
                         <span className='CMPDOCEXP-CMPDOCEXP'>ALTERS</span>
                     </div>
                     <div onClick={handleCompDocExpRecall} className='CMPDOCEXP-Head-right-content'>
-                        <i className="fa-solid fa-chevron-left"></i>
+                        <GoChevronLeft className='PI-GrClose' />
                     </div>
                 </div>
 

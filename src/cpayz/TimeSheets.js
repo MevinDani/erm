@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './TimeSheets.css'
 import { HiUserCircle } from "react-icons/hi2";
+import { GoChevronLeft } from "react-icons/go";
 
 const TimeSheets = ({ handleTMSHRecall }) => {
     const [userDisplay, setUserDisplay] = useState([])
@@ -108,11 +109,11 @@ const TimeSheets = ({ handleTMSHRecall }) => {
 
                 <div className='TSH-Head-Cont'>
                     <div className='TSH-Head-left-content'>
-                        <i class="fa-solid fa-user"></i>
+                        <HiUserCircle className='PI-GrClose' />
                         <span className='TSH-TSH'>TIMESHEETS</span>
                     </div>
                     <div onClick={handleTMSHRecall} className='TSH-Head-right-content'>
-                        <i className="fa-solid fa-chevron-left"></i>
+                        <GoChevronLeft className='PI-GrClose' />
                     </div>
                 </div>
 
