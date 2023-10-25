@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import './DeliveryPendingItems.css'
 
 
@@ -13,6 +13,9 @@ const DeliveryPendItems = () => {
     const [hideonIpad, setHideonIpad] = useState(false)
     const [hideonMob, setHideonMob] = useState(false)
 
+    const fromDateRef = useRef(null);
+    const toDateRef = useRef(null);
+
 
     const handleGrpSearch = (e) => {
         e.preventDefault()
@@ -25,6 +28,8 @@ const DeliveryPendItems = () => {
     }
 
     const searchGrp = async () => {
+        setDisplayData([])
+        setWarningMsg("Resource Loading, Please Wait...")
         try {
             const result = await fetch(`https://api-eproc.premierauto.ae/api/DeliveryOrderReport/DOreport/DOPending/Item?dateStart=${fromDate}&dateEnd=${toDate}`)
             const data = await result.json()
@@ -34,6 +39,7 @@ const DeliveryPendItems = () => {
             }
             else if (!data || data.length === 0) {
                 setDisplayData([]); // Set displayData as an empty array if there's no data
+                setWarningMsg("Some Error Occured in the backend, Please try again later")
             }
         } catch (error) {
             alert(error)
@@ -67,6 +73,33 @@ const DeliveryPendItems = () => {
         }
     }, [hideonIpad, hideonMob])
 
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+
+    const formattedDate = `${year}-${month}-${day}`;
+
+    useEffect(() => {
+        fromDateRef.current.value = formattedDate;
+        toDateRef.current.value = formattedDate;
+        const fetchData = async () => {
+            try {
+
+                setWarningMsg("Resource Loading, Please Wait...")
+
+                const result = await fetch(`https://api-eproc.premierauto.ae/api/DeliveryOrderReport/DOreport/DOPending/Item?dateStart=${formattedDate}&dateEnd=${formattedDate}`)
+                const data = await result.json()
+                data && setAllData(data)
+            } catch (error) {
+                console.log(error)
+                setWarningMsg("Some Error Occured in the backend, Please try again later")
+            }
+        }
+
+        fetchData();
+    }, [])
+
     return (
         <div className='DPIContainer'>
             {/* date select */}
@@ -75,11 +108,11 @@ const DeliveryPendItems = () => {
                 <div className='DPIDateInp'>
                     <div className='DPIInp'>
                         <label htmlFor="fromDate">From:</label>
-                        <input onChange={(e) => setFromDate(e.target.value)} type="date" id='fromDate' />
+                        <input ref={fromDateRef} onChange={(e) => setFromDate(e.target.value)} type="date" id='fromDate' />
                     </div>
                     <div className='DPIInp'>
                         <label htmlFor="toDate">To:</label>
-                        <input onChange={(e) => setToDate(e.target.value)} type="date" id='toDate' />
+                        <input ref={toDateRef} onChange={(e) => setToDate(e.target.value)} type="date" id='toDate' />
                     </div>
                     <button onClick={handleGrpSearch} className='grpButton'>Go</button>
                 </div>
@@ -116,7 +149,12 @@ const DeliveryPendItems = () => {
                                     <tr onClick={window.innerWidth <= 1124 ? () => handleRowClick(i) : null} key={i}>
                                         <td data-testid="dropdown-clicker" id='numD' className='DPIplusTd'>{g.DEPTNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
                                         <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["DONO"] ? g["DONO"] : "Nil"}</td>
-                                        <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["DATE"] ? g["DATE"] : "Nil"}</td>
+                                        <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>
+                                            {g["DATE"] ?
+                                                new Date(g["DATE"] + 'Z').toISOString().split('T')[0] :
+                                                "Nil"
+                                            }
+                                        </td>
                                         <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["CODE"] ? g["CODE"] : "Nil"}</td>
                                         <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["DESCRIPTION"] ? g["DESCRIPTION"] : "Nil"}</td>
                                         <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["DO QTY"] ? g["DO QTY"] : "Nil"}</td>

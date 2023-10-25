@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import './DeliveryOrder.css'
 
 
@@ -17,6 +17,8 @@ const DeliveryOrder = () => {
     const [hideonIpad, setHideonIpad] = useState(false)
     const [hideonMob, setHideonMob] = useState(false)
 
+    const fromDateRef = useRef(null);
+    const toDateRef = useRef(null);
 
 
     const handleGrpSearch = (e) => {
@@ -30,6 +32,8 @@ const DeliveryOrder = () => {
     }
 
     const searchGrp = async () => {
+        setDisplayData([])
+        setWarningMsg("Resource Loading, Please Wait...")
         try {
             const result = await fetch(`https://api-eproc.premierauto.ae/api/DeliveryOrderReport?dateStart=${fromDate}&dateEnd=${toDate}`)
             const data = await result.json()
@@ -73,6 +77,33 @@ const DeliveryOrder = () => {
         });
     };
 
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+
+    const formattedDate = `${year}-${month}-${day}`;
+
+    useEffect(() => {
+        fromDateRef.current.value = formattedDate;
+        toDateRef.current.value = formattedDate;
+        const fetchData = async () => {
+            try {
+
+                setWarningMsg("Resource Loading, Please Wait...")
+
+                const result = await fetch(`https://api-eproc.premierauto.ae/api/DeliveryOrderReport?dateStart=${formattedDate}&dateEnd=${formattedDate}`)
+                const data = await result.json()
+                data && setAllData(data)
+            } catch (error) {
+                console.log(error)
+                setWarningMsg("Some Error Occured in the backend, Please try again later")
+            }
+        }
+
+        fetchData();
+    }, [])
+
 
     return (
         <div className='DelOContainer'>
@@ -82,11 +113,11 @@ const DeliveryOrder = () => {
                 <div className='DelODateInp'>
                     <div className='DelOInp'>
                         <label htmlFor="fromDate">From:</label>
-                        <input onChange={(e) => setFromDate(e.target.value)} type="date" id='fromDate' />
+                        <input ref={fromDateRef} onChange={(e) => setFromDate(e.target.value)} type="date" id='fromDate' />
                     </div>
                     <div className='DelOInp'>
                         <label htmlFor="toDate">To:</label>
-                        <input onChange={(e) => setToDate(e.target.value)} type="date" id='toDate' />
+                        <input ref={toDateRef} onChange={(e) => setToDate(e.target.value)} type="date" id='toDate' />
                     </div>
                     <button onClick={handleGrpSearch} className='grpButton'>Go</button>
                 </div>
@@ -119,7 +150,12 @@ const DeliveryOrder = () => {
                                     <React.Fragment key={i}>
                                         <tr onClick={window.innerWidth <= 1124 ? () => handleRowClick(i) : null} key={i}>
                                             <td data-testid="dropdown-clicker" id='numD' className='DloplusTd'>{g.DEPTNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
-                                            <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["DATE"] ? g["DATE"] : "Nil"}</td>
+                                            <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>
+                                                {g["DATE"] ?
+                                                    new Date(g["DATE"] + 'Z').toISOString().split('T')[0] :
+                                                    "Nil"
+                                                }
+                                            </td>
                                             <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["CUSTOMER"] ? g["CUSTOMER"] : "Nil"}</td>
                                             <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["AMOUNT"] ? g["AMOUNT"] : "Nil"}</td>
                                             <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["VAT"] ? g["VAT"] : "Nil"}</td>

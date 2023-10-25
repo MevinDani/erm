@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './GroupSales.css'
 
 
@@ -13,6 +13,9 @@ const GroupSales = () => {
     const [expandAll, setExpandAll] = useState(false);
     const [expandedRows, setExpandedRows] = useState([]);
     const [warningMessage, setWarningMsg] = useState("Enter Start Date and End Date")
+
+    const fromDateRef = useRef(null);
+    const toDateRef = useRef(null);
 
 
     const searchGrp = async () => {
@@ -91,18 +94,49 @@ const GroupSales = () => {
 
     }, [allData])
 
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+
+    const formattedDate = `${year}-${month}-${day}`;
+
+    useEffect(() => {
+        fromDateRef.current.value = formattedDate;
+        toDateRef.current.value = formattedDate;
+        const fetchData = async () => {
+            try {
+
+                setWarningMsg("Resource Loading, Please Wait...")
+
+                const result = await fetch(`https://api-eproc.premierauto.ae/api/SalesAnalysis/SalesGroup?dateStart=${formattedDate}&dateEnd=${formattedDate}`)
+                const data = await result.json()
+                data && setAllData(data)
+            } catch (error) {
+                console.log(error)
+                setWarningMsg("Some Error Occured in the backend, Please try again later")
+            }
+        }
+
+        fetchData();
+    }, [])
+
+
     const uniqueGroups = [...new Set(allData.map(item => item.GROUP))];
     const uniqueDeptNo = [...new Set(allData.map(item => item.DEPTNO))];
 
     const handleGrpSearch = (e) => {
+        setDisplayData([])
+        setWarningMsg("Resource Loading, Please Wait...")
         e.preventDefault()
         if (!fromDate || !toDate) {
             alert("select a start and end Date")
         } else {
-            setWarningMsg("Resource Loading, Please Wait...")
             searchGrp()
         }
     }
+
+
 
     const handleRowClick = (index) => {
         setExpandedRows(prevState => {
@@ -127,11 +161,11 @@ const GroupSales = () => {
                 <div className='grpDateInp'>
                     <div className='grpInp'>
                         <label htmlFor="fromDate">From:</label>
-                        <input onChange={(e) => setFromDate(e.target.value)} type="date" id='fromDate' />
+                        <input ref={fromDateRef} onChange={(e) => setFromDate(e.target.value)} type="date" id='fromDate' />
                     </div>
                     <div className='grpInp'>
                         <label htmlFor="toDate">To:</label>
-                        <input onChange={(e) => setToDate(e.target.value)} type="date" id='toDate' />
+                        <input ref={toDateRef} onChange={(e) => setToDate(e.target.value)} type="date" id='toDate' />
                     </div>
                     <button onClick={handleGrpSearch} className='grpButton'>Go</button>
                 </div>
@@ -153,7 +187,7 @@ const GroupSales = () => {
 
             {/* table */}
 
-            {displayData.length !== 0 ? (<div div className='grptableCont' >
+            {displayData.length !== 0 ? (<div className='grptableCont' >
                 <table border="1">
                     {/*  */}
                     <thead>

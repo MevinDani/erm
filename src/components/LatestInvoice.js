@@ -91,7 +91,12 @@ const LatestInvoice = () => {
                                 <React.Fragment key={i}>
                                     <tr onClick={window.innerWidth <= 2000 ? () => handleRowClick(i) : null}>
                                         <td data-testid="dropdown-clicker" id='numD' className='LtstplusTd'>{g.INVNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
-                                        <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["INV_DATE"] ? g["INV_DATE"] : "Nil"}</td>
+                                        <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>
+                                            {g["INV_DATE"] ?
+                                                new Date(g["INV_DATE"] + 'Z').toISOString().split('T')[0] :
+                                                "Nil"
+                                            }
+                                        </td>
                                         <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["CUSTOMER"] ? g["CUSTOMER"] : "Nil"}</td>
                                         <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["LPO NO"] ? g["LPO NO"] : "Nil"}</td>
                                         <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["SO NO"] ? g["SO NO"] : "Nil"}</td>
