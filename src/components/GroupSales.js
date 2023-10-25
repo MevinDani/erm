@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { FaSortDown } from "react-icons/fa";
 import './GroupSales.css'
 
 
@@ -206,7 +207,7 @@ const GroupSales = () => {
                         {displayData && displayData.map((g, i) => (
                             <React.Fragment key={i}>
                                 <tr data-testid={`dropdown-clicker`} onClick={window.innerWidth <= 768 ? () => handleRowClick(i) : null}>
-                                    <td className='grpplusTd'>{g.GROUP || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
+                                    <td className='grpplusTd'>{g.GROUP || 'Unknown'}<FaSortDown /></td>
                                     <td id='numD' className={expandAll ? 'expandable' : 'hidden'}>{g["NETCASH SALES"] ? parseFloat(g["NETCASH SALES"]).toFixed(2) : "Nil"}</td>
                                     <td id='numD' className={expandAll ? 'expandable' : 'hidden'}>{g["NETCREDIT SALES"] ? parseFloat(g["NETCREDIT SALES"]).toFixed(2) : "Nil"}</td>
                                     <td id='numD' className={expandAll ? 'expandable' : 'hidden'}>{g["NET SALERETURN"] ? parseFloat(g["NET SALERETURN"]).toFixed(2) : "Nil"}</td>

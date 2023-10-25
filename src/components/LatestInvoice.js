@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { FaSortDown } from "react-icons/fa";
 import './LatestInvoice.css'
 
 
@@ -90,7 +91,7 @@ const LatestInvoice = () => {
                             displayData && displayData.map((g, i) => (
                                 <React.Fragment key={i}>
                                     <tr onClick={window.innerWidth <= 2000 ? () => handleRowClick(i) : null}>
-                                        <td data-testid="dropdown-clicker" id='numD' className='LtstplusTd'>{g.INVNO || 'Unknown'}<i class="fa-solid fa-sort-down"></i></td>
+                                        <td data-testid="dropdown-clicker" id='numD' className='LtstplusTd'>{g.INVNO || 'Unknown'}<FaSortDown /></td>
                                         <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>
                                             {g["INV_DATE"] ?
                                                 new Date(g["INV_DATE"] + 'Z').toISOString().split('T')[0] :

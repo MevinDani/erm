@@ -3,6 +3,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import './Doughnut.css'
+import { FaSortDown } from "react-icons/fa";
 
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -82,7 +83,7 @@ const DoughnutChart = () => {
                     <div className='DFProdCont'>
                         <div className='DFDropItems'>
                             <div className='DFDText'>Top 5 products</div>
-                            <div className='DFDText'><i data-testid="dropdown-clicker-1" class="fa-solid fa-sort-down" onClick={toggleProduct}></i></div>
+                            <div className='DFDText'><FaSortDown onClick={toggleProduct} /></div>
                         </div>
                         {productisOpen && (
                             <div className='DFDropDownCont'>
@@ -95,7 +96,7 @@ const DoughnutChart = () => {
                     <div className='DFMonthCont'>
                         <div className='DFDropItems'>
                             <div className='DFDText'>current month</div>
-                            <div className='DFDText'><i data-testid="dropdown-clicker-2" class="fa-solid fa-sort-down" onClick={toggleMonth}></i></div>
+                            <div className='DFDText'><FaSortDown onClick={toggleMonth} /></div>
                         </div>
                         {monthisOpen && (
                             <div id='RightDrops' className='DFDropDownCont'>
