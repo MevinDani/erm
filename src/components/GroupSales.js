@@ -16,6 +16,7 @@ const GroupSales = () => {
 
     const fromDateRef = useRef(null);
     const toDateRef = useRef(null);
+    const toOptionRef = useRef(null);
 
 
     const searchGrp = async () => {
@@ -23,6 +24,7 @@ const GroupSales = () => {
             const result = await fetch(`https://api-eproc.premierauto.ae/api/SalesAnalysis/SalesGroup?dateStart=${fromDate}&dateEnd=${toDate}`)
             const data = await result.json()
             data && setAllData(data)
+            toOptionRef.current.value = "all"
         } catch (error) {
             console.log(error)
             setWarningMsg("Some Error Occured in the backend, Please try again later")
@@ -175,7 +177,7 @@ const GroupSales = () => {
 
             <div className='filter'>
                 <label className='labeStyle' htmlFor="brancSelect">Filter By Branch:</label>
-                <select className='selectStyle' onChange={(e) => getDeptData(e.target.value)} name="branch" id="brancSelect">
+                <select ref={toOptionRef} className='selectStyle' onChange={(e) => getDeptData(e.target.value)} name="branch" id="brancSelect">
                     <option value="all" defaultChecked>ALL</option>
                     {uniqueDeptNo && uniqueDeptNo.map((i) => (
                         <>
