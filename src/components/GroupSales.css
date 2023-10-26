@@ -115,6 +115,11 @@
     display: none;
 }
 
+.grpplusTd .newDrop {
+    display: none;
+}
+
+
 #numD {
     text-align: right;
 }
@@ -126,6 +131,10 @@
 
     .grpplusTd .fa-solid {
         display: contents;
+    }
+
+    .grpplusTd .newDrop {
+        display: block;
     }
 
     .grpplusTd {

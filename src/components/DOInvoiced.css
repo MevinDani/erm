@@ -118,6 +118,10 @@
     display: none;
 }
 
+.DIplusTd .newDrop {
+    display: none;
+}
+
 @media screen and (max-width:1124px) {
     .DItableCont .hidden {
         display: none;
@@ -125,6 +129,10 @@
 
     .DIplusTd .fa-solid {
         display: contents;
+    }
+
+    .DIplusTd .newDrop {
+        display: block;
     }
 
     .DIplusTd {

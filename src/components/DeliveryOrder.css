@@ -113,6 +113,10 @@
     display: none;
 }
 
+.DloplusTd .newDrop {
+    display: none;
+}
+
 #numD {
     text-align: center;
 }
@@ -124,6 +128,10 @@
 
     .DloplusTd .fa-solid {
         display: contents;
+    }
+
+    .DloplusTd .newDrop {
+        display: block;
     }
 
     .DloplusTd {

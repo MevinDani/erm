@@ -141,7 +141,7 @@ const DOInvoiced = () => {
                             displayData && displayData.map((g, i) => (
                                 <React.Fragment key={i}>
                                     <tr onClick={window.innerWidth <= 1124 ? () => handleRowClick(i) : null} key={i}>
-                                        <td data-testid="dropdown-clicker" className='DIplusTd'>{g.DEPTNO || 'Unknown'}<FaSortDown/></td>
+                                        <td data-testid="dropdown-clicker" className='DIplusTd'>{g.DEPTNO || 'Unknown'}<FaSortDown className='newDrop' /></td>
                                         <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["DONO"] ? g["DONO"] : "Nil"}</td>
                                         <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>
                                             {g["DATE"] ?

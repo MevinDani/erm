@@ -93,6 +93,11 @@
     border-collapse: collapse;
 }
 
+.LtstTableCont table thead,
+.LtstTableCont table tbody {
+    width: auto;
+}
+
 .LtstTableCont table td,
 .LtstTableCont table th {
     padding: 5px;
@@ -179,6 +184,10 @@
         overflow-x: scroll;
         white-space: wrap;
         border-collapse: collapse;
+    }
+
+    .LtstTableCont table tbody td {
+        width: auto;
     }
 
     .LtstTableCont .hidden {

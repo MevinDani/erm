@@ -123,6 +123,10 @@
     display: none;
 }
 
+.DPIplusTd .newDrop {
+    display: none;
+}
+
 #numD {
     text-align: center;
 }
@@ -142,6 +146,10 @@
 
     .DPIplusTd .fa-solid {
         display: contents;
+    }
+
+    .DPIplusTd .newDrop {
+        display: block;
     }
 
     .DPIplusTd {

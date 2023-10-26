@@ -69,8 +69,8 @@ const LatestInvoice = () => {
                             <th className={hideonMob ? 'hidden' : 'expandable'}>INV_DATE</th>
                             <th className={hideonMob ? 'hidden' : 'expandable'}>CUSTOMER</th>
                             <th className={hideonMob ? 'hidden' : 'expandable'}>LPO NO</th>
-                            <th className={hideonIpad ? 'hidden' : 'expandable'}>SO NO</th>
-                            <th className={hideonIpad ? 'hidden' : 'expandable'}>DO NO</th>
+                            <th className={hideonMob ? 'hidden' : 'expandable'}>SO NO</th>
+                            <th className={hideonMob ? 'hidden' : 'expandable'}>DO NO</th>
                             <th className={hideonIpad ? 'hidden' : 'expandable'}>deptno</th>
                             <th className={hideonIpad ? 'hidden' : 'expandable'}>SALES MAN</th>
                             <th className={hideonIpad ? 'hidden' : 'expandable'}>CASHCRED</th>
@@ -91,7 +91,7 @@ const LatestInvoice = () => {
                             displayData && displayData.map((g, i) => (
                                 <React.Fragment key={i}>
                                     <tr onClick={window.innerWidth <= 2000 ? () => handleRowClick(i) : null}>
-                                        <td data-testid="dropdown-clicker" id='numD' className='LtstplusTd'>{g.INVNO || 'Unknown'}<FaSortDown /></td>
+                                        <td data-testid="dropdown-clicker" id='numD' className='LtstplusTd'>{g.INVNO || 'Unknown'}<FaSortDown className='newDrop' /></td>
                                         <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>
                                             {g["INV_DATE"] ?
                                                 new Date(g["INV_DATE"] + 'Z').toISOString().split('T')[0] :
@@ -100,8 +100,8 @@ const LatestInvoice = () => {
                                         </td>
                                         <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["CUSTOMER"] ? g["CUSTOMER"] : "Nil"}</td>
                                         <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["LPO NO"] ? g["LPO NO"] : "Nil"}</td>
-                                        <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["SO NO"] ? g["SO NO"] : "Nil"}</td>
-                                        <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["DO NO"] ? g["DO NO"] : "Nil"}</td>
+                                        <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["SO NO"] ? g["SO NO"] : "Nil"}</td>
+                                        <td id='numD' className={hideonMob ? 'hidden' : 'expandable'}>{g["DO NO"] ? g["DO NO"] : "Nil"}</td>
                                         <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["deptno"] ? g["deptno"] : "Nil"}</td>
                                         <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["SALES MAN"] ? g["SALES MAN"] : "Nil"}</td>
                                         <td id='numD' className={hideonIpad ? 'hidden' : 'expandable'}>{g["CASHCRED"] ? g["CASHCRED"] : "Nil"}</td>
