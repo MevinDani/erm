@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './PayRoll.css'
 import { HiUserCircle } from "react-icons/hi2";
 import { GoChevronLeft } from "react-icons/go";
+import axios from 'axios';
 
 const PayRoll = ({ handlePayRollRecall }) => {
 
     const [userDisplay, setUserDisplay] = useState([])
+    const [personalInfo, setPersonalInfo] = useState([]);
 
     const results = [
         {
@@ -69,6 +71,30 @@ const PayRoll = ({ handlePayRollRecall }) => {
         setUserDisplay([data]);
     }
 
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const url = 'https://cubixweberp.com:156/api/PersonalInfoList/CPAYS/HO/YES/-';
+
+                const response = await axios.get(url);
+
+                if (!response.data) {
+                    throw new Error(`No data received from the server`);
+                }
+
+                setPersonalInfo(response.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+
+        fetchData();
+    }, []);
+
+    console.log(personalInfo)
+
     return (
         <div className='PayRollWrapper'>
             <div className='TSH-Head-Cont'>
@@ -91,31 +117,72 @@ const PayRoll = ({ handlePayRollRecall }) => {
                                 <table>
                                     <thead>
                                         <tr class="table-headers">
-                                            <th>EmpId</th>
+                                            <th>Employee ID</th>
+                                            <th>Status</th>
                                             <th>Name</th>
+                                            <th>Date of Birth</th>
+                                            <th>Marital Status</th>
+                                            <th>Gender</th>
+                                            <th>Nationality</th>
+                                            <th>Join Date</th>
                                             <th>Job Title</th>
-                                            <th>PassportNo</th>
-                                            <th>PassportIssueDate</th>
-                                            <th>PassportExpiryDate</th>
-                                            <th>PassportPlaceOFIssue</th>
-                                            <th>PassportCountryOFIssue</th>
-                                            <th>Days_of_Expiry</th>
+                                            <th>Job Type</th>
+                                            <th>Department</th>
+                                            <th>Division</th>
+                                            <th>Grade</th>
+                                            <th>Passport No</th>
+                                            <th>Passport Expiry Date</th>
+                                            <th>Emirates ID</th>
+                                            <th>Emirates ID Expiry Date</th>
+                                            <th>Visa No</th>
+                                            <th>Visa Expiry Date</th>
+                                            <th>Person ID</th>
+                                            <th>Person ID Expiry Date</th>
+                                            <th>Basic Pay</th>
+                                            <th>Allowances OT</th>
+                                            <th>Allowances NOT</th>
+                                            <th>Net Salary</th>
+                                            <th>Normal Hours</th>
+                                            <th>Hourly Wage</th>
+                                            <th>OT Rate</th>
+                                            <th>Spl OT Rate</th>
+                                            <th>Active</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {
-                                            results.map((i, key) => (
+                                            personalInfo &&
+                                            personalInfo.map((i, key) => (
                                                 <>
                                                     <tr onClick={() => PRLUserClick(i)} key={key}>
                                                         <td>{i.EmpId}</td>
+                                                        <td>{i.Status}</td>
                                                         <td>{i.Name}</td>
-                                                        <td>{i['Job Title']}</td>
+                                                        <td>{i.DOB}</td>
+                                                        <td>{i.Gender}</td>
+                                                        <td>{i.Nationality}</td>
+                                                        <td>{i.JoinDate}</td>
+                                                        <td>{i.JobTitle}</td>
+                                                        <td>{i.Department}</td>
+                                                        <td>{i.Division}</td>
+                                                        <td>{i.Grade}</td>
                                                         <td>{i.PassportNo}</td>
-                                                        <td>{i.PassportIssueDate}</td>
                                                         <td>{i.PassportExpiryDate}</td>
-                                                        <td>{i.PassportPlaceOFIssue}</td>
-                                                        <td>{i.PassportCountryOFIssue}</td>
-                                                        <td>{i.Days_of_Expiry}</td>
+                                                        <td>{i.EmiratesId}</td>
+                                                        <td>{i.EmiratesIdExpiryDate}</td>
+                                                        <td>{i.VisaNo}</td>
+                                                        <td>{i.VisaExpiryDate}</td>
+                                                        <td>{i.PersonId}</td>
+                                                        <td>{i.PersonIdExpiryDate}</td>
+                                                        <td>{i.BasicPay}</td>
+                                                        <td>{i.Allowances_OT}</td>
+                                                        <td>{i.Allowances_NOT}</td>
+                                                        <td>{i.NetSalary}</td>
+                                                        <td>{i.NormalHrs}</td>
+                                                        <td>{i.HourlyWage}</td>
+                                                        <td>{i.OTrate}</td>
+                                                        <td>{i.SplOtRate}</td>
+                                                        <td>{i.Active}</td>
                                                     </tr>
                                                 </>
                                             ))
