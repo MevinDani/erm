@@ -7,9 +7,25 @@ import { FaMapLocationDot } from "react-icons/fa6";
 import { HiHome } from "react-icons/hi";
 import { BiAt } from "react-icons/bi";
 import axios from 'axios';
+import Button from '@mui/material/Button';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 
 const PersonalInformation = ({ handleComeBack }) => {
+
+    const [open, setOpen] = useState(false);
+
+    const [newJobTitle, setNewJobTitle] = useState('')
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     const [jobTitles, setJobTitles] = useState(null)
 
@@ -181,7 +197,47 @@ const PersonalInformation = ({ handleComeBack }) => {
     };
 
     const handlePISave = () => {
-        const url = 'https://185.241.124.171:156/api/PersonalInfoReg'
+        const url = 'https://cubixweberp.com:156/api/PersonalInfoReg'
+
+        const statesToLog = {
+            employeeId,
+            status,
+            title,
+            firstName,
+            lastName,
+            dob,
+            maritalStatus,
+            gender,
+            nationality,
+            height,
+            weight,
+            joinDate,
+            jobTitle,
+            branch,
+            jobType,
+            division,
+            bankAccount,
+            bankName,
+            agentId,
+            currentAddress,
+            homeAddress,
+            homeAirport,
+            workMobile,
+            personalMobile,
+            workPhone,
+            personalPhone,
+            workEmail,
+            personalEmail,
+            allowOnline,
+        };
+
+        // Log all states
+        console.table(statesToLog);
+
+        if (!employeeId || !status || !title || !firstName || !lastName || !dob || !maritalStatus || !gender || !nationality || !height || !weight || !joinDate || !jobTitle || !jobType || !division || !bankAccount || !bankName || !agentId || !currentAddress || !homeAddress || !homeAirport || !workMobile || !personalMobile || !workPhone || !personalPhone || !workEmail || !personalEmail || !allowOnline) {
+            console.error('Incomplete data. Unable to send request.');
+            return;
+        }
 
         const data = [
 
@@ -202,6 +258,7 @@ const PersonalInformation = ({ handleComeBack }) => {
                 "Weight": weight,
                 "JoinDate": joinDate,
                 "JobTitle": jobTitle,
+                "Branch": branch,
                 "JobType": jobType,
                 "Division": division,
                 "Grade": "A",
@@ -220,6 +277,16 @@ const PersonalInformation = ({ handleComeBack }) => {
                 "onlineallow": allowOnline.toString()
             }
         ]
+
+        axios.post(url, data)
+            .then(response => {
+                // Handle the successful response here
+                console.log('Response:', response.data);
+            })
+            .catch(error => {
+                // Handle errors here
+                console.error('Error:', error);
+            });
 
         // const data = [
         //     {
@@ -313,7 +380,14 @@ const PersonalInformation = ({ handleComeBack }) => {
         fetchData();
     }, []);
 
-    console.log(jobTitles)
+    useEffect(() => {
+        if (jobTitle == 'changeTitle') {
+            setOpen(true)
+        }
+    }, [jobTitle])
+
+    // console.log(jobTitles)
+    // console.log(newJobTitle)
 
 
     return (
@@ -357,8 +431,9 @@ const PersonalInformation = ({ handleComeBack }) => {
                                 <div className='PI-Status'>
                                     <label htmlFor="status">Status</label>
                                     <select id="status" name="fruit" value={status} onChange={handleStatusChange}>
-                                        <option value="apple">Confirmed Employee</option>
-                                        <option value="banana">nil</option>
+                                        <option value="" defaultChecked>Select Status</option>
+                                        <option value="confirmedEmployee">Confirmed Employee</option>
+                                        <option value="nil">nil</option>
                                     </select>
                                 </div>
                             </div>
@@ -367,6 +442,7 @@ const PersonalInformation = ({ handleComeBack }) => {
                                 <div className='PI-Status'>
                                     <label htmlFor="active">Active</label>
                                     <select id="active" name="fruit" value={active} onChange={handleActiveChange}>
+                                        <option value="" defaultChecked>Select Status</option>
                                         <option value="yes">Yes</option>
                                         <option value="no">No</option>
                                     </select>
@@ -387,6 +463,7 @@ const PersonalInformation = ({ handleComeBack }) => {
                                     <div id='PINMS'>Title</div>
                                     <div>
                                         <select id="title" name="fruit" value={title} onChange={handleTitleChange}>
+                                            <option value="" defaultChecked>Select Title</option>
                                             <option value="mr">Mr.</option>
                                             <option value="mrs">Mrs.</option>
                                         </select>
@@ -419,6 +496,7 @@ const PersonalInformation = ({ handleComeBack }) => {
                                     <div className='MaritalStatus'>
                                         <div>Marital Status</div>
                                         <select id="title" name="fruit" value={maritalStatus} onChange={handleMaritalStatusChange}>
+                                            <option value="" defaultChecked>Select Marital Status</option>
                                             <option value="Married">Married.</option>
                                             <option value="Single">Single.</option>
                                         </select>
@@ -437,6 +515,7 @@ const PersonalInformation = ({ handleComeBack }) => {
                                     <div className='MaritalStatus'>
                                         <div>Gender</div>
                                         <select id="title" name="fruit" value={gender} onChange={handleGenderChange}>
+                                            <option value="" defaultChecked>Select Gender</option>
                                             <option value="male">Male</option>
                                             <option value="female">Female</option>
                                         </select>
@@ -473,12 +552,37 @@ const PersonalInformation = ({ handleComeBack }) => {
                                             <select id="JT" name="fruit" value={jobTitle} onChange={handleJobTitleChange}>
                                                 {jobTitles &&
                                                     jobTitles.map((job, index) => (
-                                                        <option key={index} value={job.TranId}>
+                                                        <option key={index} value={job.Description}>
                                                             {job.Description}
                                                         </option>
                                                     ))}
+                                                <option value="changeTitle" className='CreateTitleOption'>Create New Job Title</option>
                                             </select>
                                         </div>
+                                        {/* modal */}
+                                        <Modal
+                                            open={open}
+                                            onClose={handleClose}
+                                            aria-labelledby="modal-modal-title"
+                                            aria-describedby="modal-modal-description"
+                                            style={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                            }}
+                                        >
+                                            <Box sx={{ width: 300, height: 150, bgcolor: 'background.paper', border: '2px solid #000', p: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between' }}>
+                                                <Typography id="modal-modal-title" variant="h6" component="h2">
+                                                    Create New Job Title
+                                                </Typography>
+                                                <div className='createTitleCont'>
+                                                    <input type="text" onChange={(e) => setNewJobTitle(e.target.value)} />
+                                                    <button>Create</button>
+                                                </div>
+                                                <Button onClick={handleClose}>Close Modal</Button>
+                                            </Box>
+                                        </Modal>
+                                        {/* modal */}
                                         <div>
                                             <select id="branch" name="fruit" value={branch} onChange={handleBranchChange}>
                                                 <option value="apple">Premier Auto Parts</option>
@@ -524,6 +628,7 @@ const PersonalInformation = ({ handleComeBack }) => {
                                         <div className='PI-OFFINP3'>
                                             <div>
                                                 <select id="JT" name="fruit" value={gender} onChange={handleGenderChange}>
+                                                    <option value="" defaultChecked>Select Gender</option>
                                                     <option value="male">Male</option>
                                                     <option value="female">Female</option>
                                                 </select>

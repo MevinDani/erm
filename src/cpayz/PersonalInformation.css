@@ -393,6 +393,23 @@ input:checked+.slider:before {
     display: flex;
 }
 
+.CreateTitleOption {
+    color: #2196F3;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.createTitleCont {
+    padding: 4px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.createTitleCont input {
+    outline: none;
+}
+
 .PI-OFFLEFT {
     width: 40%;
     display: flex;

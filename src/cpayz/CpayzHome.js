@@ -19,6 +19,7 @@ import { GrUserSettings } from "react-icons/gr";
 import { IoMdSettings } from "react-icons/io";
 import { FaRegFloppyDisk } from "react-icons/fa6";
 import { BsBell } from "react-icons/bs";
+import CpaysLogo from '../CPAYSLOGO.png'
 
 
 const CpayzHome = () => {
@@ -253,8 +254,9 @@ const CpayzHome = () => {
 
                 <div className='CPH-left'>
                     <div className='CPH-Logo'>
-                        <div><span className='C-'>C-</span><span className='PAYZ'>PAYZ</span></div>
-                        <div className='HR'>HR & Payroll Solutions</div>
+                        <img src={CpaysLogo} alt="" />
+                        {/* <div><span className='C-'>C-</span><span className='PAYZ'>PAYZ</span></div>
+                        <div className='HR'>HR & Payroll Solutions</div> */}
                     </div>
                     <div className='CPH-Left-Item'>
                         <div className='CPHL-Items'>
