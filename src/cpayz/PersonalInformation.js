@@ -359,6 +359,26 @@ const PersonalInformation = ({ handleComeBack }) => {
 
     }
 
+    const sendNewJobTilte = () => {
+        console.log(newJobTitle)
+        const url = `https://cubixweberp.com:156/api/MasterReg/ENTRY/CPAYS/JOBTITLE/${newJobTitle}/-`
+
+        if (!newJobTitle) {
+            console.error('No NEWJOBTITLE');
+            return;
+        }
+
+        axios.post(url)
+            .then(response => {
+                console.log('Response:', response.data)
+                setOpen(false)
+            })
+            .catch(error => {
+                // Handle errors here
+                console.error('Error:', error);
+            });
+    }
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -378,7 +398,7 @@ const PersonalInformation = ({ handleComeBack }) => {
 
 
         fetchData();
-    }, []);
+    }, [open]);
 
     useEffect(() => {
         if (jobTitle == 'changeTitle') {
@@ -577,9 +597,9 @@ const PersonalInformation = ({ handleComeBack }) => {
                                                 </Typography>
                                                 <div className='createTitleCont'>
                                                     <input type="text" onChange={(e) => setNewJobTitle(e.target.value)} />
-                                                    <button>Create</button>
+                                                    <button onClick={sendNewJobTilte}>Create</button>
                                                 </div>
-                                                <Button onClick={handleClose}>Close Modal</Button>
+                                                <Button onClick={handleClose}>Close</Button>
                                             </Box>
                                         </Modal>
                                         {/* modal */}
